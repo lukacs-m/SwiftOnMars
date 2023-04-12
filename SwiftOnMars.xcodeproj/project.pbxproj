@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B8032BDE29E469E30033FC5B /* SOMDomainLayer */; };
+		B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DA29E4A7630071DF6F /* SOMDesignSystem */; };
+		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
 		B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */; };
 		B8F8E25C29E462870021117A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25B29E462870021117A /* ContentView.swift */; };
 		B8F8E25E29E462880021117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E25D29E462880021117A /* Assets.xcassets */; };
@@ -14,6 +17,7 @@
 		B8F8E26B29E462880021117A /* SwiftOnMarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E26A29E462880021117A /* SwiftOnMarsTests.swift */; };
 		B8F8E27529E462880021117A /* SwiftOnMarsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E27429E462880021117A /* SwiftOnMarsUITests.swift */; };
 		B8F8E27729E462880021117A /* SwiftOnMarsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E27629E462880021117A /* SwiftOnMarsUITestsLaunchTests.swift */; };
+		B8F8E28529E4650F0021117A /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = B8F8E28429E4650F0021117A /* Factory */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B8032BDC29E4699F0033FC5B /* SOMDomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDomainLayer; path = LocalPackages/SOMDomainLayer; sourceTree = "<group>"; };
+		B8032BE029E46C2C0033FC5B /* SOMDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDataLayer; path = LocalPackages/SOMDataLayer; sourceTree = "<group>"; };
+		B8032BE129E46C330033FC5B /* SOMDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDesignSystem; path = LocalPackages/SOMDesignSystem; sourceTree = "<group>"; };
+		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B8F8E25629E462870021117A /* SwiftOnMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOnMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOnMarsApp.swift; sourceTree = "<group>"; };
 		B8F8E25B29E462870021117A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -51,6 +59,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */,
+				B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */,
+				B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */,
+				B8F8E28529E4650F0021117A /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,13 +83,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B8032BDD29E469E30033FC5B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B8F8E24D29E462870021117A = {
 			isa = PBXGroup;
 			children = (
+				B8F8E25729E462870021117A /* Products */,
 				B8F8E25829E462870021117A /* SwiftOnMars */,
 				B8F8E26929E462880021117A /* SwiftOnMarsTests */,
 				B8F8E27329E462880021117A /* SwiftOnMarsUITests */,
-				B8F8E25729E462870021117A /* Products */,
+				B82539DE29E7226E0071DF6F /* NasaModels */,
+				B8032BE029E46C2C0033FC5B /* SOMDataLayer */,
+				B8032BE129E46C330033FC5B /* SOMDesignSystem */,
+				B8032BDC29E4699F0033FC5B /* SOMDomainLayer */,
+				B8032BDD29E469E30033FC5B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,10 +118,11 @@
 		B8F8E25829E462870021117A /* SwiftOnMars */ = {
 			isa = PBXGroup;
 			children = (
-				B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */,
+				B8F8E28629E465190021117A /* App */,
+				B8F8E28729E4651E0021117A /* AppManagement */,
 				B8F8E25B29E462870021117A /* ContentView.swift */,
-				B8F8E25D29E462880021117A /* Assets.xcassets */,
-				B8F8E25F29E462880021117A /* Preview Content */,
+				B8F8E28929E4652C0021117A /* Scenes */,
+				B8F8E28829E465250021117A /* Shared */,
 			);
 			path = SwiftOnMars;
 			sourceTree = "<group>";
@@ -127,6 +152,45 @@
 			path = SwiftOnMarsUITests;
 			sourceTree = "<group>";
 		};
+		B8F8E28629E465190021117A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8F8E28A29E4654D0021117A /* Resources */,
+				B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		B8F8E28729E4651E0021117A /* AppManagement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppManagement;
+			sourceTree = "<group>";
+		};
+		B8F8E28829E465250021117A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B8F8E28929E4652C0021117A /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B8F8E28A29E4654D0021117A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B8F8E25D29E462880021117A /* Assets.xcassets */,
+				B8F8E25F29E462880021117A /* Preview Content */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +207,12 @@
 			dependencies = (
 			);
 			name = SwiftOnMars;
+			packageProductDependencies = (
+				B8F8E28429E4650F0021117A /* Factory */,
+				B8032BDE29E469E30033FC5B /* SOMDomainLayer */,
+				B82539DA29E4A7630071DF6F /* SOMDesignSystem */,
+				B82539DC29E5E0C80071DF6F /* SOMDataLayer */,
+			);
 			productName = SwiftOnMars;
 			productReference = B8F8E25629E462870021117A /* SwiftOnMars.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +285,9 @@
 				Base,
 			);
 			mainGroup = B8F8E24D29E462870021117A;
+			packageReferences = (
+				B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = B8F8E25729E462870021117A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,7 +489,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftOnMars/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftOnMars/App/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -433,6 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -445,7 +519,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftOnMars/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftOnMars/App/Resources/Preview Content\"";
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -462,6 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -583,6 +658,37 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B8032BDE29E469E30033FC5B /* SOMDomainLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SOMDomainLayer;
+		};
+		B82539DA29E4A7630071DF6F /* SOMDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SOMDesignSystem;
+		};
+		B82539DC29E5E0C80071DF6F /* SOMDataLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SOMDataLayer;
+		};
+		B8F8E28429E4650F0021117A /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8F8E24E29E462870021117A /* Project object */;
 }
