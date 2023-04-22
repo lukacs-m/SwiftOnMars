@@ -15,7 +15,6 @@
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
 		B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */; };
 		B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */; };
-		B8F8E25C29E462870021117A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25B29E462870021117A /* ContentView.swift */; };
 		B8F8E25E29E462880021117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E25D29E462880021117A /* Assets.xcassets */; };
 		B8F8E26129E462880021117A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E26029E462880021117A /* Preview Assets.xcassets */; };
 		B8F8E26B29E462880021117A /* SwiftOnMarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E26A29E462880021117A /* SwiftOnMarsTests.swift */; };
@@ -52,7 +51,6 @@
 		B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependenciesInjections.swift"; sourceTree = "<group>"; };
 		B8F8E25629E462870021117A /* SwiftOnMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOnMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOnMarsApp.swift; sourceTree = "<group>"; };
-		B8F8E25B29E462870021117A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B8F8E25D29E462880021117A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8F8E26029E462880021117A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8F8E26629E462880021117A /* SwiftOnMarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftOnMarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,7 +151,6 @@
 			children = (
 				B8F8E28629E465190021117A /* App */,
 				B8F8E28729E4651E0021117A /* AppManagement */,
-				B8F8E25B29E462870021117A /* ContentView.swift */,
 				B8F8E28929E4652C0021117A /* Scenes */,
 				B8F8E28829E465250021117A /* Shared */,
 			);
@@ -368,7 +365,6 @@
 			files = (
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
 				B82539E229E731B80071DF6F /* MainTabView.swift in Sources */,
-				B8F8E25C29E462870021117A /* ContentView.swift in Sources */,
 				B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */,
 				B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */,
 				B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */,

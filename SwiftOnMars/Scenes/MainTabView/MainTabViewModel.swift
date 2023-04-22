@@ -20,5 +20,3 @@ final class MainTabViewModel: ObservableObject, Sendable {
 private extension MainTabViewModel {
     func setUp() {}
 }
-
-
