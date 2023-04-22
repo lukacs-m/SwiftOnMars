@@ -10,8 +10,11 @@
 		B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B8032BDE29E469E30033FC5B /* SOMDomainLayer */; };
 		B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DA29E4A7630071DF6F /* SOMDesignSystem */; };
 		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
+		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
+		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
+		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
+		B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */; };
 		B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */; };
-		B8F8E25C29E462870021117A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25B29E462870021117A /* ContentView.swift */; };
 		B8F8E25E29E462880021117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E25D29E462880021117A /* Assets.xcassets */; };
 		B8F8E26129E462880021117A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E26029E462880021117A /* Preview Assets.xcassets */; };
 		B8F8E26B29E462880021117A /* SwiftOnMarsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E26A29E462880021117A /* SwiftOnMarsTests.swift */; };
@@ -42,9 +45,12 @@
 		B8032BE029E46C2C0033FC5B /* SOMDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDataLayer; path = LocalPackages/SOMDataLayer; sourceTree = "<group>"; };
 		B8032BE129E46C330033FC5B /* SOMDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDesignSystem; path = LocalPackages/SOMDesignSystem; sourceTree = "<group>"; };
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
+		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
+		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
+		B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependenciesInjections.swift"; sourceTree = "<group>"; };
 		B8F8E25629E462870021117A /* SwiftOnMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOnMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOnMarsApp.swift; sourceTree = "<group>"; };
-		B8F8E25B29E462870021117A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B8F8E25D29E462880021117A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8F8E26029E462880021117A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B8F8E26629E462880021117A /* SwiftOnMarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftOnMarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -90,6 +96,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B82539DF29E730EA0071DF6F /* MainTabView */ = {
+			isa = PBXGroup;
+			children = (
+				B82539E029E731B80071DF6F /* MainTabView.swift */,
+				B82539E129E731B80071DF6F /* MainTabViewModel.swift */,
+			);
+			path = MainTabView;
+			sourceTree = "<group>";
+		};
+		B8A15DA329F3DE5800D81420 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		B8A15DA629F3E02700D81420 /* Dependencies+Injections */ = {
+			isa = PBXGroup;
+			children = (
+				B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */,
+			);
+			path = "Dependencies+Injections";
+			sourceTree = "<group>";
+		};
 		B8F8E24D29E462870021117A = {
 			isa = PBXGroup;
 			children = (
@@ -120,7 +151,6 @@
 			children = (
 				B8F8E28629E465190021117A /* App */,
 				B8F8E28729E4651E0021117A /* AppManagement */,
-				B8F8E25B29E462870021117A /* ContentView.swift */,
 				B8F8E28929E4652C0021117A /* Scenes */,
 				B8F8E28829E465250021117A /* Shared */,
 			);
@@ -164,6 +194,8 @@
 		B8F8E28729E4651E0021117A /* AppManagement */ = {
 			isa = PBXGroup;
 			children = (
+				B8A15DA629F3E02700D81420 /* Dependencies+Injections */,
+				B8A15DA329F3DE5800D81420 /* Router */,
 			);
 			path = AppManagement;
 			sourceTree = "<group>";
@@ -178,6 +210,7 @@
 		B8F8E28929E4652C0021117A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B82539DF29E730EA0071DF6F /* MainTabView */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -330,8 +363,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B8F8E25C29E462870021117A /* ContentView.swift in Sources */,
+				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
+				B82539E229E731B80071DF6F /* MainTabView.swift in Sources */,
+				B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */,
 				B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */,
+				B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
