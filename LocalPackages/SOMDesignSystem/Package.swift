@@ -16,7 +16,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.0.0"),
         .package(name: "NasaModels", path: "../NasaModels"),
     ],
     targets: [
@@ -26,6 +26,7 @@ let package = Package(
             name: "SOMDesignSystem",
             dependencies: [
                 .product(name: "NasaModels", package: "NasaModels"),
+                .product(name: "Kingfisher", package: "Kingfisher"),
             ]),
         .testTarget(
             name: "SOMDesignSystemTests",

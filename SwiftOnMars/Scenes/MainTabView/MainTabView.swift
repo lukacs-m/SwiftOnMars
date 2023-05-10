@@ -12,7 +12,8 @@ import SwiftUI
 
 struct MainTabView: View {
     @StateObject private var viewModel = MainTabViewModel()
-    @Injected(\RouterContainer.tabViewRouter) private var router
+    @Injected(\RouterContainer.tabViewRouter) private var tabRouter
+    @InjectedObject(\RouterContainer.mainRouter) private var mainRouter
     @State private var selectedTabId = 0
     
     var body: some View {
@@ -34,18 +35,22 @@ private  extension MainTabView {
             createTabItem(for: .favorites)
         }
         .onChange(of: selectedTabId) { id in
-            print("Selected id: \(id)")
+            mainRouter.popToRoot()
         }
     }
 }
 
 private extension MainTabView {
     func createTabItem(for destination: MainTabDestination) -> some View {
-        router.goToScene(for: destination)
+        tabRouter.navigate(to: destination)
+            .withAppRouter()
+            .withSheetDestinations(sheetDestinations: $mainRouter.presentedSheet)
+            .navigationStackEmbeded(with: $mainRouter.path)
             .tabItem {
                 Label(destination.name, systemImage: destination.icon)
             }
             .tag(destination.id)
             .accessibilityLabel(destination.name)
+
     }
 }

@@ -7,8 +7,21 @@
 
 import Foundation
 
-public enum RoverIdentification: String {
+public enum RoverIdentification: String, Sendable, Codable {
     case curiosity
     case opportunity
     case spirit
+
+    public static func value(for nameDescription: String) -> RoverIdentification {
+        switch nameDescription {
+        case curiosity.rawValue:
+            return .curiosity
+        case opportunity.rawValue:
+            return .opportunity
+        case spirit.rawValue:
+            return .spirit
+        default:
+            return .curiosity
+        }
+    }
 }

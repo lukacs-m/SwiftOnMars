@@ -16,4 +16,11 @@ final class SOMDataLayerTests: XCTestCase {
         let photos2 = try await sut.getPhotosByDate(for: .curiosity, at: "2019-6-3", for: nil, and: 1)
         XCTAssertEqual(photos2.count, 25)
     }
+
+
+    func testExample2() async throws {
+        let sut = MarsMissionDataRepository()
+        let rover = try await sut.getInformation(for: .curiosity)
+        XCTAssertEqual(rover.name, "Curiosity")
+    }
 }

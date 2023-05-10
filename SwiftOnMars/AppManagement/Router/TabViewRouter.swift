@@ -44,10 +44,10 @@ enum MainTabDestination {
 @MainActor
 final class TabViewRouter {
     @ViewBuilder
-    func goToScene(for destination: MainTabDestination) -> some View {
+    func navigate(to destination: MainTabDestination) -> some View {
         switch destination {
         case .missions:
-            Text("Home")
+            MissionView()
         case .favorites:
             Text("Favorites")
         }

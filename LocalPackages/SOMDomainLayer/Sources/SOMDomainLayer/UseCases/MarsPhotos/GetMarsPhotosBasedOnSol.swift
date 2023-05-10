@@ -12,26 +12,26 @@ import NasaModels
 
 public protocol GetMarsPhotosBasedOnSolUseCase: Sendable {
     func execute(for roverId: RoverIdentification,
-                 on sol: Int,
+                 at sol: Int,
                  for camera: String?,
                  and page: Int?) async throws -> [Photo]
 }
 
 public extension GetMarsPhotosBasedOnSolUseCase {
     func execute(for roverId: RoverIdentification,
-                 on sol: Int,
+                 at sol: Int,
                  for camera: String? = nil,
                  and page: Int? = nil) async throws -> [Photo] {
-       try await execute(for: roverId, on: sol, for: camera, and: page)
+       try await execute(for: roverId, at: sol, for: camera, and: page)
     }
 }
 
 public extension GetMarsPhotosBasedOnSolUseCase {
     func callAsFunction(for roverId: RoverIdentification,
-                        on sol: Int,
+                        at sol: Int,
                         for camera: String? = nil,
                         and page: Int? = nil) async throws -> [Photo] {
-      try await execute(for: roverId, on: sol, for: camera, and: page)
+      try await execute(for: roverId, at: sol, for: camera, and: page)
     }
 }
 
@@ -43,9 +43,25 @@ public final class GetMarsPhotosBasedOnSol: GetMarsPhotosBasedOnSolUseCase {
     }
 
     public func execute(for roverId: RoverIdentification,
-                 on sol: Int,
+                 at sol: Int,
                  for camera: String?,
                  and page: Int?) async throws -> [Photo] {
-        try await repository.getPhotosByMartinSol(for: roverId, on: sol, for: camera, and: page)
+        do {
+           let photos = try await repository.getPhotosByMartinSol(for: roverId, on: sol, for: camera, and: page)
+            return photos.map {  $0.toSecureForm }
+        } catch {
+            throw error
+        }
+    }
+}
+
+private extension Photo {
+    var toSecureForm: Photo {
+        Photo(id: id,
+              sol: sol,
+              camera: camera,
+              imgSrc: imgSrc.replacingOccurrences(of: "http", with: "https"),
+              earthDate: earthDate,
+              rover: rover)
     }
 }

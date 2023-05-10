@@ -23,6 +23,7 @@ struct RequestParams: Codable, Hashable {
 
 enum MarsMissionEndpoint {
     case rover(id: String)
+    case manifest(id: String)
     case photoWithSol(request: RequestParams)
     case photoFromDate(request: RequestParams)
 }
@@ -36,10 +37,12 @@ extension MarsMissionEndpoint: Endpoint  {
     var path: String {
         switch self {
         case .rover(let id):
-            return "/\(id)"
+            return "rovers/\(id)"
+        case .manifest(let id):
+            return "manifests/\(id)"
         case .photoWithSol(let params),
                 .photoFromDate(let params):
-            return "/\(params.roverId)/photos"
+            return "rovers/\(params.roverId)/photos"
         }
     }
 
@@ -62,7 +65,6 @@ extension MarsMissionEndpoint: Endpoint  {
             return params
         default:
             return params
-
         }
     }
 }

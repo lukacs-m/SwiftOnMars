@@ -1,7 +1,17 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+
+let swiftSettings: [SwiftSetting] = [
+   .enableUpcomingFeature("BareSlashRegexLiterals"),
+   .enableUpcomingFeature("ConciseMagicFile"),
+   .enableUpcomingFeature("ExistentialAny"),
+   .enableUpcomingFeature("ForwardTrailingClosures"),
+   .enableUpcomingFeature("ImplicitOpenExistentials"),
+   .enableUpcomingFeature("StrictConcurrency"),
+   .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"]),
+]
 
 let package = Package(
     name: "SOMDomainLayer",
@@ -34,7 +44,8 @@ let package = Package(
             dependencies: [
                 .product(name: "NasaModels", package: "NasaModels"),
                 "DomainInterfaces"
-            ]),
+            ],
+            swiftSettings: swiftSettings),
         .testTarget(
             name: "SOMDomainLayerTests",
             dependencies: ["SOMDomainLayer"]),

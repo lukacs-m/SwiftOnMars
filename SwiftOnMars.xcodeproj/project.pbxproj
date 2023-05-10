@@ -8,12 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B8032BDE29E469E30033FC5B /* SOMDomainLayer */; };
+		B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80912232A091BAC006ADE9F /* RouterExtensions.swift */; };
 		B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DA29E4A7630071DF6F /* SOMDesignSystem */; };
 		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
 		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
-		B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */; };
+		B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */; };
+		B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26129F4029B00F4EA09 /* MainRouter.swift */; };
+		B8B9D26429F4086500F4EA09 /* Repositories+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26329F4086500F4EA09 /* Repositories+DependencyInjection.swift */; };
+		B8B9D26629F408AB00F4EA09 /* UseCases+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26529F408AB00F4EA09 /* UseCases+DependencyInjection.swift */; };
+		B8B9D26A29F40E5900F4EA09 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26829F40E5900F4EA09 /* MissionView.swift */; };
+		B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26929F40E5900F4EA09 /* MissionViewModel.swift */; };
+		B8B9D26F29F5BB4C00F4EA09 /* SearchSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26D29F5BB4C00F4EA09 /* SearchSettingsView.swift */; };
+		B8B9D27029F5BB4C00F4EA09 /* SearchSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26E29F5BB4C00F4EA09 /* SearchSettingsViewModel.swift */; };
+		B8C7040429FE84B000F779F4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040329FE84B000F779F4 /* Date+Extensions.swift */; };
+		B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040529FFFEB300F779F4 /* Double+Extensions.swift */; };
+		B8C7040829FFFEC800F779F4 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040729FFFEC800F779F4 /* Int+Extensions.swift */; };
 		B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */; };
 		B8F8E25E29E462880021117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E25D29E462880021117A /* Assets.xcassets */; };
 		B8F8E26129E462880021117A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E26029E462880021117A /* Preview Assets.xcassets */; };
@@ -44,11 +55,22 @@
 		B8032BDC29E4699F0033FC5B /* SOMDomainLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDomainLayer; path = LocalPackages/SOMDomainLayer; sourceTree = "<group>"; };
 		B8032BE029E46C2C0033FC5B /* SOMDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDataLayer; path = LocalPackages/SOMDataLayer; sourceTree = "<group>"; };
 		B8032BE129E46C330033FC5B /* SOMDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDesignSystem; path = LocalPackages/SOMDesignSystem; sourceTree = "<group>"; };
+		B80912232A091BAC006ADE9F /* RouterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
 		B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
-		B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependenciesInjections.swift"; sourceTree = "<group>"; };
+		B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependencyInjection.swift"; sourceTree = "<group>"; };
+		B8B9D26129F4029B00F4EA09 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		B8B9D26329F4086500F4EA09 /* Repositories+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repositories+DependencyInjection.swift"; sourceTree = "<group>"; };
+		B8B9D26529F408AB00F4EA09 /* UseCases+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UseCases+DependencyInjection.swift"; sourceTree = "<group>"; };
+		B8B9D26829F40E5900F4EA09 /* MissionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		B8B9D26929F40E5900F4EA09 /* MissionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionViewModel.swift; sourceTree = "<group>"; };
+		B8B9D26D29F5BB4C00F4EA09 /* SearchSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsView.swift; sourceTree = "<group>"; };
+		B8B9D26E29F5BB4C00F4EA09 /* SearchSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSettingsViewModel.swift; sourceTree = "<group>"; };
+		B8C7040329FE84B000F779F4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		B8C7040529FFFEB300F779F4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
+		B8C7040729FFFEC800F779F4 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
 		B8F8E25629E462870021117A /* SwiftOnMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOnMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOnMarsApp.swift; sourceTree = "<group>"; };
 		B8F8E25D29E462880021117A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,16 +131,48 @@
 			isa = PBXGroup;
 			children = (
 				B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */,
+				B8B9D26129F4029B00F4EA09 /* MainRouter.swift */,
+				B80912232A091BAC006ADE9F /* RouterExtensions.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
 		};
-		B8A15DA629F3E02700D81420 /* Dependencies+Injections */ = {
+		B8A15DA629F3E02700D81420 /* DependenciesInjections */ = {
 			isa = PBXGroup;
 			children = (
-				B8A15DA729F3E05C00D81420 /* Routers+DependenciesInjections.swift */,
+				B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */,
+				B8B9D26329F4086500F4EA09 /* Repositories+DependencyInjection.swift */,
+				B8B9D26529F408AB00F4EA09 /* UseCases+DependencyInjection.swift */,
 			);
-			path = "Dependencies+Injections";
+			path = DependenciesInjections;
+			sourceTree = "<group>";
+		};
+		B8B9D26729F40E3A00F4EA09 /* MissionView */ = {
+			isa = PBXGroup;
+			children = (
+				B8B9D26829F40E5900F4EA09 /* MissionView.swift */,
+				B8B9D26929F40E5900F4EA09 /* MissionViewModel.swift */,
+			);
+			path = MissionView;
+			sourceTree = "<group>";
+		};
+		B8B9D26C29F5BB3200F4EA09 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				B8B9D26D29F5BB4C00F4EA09 /* SearchSettingsView.swift */,
+				B8B9D26E29F5BB4C00F4EA09 /* SearchSettingsViewModel.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		B8C7040229FE84A100F779F4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B8C7040329FE84B000F779F4 /* Date+Extensions.swift */,
+				B8C7040529FFFEB300F779F4 /* Double+Extensions.swift */,
+				B8C7040729FFFEC800F779F4 /* Int+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B8F8E24D29E462870021117A = {
@@ -194,7 +248,7 @@
 		B8F8E28729E4651E0021117A /* AppManagement */ = {
 			isa = PBXGroup;
 			children = (
-				B8A15DA629F3E02700D81420 /* Dependencies+Injections */,
+				B8A15DA629F3E02700D81420 /* DependenciesInjections */,
 				B8A15DA329F3DE5800D81420 /* Router */,
 			);
 			path = AppManagement;
@@ -203,6 +257,7 @@
 		B8F8E28829E465250021117A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B8C7040229FE84A100F779F4 /* Extensions */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -210,6 +265,8 @@
 		B8F8E28929E4652C0021117A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B8B9D26C29F5BB3200F4EA09 /* SettingsView */,
+				B8B9D26729F40E3A00F4EA09 /* MissionView */,
 				B82539DF29E730EA0071DF6F /* MainTabView */,
 			);
 			path = Scenes;
@@ -364,10 +421,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
+				B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */,
+				B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */,
+				B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */,
 				B82539E229E731B80071DF6F /* MainTabView.swift in Sources */,
+				B8C7040429FE84B000F779F4 /* Date+Extensions.swift in Sources */,
+				B8B9D27029F5BB4C00F4EA09 /* SearchSettingsViewModel.swift in Sources */,
 				B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */,
 				B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */,
-				B8A15DA829F3E05C00D81420 /* Routers+DependenciesInjections.swift in Sources */,
+				B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */,
+				B8C7040829FFFEC800F779F4 /* Int+Extensions.swift in Sources */,
+				B8B9D26A29F40E5900F4EA09 /* MissionView.swift in Sources */,
+				B8B9D26429F4086500F4EA09 /* Repositories+DependencyInjection.swift in Sources */,
+				B8B9D26629F408AB00F4EA09 /* UseCases+DependencyInjection.swift in Sources */,
+				B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */,
+				B8B9D26F29F5BB4C00F4EA09 /* SearchSettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,11 +602,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature BareSlashRegexLiterals -enable-upcoming-feature ConciseMagicFile -enable-upcoming-feature ExistentialAny -enable-upcoming-feature ImplicitOpenExistentials -enable-upcoming-feature StrictConcurrency -warn-concurrency -enable-actor-data-race-checks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -564,11 +634,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "-enable-upcoming-feature BareSlashRegexLiterals -enable-upcoming-feature ConciseMagicFile -enable-upcoming-feature ExistentialAny -enable-upcoming-feature ForwardTrailingClosures -enable-upcoming-feature ImplicitOpenExistentials -enable-upcoming-feature StrictConcurrency -warn-concurrency -enable-actor-data-race-checks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

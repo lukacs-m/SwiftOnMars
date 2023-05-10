@@ -18,10 +18,14 @@ extension RouterContainer {
     var tabViewRouter: Factory<TabViewRouter> {
         self { TabViewRouter() }
     }
+
+    var mainRouter: Factory<MainPathRouter> {
+        self { MainPathRouter() }
+    }
 }
 
-extension RouterContainer {
-    func autoRegister() {
+extension RouterContainer: AutoRegistering {
+    nonisolated func autoRegister() {
         manager.defaultScope = .singleton
     }
 }

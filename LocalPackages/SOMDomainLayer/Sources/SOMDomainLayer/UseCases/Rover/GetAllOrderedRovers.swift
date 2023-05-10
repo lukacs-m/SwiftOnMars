@@ -21,16 +21,17 @@ public extension GetAllOrderedRoversUseCase {
 }
 
 public final class GetAllOrderedRovers: GetAllOrderedRoversUseCase {
-    private let getRoverUseCase: GetRoverInformationsUseCase
+    private let getRoverInformations: any GetRoverInformationsUseCase
 
-    public init(getRoverUseCase: GetRoverInformationsUseCase) {
-        self.getRoverUseCase = getRoverUseCase
+    public init(getRoverInformations: any GetRoverInformationsUseCase) {
+        self.getRoverInformations = getRoverInformations
     }
     
     public func execute() async throws -> [Rover] {
-        let curiosityInfos = try await getRoverUseCase(for: .curiosity)
-        let opportunityInfos = try await getRoverUseCase(for: .opportunity)
-        let spiritInfos = try await getRoverUseCase(for: .spirit)
-        return [curiosityInfos, opportunityInfos, spiritInfos].sorted(using: KeyPathComparator(\.name))
+        async let curiosityInfos = getRoverInformations(for: .curiosity)
+        async let opportunityInfos = getRoverInformations(for: .opportunity)
+        async let spiritInfos = getRoverInformations(for: .spirit)
+
+        return try await [curiosityInfos, opportunityInfos, spiritInfos].sorted(using: KeyPathComparator(\.name))
     }
 }

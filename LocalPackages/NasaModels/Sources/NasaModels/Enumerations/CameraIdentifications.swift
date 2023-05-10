@@ -7,16 +7,16 @@
 
 import Foundation
 
-public enum CameraIdentifications: CaseIterable {
-    case fhaz // Front Hazard Avoidance Camera
-    case rhaz // Rear Hazard Avoidance Camera
-    case mast // Mast Camera
-    case chemcam // Chemistry and Camera Complex
-    case mahli // Mars Hand Lens Imager
-    case mardi // Mars Descent Imager
-    case navcam // Navigation Camera
-    case pancam // Panoramic Camera
-    case minites // Miniature Thermal Emission Spectrometer (Mini-TES)
+public enum CameraIdentifications: String, Codable, CaseIterable, Sendable {
+    case fhaz = "FHAZ"// Front Hazard Avoidance Camera
+    case rhaz = "RHAZ"// Rear Hazard Avoidance Camera
+    case mast = "MAST" // Mast Camera
+    case chemcam = "CHEMCAM"// Chemistry and Camera Complex
+    case mahli = "MAHLI"// Mars Hand Lens Imager
+    case mardi = "MARDI"// Mars Descent Imager
+    case navcam = "NAVCAM" // Navigation Camera
+    case pancam = "PANCAM" // Panoramic Camera
+    case minites = "MINITES"// Miniature Thermal Emission Spectrometer (Mini-TES)
 
     static public func accesibleCameras(for rover: RoverIdentification) -> [CameraIdentifications] {
         switch rover {

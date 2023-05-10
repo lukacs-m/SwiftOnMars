@@ -1,7 +1,17 @@
-// swift-tools-version: 5.7
+// swift-tools-version: 5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+
+let swiftSettings: [SwiftSetting] = [
+   .enableUpcomingFeature("BareSlashRegexLiterals"),
+   .enableUpcomingFeature("ConciseMagicFile"),
+   .enableUpcomingFeature("ExistentialAny"),
+   .enableUpcomingFeature("ForwardTrailingClosures"),
+   .enableUpcomingFeature("ImplicitOpenExistentials"),
+   .enableUpcomingFeature("StrictConcurrency"),
+   .unsafeFlags(["-warn-concurrency", "-enable-actor-data-race-checks"]),
+]
 
 let package = Package(
     name: "SOMDataLayer",
@@ -16,8 +26,9 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/lukacs-m/SimpleNetwork", .upToNextMajor(from: "0.1.0")),
+        .package(url: "https://github.com/lukacs-m/SimpleNetwork", .upToNextMajor(from: "0.2.0")),
         .package(url: "https://github.com/lukacs-m/SafeCache", .upToNextMajor(from: "0.1.0")),
+        .package(url: "https://github.com/lukacs-m/SimplySave", .upToNextMajor(from: "0.1.0")),
         .package(name: "SOMDomainLayer", path: "../SOMDomainLayer"),
         .package(name: "NasaModels", path: "../NasaModels"),
     ],
@@ -31,7 +42,10 @@ let package = Package(
                 .product(name: "DomainInterfaces", package: "SOMDomainLayer"),
                 .product(name: "SimpleNetwork", package: "SimpleNetwork"),
                 .product(name: "SafeCache", package: "SafeCache"),
-            ]),
+                .product(name: "SimplySave", package: "SimplySave"),
+            ],
+            swiftSettings: swiftSettings
+        ),
         .testTarget(
             name: "SOMDataLayerTests",
             dependencies: ["SOMDataLayer"]),

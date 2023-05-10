@@ -7,6 +7,11 @@
 
 import Foundation
 
+// MARK: - RoverInfos
+public struct RoverInfos: Codable, Sendable {
+    public let rover: Rover
+}
+
 // MARK: - Rover
 public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let id: Int
@@ -30,4 +35,3 @@ public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
         case cameras
     }
 }
-

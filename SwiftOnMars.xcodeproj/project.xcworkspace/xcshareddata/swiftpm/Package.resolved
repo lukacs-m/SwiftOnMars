@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "af4be924ad984cf4d16f4ae4df424e79a443d435",
+        "version" : "7.6.2"
+      }
+    },
+    {
       "identity" : "safecache",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukacs-m/SafeCache",
@@ -23,7 +32,16 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukacs-m/SimpleNetwork",
       "state" : {
-        "revision" : "8654f970fec43cd44b20b3fdea6fa62fef06f76e",
+        "revision" : "cd03a5916aef683ae9fa15ce19e6da7117d846a8",
+        "version" : "0.2.0"
+      }
+    },
+    {
+      "identity" : "simplysave",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SimplySave",
+      "state" : {
+        "revision" : "17bf480ea4dcfb45ef49b3787f6d6defab948abb",
         "version" : "0.1.1"
       }
     }

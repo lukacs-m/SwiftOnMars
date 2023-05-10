@@ -11,13 +11,18 @@ import NasaModels
 public protocol MarsMissionInformationsServicing: Sendable {
     /// Informations of the requested rover
     /// - Parameter rover: The name indentification for the `Rover`
-    /// - Returns: A `Rover` containg informations of the
+    /// - Returns: A `Rover` containg informations of the slected rover
     func getInformation(for rover: RoverIdentification) async throws -> Rover
+
+    /// Informations of the requested rover
+    /// - Parameter rover: The name indentification for the `Rover`
+    /// - Returns: A `Rover manifest` containg informations for all the photos link to the rover
+    func getManifest(for rover: RoverIdentification) async throws -> RoverManifest
 
     ///  Fetches all photos for a specific rover and martian sol
     /// - Parameters:
     ///   - rover: The name id of the rover
-    ///   - sol: The distance sol (ranges from 0 to max found in endpoint)
+    ///   - sol: The number of days since the landing of the rover on mars
     ///   - camera: The selected camera of the rover.  By default this will represent all cameras
     ///   - page: The page number of queried photos. If it is set it creates a pagination of 25 photos per page
     /// - Returns: An array of  mars `Photo` taken by the selected rover.
@@ -39,6 +44,3 @@ public protocol MarsMissionInformationsServicing: Sendable {
                               and page: Int?) async throws -> [Photo]
 
 }
-
-
-
