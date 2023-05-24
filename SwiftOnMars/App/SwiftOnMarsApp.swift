@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct SwiftOnMarsApp: App {
+
+
     var body: some Scene {
         WindowGroup {
             MainTabView()

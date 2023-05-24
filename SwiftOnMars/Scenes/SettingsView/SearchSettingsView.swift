@@ -7,6 +7,7 @@
 //
 //
 
+import SOMDesignSystem
 import SwiftUI
 import NasaModels
 
@@ -82,7 +83,7 @@ private extension SearchSettingsView {
         Section(header: Text("Search by").fontWeight(.bold)) {
             Toggle("**\(viewModel.searchBySol ? "Mars exploration days" : "Earth date")**", isOn: $viewModel.searchBySol)
                 .padding(.trailing)
-                .toggleStyle(SwitchToggleStyle(tint: .red))
+                .toggleStyle(SwitchToggleStyle(tint: Asset.Colors.SecondaryColors.primaryAlt.color))
         }
     }
 }
@@ -91,13 +92,13 @@ private extension SearchSettingsView {
     var roverSelectionView: some View {
         Section(header: Text("Rover selection:").fontWeight(.bold)) {
 
-            Picker(selection:$viewModel.selectedMissionManifest, label: EmptyView()) {
+            Picker(selection: $viewModel.selectedMissionManifest, label: EmptyView()) {
                 ForEach(viewModel.manifests, id: \.self) { missionManifest in
                     HStack {
-                        Image(missionManifest.name)
+                        Image(imageName: missionManifest.name)
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 24, height: 24)
+                            .frame(width: 35, height: 35)
+                            .aspectRatio(contentMode: .fill)
                         Text(missionManifest.name)
                     }.tag(missionManifest as PhotoManifest?)
                         .frame(height: 24)
@@ -169,10 +170,8 @@ private extension SearchSettingsView {
                 Image(systemName: "magnifyingglass")
                     .resizable()
                     .frame(width: 25, height: 25)
-                    .padding(10)
         }
-        .background(.black.opacity(0.80))
-        .cornerRadius(10)
+        .buttonStyle(.actionButtonStyle)
         .padding([.trailing, .bottom])
     }
 }

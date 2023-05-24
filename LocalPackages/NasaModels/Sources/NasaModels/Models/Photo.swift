@@ -5,6 +5,8 @@
 //  Created by Martin Lukacs on 10/04/2023.
 //
 
+import Foundation
+
 // MARK: - Photos
 public struct Photos: Codable, Sendable {
     public let photos: [Photo]
@@ -32,5 +34,9 @@ public struct Photo: Codable, Identifiable, Equatable, Hashable, Sendable {
         case imgSrc = "img_src"
         case earthDate = "earth_date"
         case rover
+    }
+
+    public var imageUrl: URL? {
+        URL(string: imgSrc)
     }
 }

@@ -15,9 +15,9 @@ let package = Package(
             targets: ["SOMDesignSystem"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
         .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.0.0"),
         .package(name: "NasaModels", path: "../NasaModels"),
+        .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -27,6 +27,9 @@ let package = Package(
             dependencies: [
                 .product(name: "NasaModels", package: "NasaModels"),
                 .product(name: "Kingfisher", package: "Kingfisher"),
+            ],
+            plugins: [
+                .plugin(name: "SwiftGenPlugin", package: "SwiftGenPlugin")
             ]),
         .testTarget(
             name: "SOMDesignSystemTests",

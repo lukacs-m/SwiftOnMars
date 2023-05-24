@@ -7,6 +7,7 @@
 //
 //
 
+import Combine
 import Foundation
 import NasaModels
 import Factory
@@ -20,15 +21,15 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     @Published var isEditing = false
     @Published var selectedMissionManifest: PhotoManifest?
     @Published var selectedMissionManifestName: String?
-
-    @Published var selectedCamera: String = "ALL"
+    @Published var selectedCamera: String = SearchSettingsViewModel.allCameraKey
 
     @Injected(\UseCasesContainer.getAllOrderedRoverManifests) private var getAllOrderedRoverManifests
     @Injected(\UseCasesContainer.saveNewSearchParams) private var saveNewSearchParams
     @Injected(\UseCasesContainer.getCurrentSearchParameters) private var getCurrentSearchParameters
 
     private var task: Task<Void, Error>?
-    private let allCameraKey = "ALL"
+    private static let allCameraKey = "ALL"
+    private var cancellables = Set<AnyCancellable>()
 
     var maxSol: Double {
          guard let sol = selectedMissionManifest?.maxSol else {
@@ -39,14 +40,14 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
 
      var cameras: [String] {
          guard var cameras = selectedMissionManifest?.photos.first(where: filterPhoto)?.cameras else {
-             return [allCameraKey]
+             return [Self.allCameraKey]
          }
-         cameras.append(allCameraKey)
+         cameras.append(Self.allCameraKey)
          return cameras.sorted()
      }
 
     init() {
-        selectedCamera = allCameraKey
+        selectedCamera = Self.allCameraKey
         setUp()
     }
 
@@ -97,13 +98,20 @@ private extension SearchSettingsViewModel {
                 print(error)
             }
         }
+
+        $selectedMissionManifest
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
+                self?.resetSearchParams()
+            }
+            .store(in: &cancellables)
     }
 
     func resetSearchParams() {
         searchBySol = true
         date = Date()
         sol = 0.0
-        selectedCamera = allCameraKey
+        selectedCamera = Self.allCameraKey
     }
 
     func createSearchParams() -> SearchParameters? {
@@ -114,7 +122,7 @@ private extension SearchSettingsViewModel {
                                 sol: sol.toInt,
                                 earthDate: date,
                                 searchBySol: searchBySol,
-                                camera: selectedCamera == allCameraKey ? nil : selectedCamera
+                                camera: selectedCamera == Self.allCameraKey ? nil : selectedCamera
         )
     }
 
@@ -123,7 +131,7 @@ private extension SearchSettingsViewModel {
         searchBySol = searchParams.searchBySol
         date = searchParams.earthDate ?? Date()
         sol = searchParams.sol.toDouble
-        selectedCamera = searchParams.camera ?? allCameraKey
+        selectedCamera = searchParams.camera ?? Self.allCameraKey
         selectedMissionManifest = manifests.first { $0.name.lowercased() == searchParams.roverId.rawValue }
     }
 

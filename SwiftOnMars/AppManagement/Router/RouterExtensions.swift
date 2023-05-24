@@ -9,11 +9,14 @@ import SwiftUI
 
 @MainActor
 extension View {
-    func withAppRouter() -> some View {
+    var routingProvided: some View {
         navigationDestination(for: RouterDestination.self) { destination in
             switch destination {
             case let .missionDetail(id):
                 Text("mission ID: \(id)")
+                    .navigationTitle("test")
+                    .navigationBarTitleDisplayMode(.inline)
+
             }
         }
     }

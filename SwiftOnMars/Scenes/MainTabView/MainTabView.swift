@@ -9,15 +9,23 @@
 
 import Factory
 import SwiftUI
+import SOMDesignSystem
 
 struct MainTabView: View {
+    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var viewModel = MainTabViewModel()
     @Injected(\RouterContainer.tabViewRouter) private var tabRouter
     @InjectedObject(\RouterContainer.mainRouter) private var mainRouter
     @State private var selectedTabId = 0
-    
+
     var body: some View {
         tabView
+            .onChange(of: scenePhase) { newPhase in
+                guard newPhase == .background else {
+                    return
+                }
+                viewModel.persist()
+            }
     }
 }
 
@@ -31,9 +39,14 @@ struct MainTabViewView_Previews: PreviewProvider {
 private  extension MainTabView {
     var tabView: some View {
         TabView(selection: $selectedTabId) {
-            createTabItem(for: .missions)
-            createTabItem(for: .favorites)
+                createTabItem(for: .missions)
+                createTabItem(for: .favorites)
         }
+        .onAppear {
+                let appearance = UITabBarAppearance()
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+        }
+        .tint(Asset.Colors.Main.primaryDarkest.color)
         .onChange(of: selectedTabId) { id in
             mainRouter.popToRoot()
         }
@@ -43,7 +56,7 @@ private  extension MainTabView {
 private extension MainTabView {
     func createTabItem(for destination: MainTabDestination) -> some View {
         tabRouter.navigate(to: destination)
-            .withAppRouter()
+            .routingProvided
             .withSheetDestinations(sheetDestinations: $mainRouter.presentedSheet)
             .navigationStackEmbeded(with: $mainRouter.path)
             .tabItem {

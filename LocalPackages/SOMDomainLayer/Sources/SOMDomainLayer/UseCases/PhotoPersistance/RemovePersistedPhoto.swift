@@ -29,6 +29,6 @@ public final class RemovePersistedPhoto: RemovePersistedPhotoUseCase {
 
     
     public func execute(for photo: Photo) async {
-      await  persistanceStorage.remove(photo)
+      await persistanceStorage.remove(photo)
     }
 }

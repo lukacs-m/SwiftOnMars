@@ -75,6 +75,14 @@ extension UseCasesContainer {
     var checkIfPhotoIsPersisted: Factory<any CheckIfPhotoIsPersistedUseCase> {
         self { CheckIfPhotoIsPersisted(getPersistedPhotosUseCase: self.getPersistedPhotos()) }
     }
+
+    var persistAllPhotos: Factory<any PersistAllPhotosUseCase> {
+        self { PersistAllPhotos(persistanceStorage: RepositoriesContainer.shared.marsMissionDataRepository()) }
+    }
+
+    var filterPersistedPhotos: Factory<any FilterPersistedPhotosUseCase> {
+        self { FilterPersistedPhotos(getPersistedPhotosUseCase: self.getPersistedPhotos()) }
+    }
 }
 
 extension UseCasesContainer: AutoRegistering {

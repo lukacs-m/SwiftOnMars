@@ -35,4 +35,8 @@ final class MainPathRouter: ObservableObject {
     func popToRoot() {
         path.removeLast(path.count)
     }
+
+    func back(to numberOfScreen: Int = 1) {
+        path.removeLast(numberOfScreen)
+    }
 }

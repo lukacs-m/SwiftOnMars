@@ -49,7 +49,7 @@ final class TabViewRouter {
         case .missions:
             MissionView()
         case .favorites:
-            Text("Favorites")
+            FavoriteView()
         }
     }
 }

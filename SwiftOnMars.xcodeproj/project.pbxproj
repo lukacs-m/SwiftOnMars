@@ -25,6 +25,8 @@
 		B8C7040429FE84B000F779F4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040329FE84B000F779F4 /* Date+Extensions.swift */; };
 		B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040529FFFEB300F779F4 /* Double+Extensions.swift */; };
 		B8C7040829FFFEC800F779F4 /* Int+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C7040729FFFEC800F779F4 /* Int+Extensions.swift */; };
+		B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA8E392A0BA5DD0093A42E /* FavoriteView.swift */; };
+		B8CA8E3C2A0BA5DD0093A42E /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA8E3A2A0BA5DD0093A42E /* FavoriteViewModel.swift */; };
 		B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */; };
 		B8F8E25E29E462880021117A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E25D29E462880021117A /* Assets.xcassets */; };
 		B8F8E26129E462880021117A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8F8E26029E462880021117A /* Preview Assets.xcassets */; };
@@ -71,6 +73,8 @@
 		B8C7040329FE84B000F779F4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		B8C7040529FFFEB300F779F4 /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		B8C7040729FFFEC800F779F4 /* Int+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extensions.swift"; sourceTree = "<group>"; };
+		B8CA8E392A0BA5DD0093A42E /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		B8CA8E3A2A0BA5DD0093A42E /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 		B8F8E25629E462870021117A /* SwiftOnMars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftOnMars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8F8E25929E462870021117A /* SwiftOnMarsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOnMarsApp.swift; sourceTree = "<group>"; };
 		B8F8E25D29E462880021117A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +179,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B8CA8E362A0BA5A50093A42E /* FavoriteView */ = {
+			isa = PBXGroup;
+			children = (
+				B8CA8E392A0BA5DD0093A42E /* FavoriteView.swift */,
+				B8CA8E3A2A0BA5DD0093A42E /* FavoriteViewModel.swift */,
+			);
+			path = FavoriteView;
+			sourceTree = "<group>";
+		};
 		B8F8E24D29E462870021117A = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +278,7 @@
 		B8F8E28929E4652C0021117A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B8CA8E362A0BA5A50093A42E /* FavoriteView */,
 				B8B9D26C29F5BB3200F4EA09 /* SettingsView */,
 				B8B9D26729F40E3A00F4EA09 /* MissionView */,
 				B82539DF29E730EA0071DF6F /* MainTabView */,
@@ -420,7 +434,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8CA8E3C2A0BA5DD0093A42E /* FavoriteViewModel.swift in Sources */,
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
+				B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */,
 				B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */,
 				B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */,
 				B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */,
