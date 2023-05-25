@@ -26,21 +26,17 @@ public final class FilterPersistedPhotos: FilterPersistedPhotosUseCase {
     }
 
     public func execute(for filterSelection: PhotoFilterSelection) -> AnyPublisher<[Photo], Never> {
-        switch filterSelection {
-        case .defaultFilter:
-          return getPersistedPhotosUseCase().eraseToAnyPublisher()
-        case .camera:
-            return getPersistedPhotosUseCase().map { photos in
-                photos.sorted  { $0.camera.name < $1.camera.name  }
-            }.eraseToAnyPublisher()
-        case .rover:
-            return getPersistedPhotosUseCase().map { photos in
-                photos.sorted  { $0.rover.name < $1.rover.name  }
-            }.eraseToAnyPublisher()
-        case .sol:
-            return getPersistedPhotosUseCase().map { photos in
-                photos.sorted  { $0.sol < $1.sol }
-            }.eraseToAnyPublisher()
-        }
+        getPersistedPhotosUseCase().map { photos in
+            switch filterSelection {
+            case .defaultFilter:
+                return photos
+            case .camera:
+                return photos.sorted  { $0.camera.name < $1.camera.name  }
+            case .rover:
+                return photos.sorted  { $0.rover.name < $1.rover.name  }
+            case .sol:
+                return  photos.sorted  { $0.sol < $1.sol }
+            }
+        }.eraseToAnyPublisher()
     }
 }

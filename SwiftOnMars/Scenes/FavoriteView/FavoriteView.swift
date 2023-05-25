@@ -22,23 +22,7 @@ struct FavoriteView: View {
             .navigationTitle(Text("Mars Souvenirs"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Menu {
-                        ForEach(PhotoFilterSelection.allCases, id: \.self) { filterSelection in
-
-                            Button {
-                                viewModel.filter(by: filterSelection)
-                            } label: {
-                                if viewModel.currentFilter == filterSelection {
-                                    Label(filterSelection.title, systemImage: "checkmark.circle")
-                                } else {
-                                    Text(filterSelection.title)
-                                }
-                            }
-                        }
-                    } label: {
-                        Image(systemName: "camera.filters")
-                            .imageScale(.large)
-                    }
+                    toolbarMenu
                 }
             }
     }
@@ -48,31 +32,62 @@ private extension FavoriteView {
     @ViewBuilder
     var photoListView: some View {
         if viewModel.photos.isEmpty {
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Label("You have not favorites yet.",
-                          systemImage: "exclamationmark.triangle.fill")
-                    Spacer()
-                }
-                Spacer()
-            }
+            emptyView
         } else {
-            List {
-                ForEach(viewModel.photos) { photo in
-                    DetailPhotoListCellView(with: photo)
-                }
-                .onDelete { offsets in
-                    viewModel.remove(at:offsets)
-                }
-            }
-            .listStyle(.plain)
+            listOfFavoriteView
         }
     }
 }
 
+private extension FavoriteView {
+    var emptyView: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                Label("You have not favorites yet.",
+                      systemImage: "exclamationmark.triangle.fill")
+                Spacer()
+            }
+            Spacer()
+        }
+    }
+}
 
+private extension FavoriteView {
+    var listOfFavoriteView: some View {
+        List {
+            ForEach(viewModel.photos) { photo in
+                DetailPhotoListCellView(with: photo)
+            }
+            .onDelete { offsets in
+                viewModel.remove(at:offsets)
+            }
+        }
+        .listStyle(.plain)
+    }
+}
+
+private extension FavoriteView {
+    var toolbarMenu: some View {
+        Menu {
+            ForEach(PhotoFilterSelection.allCases, id: \.self) { filterSelection in
+                Button {
+                    viewModel.filter(by: filterSelection)
+                } label: {
+                    if viewModel.currentFilter == filterSelection {
+                        Label(filterSelection.title, systemImage: "checkmark.circle")
+                    } else {
+                        Text(filterSelection.title)
+                    }
+                }
+            }
+        } label: {
+            Image(systemName: "camera.filters")
+                .imageScale(.large)
+        }
+    }
+}
 
 struct FavoriteView_Previews: PreviewProvider {
     static var previews: some View {

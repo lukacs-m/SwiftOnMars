@@ -8,6 +8,7 @@
 import Foundation
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol MarsMissionInformationsServicing: Sendable {
     /// Informations of the requested rover
     /// - Parameter rover: The name indentification for the `Rover`
