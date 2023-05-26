@@ -15,7 +15,6 @@ struct MainTabView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var viewModel = MainTabViewModel()
     @Injected(\RouterContainer.tabViewRouter) private var tabRouter
-    @InjectedObject(\RouterContainer.mainRouter) private var mainRouter
     @State private var selectedTabId = 0
 
     var body: some View {
@@ -47,23 +46,17 @@ private  extension MainTabView {
                 UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         .tint(Asset.Colors.Main.primaryDarkest.color)
-        .onChange(of: selectedTabId) { id in
-            mainRouter.popToRoot()
-        }
     }
 }
 
 private extension MainTabView {
+    @ViewBuilder
     func createTabItem(for destination: MainTabDestination) -> some View {
-        tabRouter.navigate(to: destination)
-            .routingProvided
-            .withSheetDestinations(sheetDestinations: $mainRouter.presentedSheet)
-            .navigationStackEmbeded(with: $mainRouter.path)
-            .tabItem {
-                Label(destination.name, systemImage: destination.icon)
-            }
-            .tag(destination.id)
-            .accessibilityLabel(destination.name)
-
+            tabRouter.navigate(to: destination)
+        .tabItem {
+            Label(destination.name, systemImage: destination.icon)
+        }
+        .tag(destination.id)
+        .accessibilityLabel(destination.name)
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B8032BDE29E469E30033FC5B /* SOMDomainLayer */; };
 		B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80912232A091BAC006ADE9F /* RouterExtensions.swift */; };
+		B80ED7E82A1FC6740027709D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7E62A1FC6740027709D /* DetailView.swift */; };
+		B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7E72A1FC6740027709D /* DetailViewModel.swift */; };
 		B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DA29E4A7630071DF6F /* SOMDesignSystem */; };
 		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
@@ -58,6 +60,8 @@
 		B8032BE029E46C2C0033FC5B /* SOMDataLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDataLayer; path = LocalPackages/SOMDataLayer; sourceTree = "<group>"; };
 		B8032BE129E46C330033FC5B /* SOMDesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = SOMDesignSystem; path = LocalPackages/SOMDesignSystem; sourceTree = "<group>"; };
 		B80912232A091BAC006ADE9F /* RouterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
+		B80ED7E62A1FC6740027709D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		B80ED7E72A1FC6740027709D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
@@ -120,6 +124,15 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B80ED7E52A1FC6610027709D /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				B80ED7E62A1FC6740027709D /* DetailView.swift */,
+				B80ED7E72A1FC6740027709D /* DetailViewModel.swift */,
+			);
+			path = DetailView;
 			sourceTree = "<group>";
 		};
 		B82539DF29E730EA0071DF6F /* MainTabView */ = {
@@ -278,6 +291,7 @@
 		B8F8E28929E4652C0021117A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				B80ED7E52A1FC6610027709D /* DetailView */,
 				B8CA8E362A0BA5A50093A42E /* FavoriteView */,
 				B8B9D26C29F5BB3200F4EA09 /* SettingsView */,
 				B8B9D26729F40E3A00F4EA09 /* MissionView */,
@@ -437,6 +451,7 @@
 				B8CA8E3C2A0BA5DD0093A42E /* FavoriteViewModel.swift in Sources */,
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
 				B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */,
+				B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */,
 				B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */,
 				B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */,
 				B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */,
@@ -450,6 +465,7 @@
 				B8B9D26A29F40E5900F4EA09 /* MissionView.swift in Sources */,
 				B8B9D26429F4086500F4EA09 /* Repositories+DependencyInjection.swift in Sources */,
 				B8B9D26629F408AB00F4EA09 /* UseCases+DependencyInjection.swift in Sources */,
+				B80ED7E82A1FC6740027709D /* DetailView.swift in Sources */,
 				B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */,
 				B8B9D26F29F5BB4C00F4EA09 /* SearchSettingsView.swift in Sources */,
 			);

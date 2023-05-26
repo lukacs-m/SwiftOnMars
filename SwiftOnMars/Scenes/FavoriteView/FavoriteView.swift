@@ -15,16 +15,19 @@ struct FavoriteView: View {
     @StateObject private var viewModel = FavoriteViewModel()
 
     var body: some View {
-        photoListView
-            .onDisappear {
-                viewModel.persist()
-            }
-            .navigationTitle(Text("Mars Souvenirs"))
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    toolbarMenu
+        NavigationStack {
+            photoListView
+            
+                .onDisappear {
+                    viewModel.persist()
                 }
-            }
+                .navigationTitle(Text("Mars Souvenirs"))
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        toolbarMenu
+                    }
+                }
+        }
     }
 }
 
@@ -33,6 +36,7 @@ private extension FavoriteView {
     var photoListView: some View {
         if viewModel.photos.isEmpty {
             emptyView
+                .delayAppearance(bySeconds: 1)
         } else {
             listOfFavoriteView
         }

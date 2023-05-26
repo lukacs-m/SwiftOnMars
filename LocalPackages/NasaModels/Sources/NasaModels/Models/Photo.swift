@@ -37,6 +37,17 @@ public struct Photo: Codable, Identifiable, Equatable, Hashable, Sendable {
     }
 
     public var imageUrl: URL? {
-        URL(string: imgSrc)
+        URL(string: imgSrc.replacingOccurrences(of: "http:", with: "https:"))
+    }
+}
+
+extension Photo: Mockable {
+   static public var mocked: Photo {
+        Photo(id: 10,
+              sol: 1200,
+              camera: Camera.mocked,
+              imgSrc: "https://mars.nasa.gov/mer/gallery/all/1/f/009/1F128991241EFF0224P1110R0M1-BR.JPG",
+              earthDate: "2004-02-03",
+              rover: Rover.mocked)
     }
 }

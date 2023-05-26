@@ -33,6 +33,9 @@ struct MissionView: View {
                     }.listRowSeparator(.hidden)
                 }
             }
+            .routingProvided
+            .withSheetDestinations(sheetDestinations: $router.presentedSheet)
+            .navigationStackEmbeded(with: $router.path)
     }
 }
 
@@ -43,7 +46,7 @@ private extension MissionView {
                 PhotoListCellView(with: photo,
                                   and: .init(iconName: "heart.circle",
                                              color: viewModel.isPersisted(for: photo) ? Asset.Colors.SecondaryColors.secondary.color : .black)) {
-                    router.navigate(to: .missionDetail(id: photo.imgSrc))
+                    router.navigate(to: .photoDetail(photo: photo))
                 } buttonTwoAction: {
                     viewModel.togglePersistantState(for: photo)
                 }
@@ -85,9 +88,9 @@ private extension MissionView {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Search Options")
                         .fontWeight(.bold)
-                        Divider()
-                            .overlay(Color.white)
-                            .frame(width: 100)
+                    Divider()
+                        .overlay(Color.white)
+                        .frame(width: 100)
 
                     sectionBuilder(title: "Rover:", text: viewModel.currentRover)
                     sectionBuilder(title: viewModel.isSolSearch ? "Sol:" : "Date:", text: viewModel.searchInfos)
@@ -117,7 +120,7 @@ private extension MissionView {
         } label: {
             Image(systemName: "magnifyingglass.circle")
                 .resizable()
-                .foregroundColor(Color.black)
+                .foregroundColor(Asset.Colors.Main.primary.color)
         }
     }
 }
@@ -127,5 +130,3 @@ struct MissionView_Previews: PreviewProvider {
         MissionView()
     }
 }
-
-

@@ -7,9 +7,10 @@
 
 import Foundation
 import SwiftUI
+import NasaModels
 
 public enum RouterDestination: Hashable {
-  case missionDetail(id: String)
+  case photoDetail(photo: Photo)
 }
 
 public enum SheetDestination: Identifiable {

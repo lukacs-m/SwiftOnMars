@@ -35,3 +35,17 @@ public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
         case cameras
     }
 }
+
+extension Rover: Mockable {
+   static public var mocked: Rover {
+        Rover(id: 5,
+              name: "Curiosity",
+              landingDate: "2004-01-25",
+              launchDate: "2003-07-07",
+              status: "complete",
+              maxSol: 3838,
+              maxDate: "2023-05-24",
+              totalPhotos: 651737,
+              cameras: nil)
+    }
+}

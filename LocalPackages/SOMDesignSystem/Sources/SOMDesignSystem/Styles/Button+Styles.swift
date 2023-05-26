@@ -12,7 +12,7 @@ public struct ActionButtonStyle: ButtonStyle {
         configuration.label
             .padding(10)
             .foregroundColor(.white)
-            .background(Asset.Colors.Main.primaryDarkest.color)
+            .background(Asset.Colors.Main.primary.color)
             .cornerRadius(10)
     }
 }

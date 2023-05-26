@@ -22,7 +22,7 @@ public struct Camera: Codable, Identifiable, Equatable, Hashable, Sendable {
 }
 
 
-// MARK: - Camera
+// MARK: - Light Camera
 public struct LightCamera: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: String {
         name
@@ -34,5 +34,11 @@ public struct LightCamera: Codable, Identifiable, Equatable, Hashable, Sendable 
     enum CodingKeys: String, CodingKey {
         case name
         case fullName = "full_name"
+    }
+}
+
+extension Camera: Mockable {
+   static public var mocked: Camera {
+        Camera(id: 1, name: "test Camera", roverID: 13, fullName: "NAVCAM")
     }
 }
