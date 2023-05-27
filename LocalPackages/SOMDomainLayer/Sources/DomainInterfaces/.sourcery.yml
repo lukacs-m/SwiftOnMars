@@ -1,0 +1,6 @@
+sources:
+  - ./
+templates:
+  - ../tools/Templates
+output:
+ ../../Tests/SOMDomainLayerTests/Generated

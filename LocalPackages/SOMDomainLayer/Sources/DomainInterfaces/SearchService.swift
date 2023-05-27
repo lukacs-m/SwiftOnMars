@@ -9,6 +9,7 @@ import Combine
 import Foundation
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol SearchService: Sendable {
     var currentSearchParameters: CurrentValueSubject<SearchParameters, Never> { get }
 

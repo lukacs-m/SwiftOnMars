@@ -30,7 +30,7 @@ struct MissionView: View {
                         Spacer()
                         ProgressView()
                         Spacer()
-                    }.listRowSeparator(.hidden)
+                    }
                 }
             }
             .routingProvided

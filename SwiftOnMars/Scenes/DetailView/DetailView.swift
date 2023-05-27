@@ -21,7 +21,7 @@ struct DetailView: View {
             Spacer()
         }
         .ignoresSafeArea(edges: [.horizontal])
-        .navigationTitle("Photo \(viewModel.photo.id)")
+        .navigationTitle("Photo " + String(viewModel.photo.id))
         .navigationBarTitleDisplayMode(.inline)
     }
 }
@@ -34,11 +34,21 @@ private extension DetailView {
                 .ignoresSafeArea(edges: [.horizontal])
 
             HStack {
-                Text("Days on Mars: \(viewModel.photo.sol)")
+                Text("Days since **landing**: \(viewModel.photo.sol)")
                 Spacer()
                 Text("\(viewModel.photo.earthDate)")
             }.foregroundColor(.white)
                 .padding()
+
+            VStack {
+                HStack {
+                    Spacer()
+                    ToggleFavortiteButton(with: .favDefault(isPersisted: viewModel.photoIsPersisted),
+                                          action:  viewModel.togglePhotoPersistantState)
+
+                }
+                Spacer()
+            }
         }
     }
 }

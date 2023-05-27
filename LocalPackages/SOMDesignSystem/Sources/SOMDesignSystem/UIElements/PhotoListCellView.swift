@@ -17,6 +17,10 @@ public struct IconConfig {
         self.iconName = iconName
         self.color = color
     }
+
+    public static func favDefault(isPersisted: Bool) -> IconConfig {
+        .init(iconName: "heart.circle", color: isPersisted ? Asset.Colors.SecondaryColors.secondary.color : .black)
+    }
 }
 
 public struct PhotoListCellView: View {
@@ -58,21 +62,10 @@ public struct PhotoListCellView: View {
             }
             .buttonStyle(.borderless)
 
-            Button {
-                buttonTwoAction()
-            } label: {
-                Image(systemName: iconConfig.iconName)
-                    .resizable()
-                    .frame(width: 25, height: 25)
-                    .padding(5)
-                    .foregroundColor(iconConfig.color)
-            }
-            .background(Asset.Colors.Backgrounds.lighterGray.color)
-            .cornerRadius(5)
-            .padding(.all, Sizes.Paddings.base)
-            .buttonStyle(BorderlessButtonStyle())
-            .opacity(hide ? 0 : 1)
+            ToggleFavortiteButton(with: iconConfig, action: buttonTwoAction)
+                .opacity(hide ? 0 : 1)
         }
     }
 }
+
 

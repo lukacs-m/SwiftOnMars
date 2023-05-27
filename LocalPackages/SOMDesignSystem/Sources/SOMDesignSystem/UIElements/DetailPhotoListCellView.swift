@@ -23,7 +23,7 @@ public struct DetailPhotoListCellView: View {
                 .frame(width: 75, height: 75)
                 .cornerRadius(10)
             VStack(alignment: .leading) {
-                Text("Photo \(photo.id)")
+                Text(verbatim: "Photo \(photo.id)")
                 Text(photo.rover.name)
                     .font(.caption)
                           .foregroundStyle(.secondary)

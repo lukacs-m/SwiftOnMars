@@ -9,6 +9,7 @@ import Combine
 import NasaModels
 import Foundation
 
+//sourcery: AutoMockable
 public protocol MarsPhotoStoring: Sendable {
     var getPersistedPhotos: CurrentValueSubject<[Photo], Never> { get }
 
