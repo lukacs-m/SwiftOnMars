@@ -10,6 +10,7 @@
 import NasaModels
 import DomainInterfaces
 
+//sourcery: AutoMockable
 public protocol SaveNewSearchParamsUseCase: Sendable {
     func execute(with params: SearchParameters)
 }

@@ -10,6 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol GetMarsPhotosBasedOnSolUseCase: Sendable {
     func execute(for roverId: RoverIdentification,
                  at sol: Int,
@@ -48,7 +49,7 @@ public final class GetMarsPhotosBasedOnSol: GetMarsPhotosBasedOnSolUseCase {
                  and page: Int?) async throws -> [Photo] {
         do {
            let photos = try await repository.getPhotosByMartinSol(for: roverId, on: sol, for: camera, and: page)
-            return photos.map {  $0.toSecureForm }
+            return photos//.map {  $0.toSecureForm }
         } catch {
             throw error
         }
@@ -60,7 +61,7 @@ private extension Photo {
         Photo(id: id,
               sol: sol,
               camera: camera,
-              imgSrc: imgSrc.replacingOccurrences(of: "http", with: "https"),
+              imgSrc: imgSrc.contains("https") ? imgSrc : imgSrc.replacingOccurrences(of: "http", with: "https"),
               earthDate: earthDate,
               rover: rover)
     }

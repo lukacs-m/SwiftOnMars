@@ -10,6 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol SavePhotoUseCase: Sendable {
     func execute(with photo: Photo) async
 }

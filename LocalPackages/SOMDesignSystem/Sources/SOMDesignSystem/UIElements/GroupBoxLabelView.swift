@@ -21,7 +21,11 @@ public struct GroupBoxLabelView: View {
             Text(labelText.uppercased())
                 .fontWeight(.bold)
             Spacer()
-            Image(systemName: labelImage)
+            Image(imageName:labelImage)
+                .resizable()
+                .frame(width: 25, height: 25)
+                .scaledToFit()
+
         }
     }
 }

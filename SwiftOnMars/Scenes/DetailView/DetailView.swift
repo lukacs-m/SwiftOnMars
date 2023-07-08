@@ -10,9 +10,11 @@
 import SwiftUI
 import NasaModels
 import SOMDesignSystem
+import Factory
 
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
+    @InjectedObject(\RouterContainer.mainRouter) private var router
 
     var body: some View {
         VStack() {
@@ -30,15 +32,8 @@ private extension DetailView {
     var topImageView: some View {
         ZStack(alignment: .bottom) {
             LazyImage(url:viewModel.photo.imageUrl, scaleMode: .fill)
-                .frame(maxWidth: .infinity)
-                .ignoresSafeArea(edges: [.horizontal])
-
-            HStack {
-                Text("Days since **landing**: \(viewModel.photo.sol)")
-                Spacer()
-                Text("\(viewModel.photo.earthDate)")
-            }.foregroundColor(.white)
-                .padding()
+                .frame(width: UIScreen.main.bounds.width)
+                .clipped()
 
             VStack {
                 HStack {
@@ -49,6 +44,16 @@ private extension DetailView {
                 }
                 Spacer()
             }
+
+            HStack {
+                Text("Days since **landing**: \(viewModel.photo.sol)")
+                Spacer()
+                Text("\(viewModel.photo.earthDate)")
+            }.foregroundColor(.black)
+                .padding(10)
+                .background(.white.opacity(0.5))
+                .cornerRadius(10)
+                .padding(10)
         }
     }
 }
@@ -72,6 +77,7 @@ private extension DetailView {
         ){
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.camera.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.camera.name)
+            GroupBoxRowView(name: "Description", content: viewModel.photo.camera.fullName)
         }
     }
 }
@@ -79,7 +85,8 @@ private extension DetailView {
 private extension DetailView {
     var roverInfoBox: some View {
         GroupBox(
-            label: GroupBoxLabelView(labelText: "Rover", labelImage: "info.circle")
+            label: GroupBoxLabelView(labelText: "Rover",
+                                     labelImage: viewModel.photo.rover.name)
         ){
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.rover.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.rover.name)

@@ -11,16 +11,17 @@ import Combine
 import NasaModels
 import DomainInterfaces
 
+//sourcery: AutoMockable
 public protocol GetCurrentSearchParametersUseCase: Sendable {
-   func execute() -> SearchParameters
+    func execute() -> SearchParameters
     func executePublisher() -> CurrentValueSubject<SearchParameters, Never>
 }
 
 public extension GetCurrentSearchParametersUseCase {
     func callAsFunction() -> SearchParameters {
-       execute()
+        execute()
     }
-
+    
     func callAsFunction() -> CurrentValueSubject<SearchParameters, Never> {
         executePublisher()
     }
@@ -28,7 +29,7 @@ public extension GetCurrentSearchParametersUseCase {
 
 public final class GetCurrentSearchParameters: GetCurrentSearchParametersUseCase {
     private let searchRepository: any SearchService
-
+    
     public init(searchRepository: any SearchService) {
         self.searchRepository = searchRepository
     }
@@ -36,7 +37,7 @@ public final class GetCurrentSearchParameters: GetCurrentSearchParametersUseCase
     public func execute() -> SearchParameters {
         searchRepository.currentSearchParameters.value
     }
-
+    
     public func executePublisher() -> CurrentValueSubject<SearchParameters, Never> {
         searchRepository.currentSearchParameters
     }

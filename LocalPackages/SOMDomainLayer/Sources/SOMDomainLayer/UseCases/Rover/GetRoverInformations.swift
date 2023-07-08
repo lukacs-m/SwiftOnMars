@@ -10,6 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol GetRoverInformationsUseCase: Sendable {
     func execute(for roverId: RoverIdentification) async throws -> Rover
 }

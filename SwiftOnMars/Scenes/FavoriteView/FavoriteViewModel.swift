@@ -14,12 +14,14 @@ import NasaModels
 
 @MainActor
 final class FavoriteViewModel: ObservableObject, Sendable {
-    @Published private(set) var photos = [Photo]()
+    @Published private(set) var photos = [String: [Photo]]()
     @Published private(set) var currentFilter: PhotoFilterSelection = .defaultFilter
 
     @Injected(\UseCasesContainer.filterPersistedPhotos) private var filterPersistedPhotos
     @Injected(\UseCasesContainer.removePersistedPhoto) private var removePersistedPhoto
     @Injected(\UseCasesContainer.persistAllPhotos) private var persistAllPhotos
+
+    @Published private(set) var selectedPhoto: Photo?
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -27,15 +29,15 @@ final class FavoriteViewModel: ObservableObject, Sendable {
         setUp()
     }
 
-    func remove(at offsets: IndexSet) {
-        guard let index = offsets.first else {
-            return
-        }
-        let photo = photos[index]
-        Task { [weak self] in
-            await self?.removePersistedPhoto(for: photo)
-        }
-    }
+//    func remove(at offsets: IndexSet) {
+//        guard let index = offsets.first else {
+//            return
+//        }
+//        let photo = photos[index]
+//        Task { [weak self] in
+//            await self?.removePersistedPhoto(for: photo)
+//        }
+//    }
 
     func filter(by filterSelection: PhotoFilterSelection) {
         currentFilter = filterSelection
@@ -50,13 +52,17 @@ final class FavoriteViewModel: ObservableObject, Sendable {
             }
         }
     }
+
+    func toggleSelection(for photo: Photo? = nil) {
+        selectedPhoto = photo
+    }
 }
 
 private extension FavoriteViewModel {
     func setUp() {
         $currentFilter
             .flatMap { [weak self] fitler in
-               return self?.filterPersistedPhotos(for: fitler) ?? Just([]).eraseToAnyPublisher()
+                return self?.filterPersistedPhotos(for: fitler) ?? Just([:]).eraseToAnyPublisher()
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] photos in

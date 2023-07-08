@@ -8,6 +8,7 @@
 import NasaModels
 import Foundation
 
+//sourcery: AutoMockable
 public protocol GetAllOrderedRoverManifestsUseCase: Sendable {
    func execute() async throws -> [RoverManifest]
 }
@@ -29,8 +30,10 @@ public final class GetAllOrderedRoverManifests: GetAllOrderedRoverManifestsUseCa
         async let curiosityInfos = getRoverManifest(for: .curiosity)
         async let opportunityInfos = getRoverManifest(for: .opportunity)
         async let spiritInfos = getRoverManifest(for: .spirit)
+        async let perseveranceInfos = getRoverManifest(for: .perseverance)
 
-        return try await [curiosityInfos, opportunityInfos, spiritInfos].sorted(using: KeyPathComparator(\.photoManifest.name))
+
+        return try await [curiosityInfos, opportunityInfos, spiritInfos, perseveranceInfos].sorted(using: KeyPathComparator(\.photoManifest.name))
     }
 }
 

@@ -10,6 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol GetMarsPhotosBasedOnDateUseCase: Sendable {
    func execute(for roverId: RoverIdentification,
                 at date: String,

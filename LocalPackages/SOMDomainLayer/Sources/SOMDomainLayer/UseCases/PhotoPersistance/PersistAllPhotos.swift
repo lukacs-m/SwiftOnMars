@@ -9,6 +9,7 @@
 
 import DomainInterfaces
 
+//sourcery: AutoMockable
 public protocol PersistAllPhotosUseCase: Sendable {
    func execute() async throws
 }

@@ -27,6 +27,6 @@ public struct SearchParameters: Codable, Sendable {
     }
 
     public static var `default`: SearchParameters {
-        SearchParameters(roverId: .curiosity, sol: 0, searchBySol: true)
+        SearchParameters(roverId: .perseverance, sol: 0, searchBySol: true)
     }
 }

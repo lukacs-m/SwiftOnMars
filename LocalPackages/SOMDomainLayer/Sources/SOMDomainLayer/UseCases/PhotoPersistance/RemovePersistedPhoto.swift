@@ -10,6 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol RemovePersistedPhotoUseCase: Sendable {
     func execute(for photo: Photo) async
 }

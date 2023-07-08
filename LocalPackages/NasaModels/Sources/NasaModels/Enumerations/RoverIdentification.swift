@@ -9,6 +9,7 @@ import Foundation
 
 public enum RoverIdentification: String, Sendable, Codable {
     case curiosity
+    case perseverance
     case opportunity
     case spirit
 
@@ -16,6 +17,8 @@ public enum RoverIdentification: String, Sendable, Codable {
         switch nameDescription {
         case curiosity.rawValue:
             return .curiosity
+        case perseverance.rawValue:
+            return .perseverance
         case opportunity.rawValue:
             return .opportunity
         case spirit.rawValue:

@@ -10,7 +10,8 @@ import SwiftUI
 import NasaModels
 
 public enum RouterDestination: Hashable {
-  case photoDetail(photo: Photo)
+    case photoDetail(photo: Photo)
+    case favoritePhotoDetail(photo: Photo)
 }
 
 public enum SheetDestination: Identifiable {

@@ -14,6 +14,8 @@ extension View {
             switch destination {
             case let .photoDetail(photo):
                 DetailView(viewModel: DetailViewModel(photo: photo))
+            default:
+                Text("Not implemented yet")
             }
         }
     }
@@ -23,9 +25,10 @@ extension View {
             switch destination {
             case .searchSettings:
                 SearchSettingsView()
-                    .presentationDetents([.medium, .large])
+                    .presentationDetents([.large])
                     .presentationBackground(.ultraThinMaterial)
             }
         }
     }
+
 }

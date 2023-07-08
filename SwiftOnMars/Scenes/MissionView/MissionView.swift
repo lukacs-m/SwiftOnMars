@@ -80,9 +80,7 @@ private extension MissionView {
     @ViewBuilder
     var searchInfosView: some View {
         Button {
-            withAnimation {
-                shouldExpendSearchInfos.toggle()
-            }
+            shouldExpendSearchInfos.toggle()
         } label: {
             if shouldExpendSearchInfos {
                 VStack(alignment: .leading, spacing: 10) {
@@ -91,7 +89,7 @@ private extension MissionView {
                     Divider()
                         .overlay(Color.white)
                         .frame(width: 100)
-
+                    
                     sectionBuilder(title: "Rover:", text: viewModel.currentRover)
                     sectionBuilder(title: viewModel.isSolSearch ? "Sol:" : "Date:", text: viewModel.searchInfos)
                     sectionBuilder(title: "Camera:", text: "\(viewModel.currentCamera != nil ? viewModel.currentCamera ?? "": "all")")
@@ -102,6 +100,7 @@ private extension MissionView {
                     .frame(width: 25, height: 25)
             }
         }
+        .animation(.default, value: shouldExpendSearchInfos)
         .buttonStyle(.actionButtonStyle)
     }
 

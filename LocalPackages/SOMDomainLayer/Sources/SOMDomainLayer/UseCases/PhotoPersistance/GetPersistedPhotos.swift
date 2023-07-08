@@ -11,6 +11,7 @@ import Combine
 import DomainInterfaces
 import NasaModels
 
+//sourcery: AutoMockable
 public protocol GetPersistedPhotosUseCase: Sendable {
    func execute() -> AnyPublisher<[Photo], Never>
 }

@@ -20,6 +20,7 @@ public enum Asset {
     public enum Rovers {
       public static let curiosity = ImageAsset(name: "Curiosity")
       public static let opportunity = ImageAsset(name: "Opportunity")
+      public static let perseverance = ImageAsset(name: "Perseverance")
       public static let spirit = ImageAsset(name: "Spirit")
     }
   }

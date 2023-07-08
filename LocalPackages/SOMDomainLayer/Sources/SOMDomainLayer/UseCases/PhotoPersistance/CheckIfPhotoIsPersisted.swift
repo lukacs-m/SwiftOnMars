@@ -11,6 +11,7 @@ import DomainInterfaces
 import NasaModels
 import Foundation
 
+//sourcery: AutoMockable
 public protocol CheckIfPhotoIsPersistedUseCase: Sendable {
     func execute(for photo: Photo) -> Bool
 }
