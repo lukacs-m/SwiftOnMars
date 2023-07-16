@@ -11,9 +11,11 @@ import SwiftUI
 import NasaModels
 import SOMDesignSystem
 import Factory
+import SimpleToast
 
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
+    @State private var toastToDisplay: SimpleToast?
     @InjectedObject(\RouterContainer.mainRouter) private var router
 
     var body: some View {
@@ -25,6 +27,12 @@ struct DetailView: View {
         .ignoresSafeArea(edges: [.horizontal])
         .navigationTitle("Photo " + String(viewModel.photo.id))
         .navigationBarTitleDisplayMode(.inline)
+        .onChange(of: viewModel.photoIsPersisted) { value in
+            let title = value ? "The photo was added to your favorites" : "The photo was just removed from your favorites"
+            let type: ToastType = value ? .complete(.green) : .error(.orange)
+            toastToDisplay = SimpleToast(displayMode: .bottom(.pop), type: type, title: title, style: ToastStyle(backgroundColor: .gray))
+        }
+        .toast(toast: $toastToDisplay)
     }
 }
 
@@ -39,7 +47,7 @@ private extension DetailView {
                 HStack {
                     Spacer()
                     ToggleFavortiteButton(with: .favDefault(isPersisted: viewModel.photoIsPersisted),
-                                          action:  viewModel.togglePhotoPersistantState)
+                                          action: viewModel.togglePhotoPersistantState)
 
                 }
                 Spacer()

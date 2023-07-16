@@ -91,6 +91,15 @@
       }
     },
     {
+      "identity" : "simpletoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SimpleToast",
+      "state" : {
+        "revision" : "3865f2aeb5bcbb1a6b79ad2687c9eba654443288",
+        "version" : "0.1.2"
+      }
+    },
+    {
       "identity" : "simplysave",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukacs-m/SimplySave",

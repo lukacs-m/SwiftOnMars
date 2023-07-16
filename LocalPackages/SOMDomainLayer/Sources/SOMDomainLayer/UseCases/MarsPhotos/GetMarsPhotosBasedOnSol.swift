@@ -49,7 +49,7 @@ public final class GetMarsPhotosBasedOnSol: GetMarsPhotosBasedOnSolUseCase {
                  and page: Int?) async throws -> [Photo] {
         do {
            let photos = try await repository.getPhotosByMartinSol(for: roverId, on: sol, for: camera, and: page)
-            return photos//.map {  $0.toSecureForm }
+            return photos
         } catch {
             throw error
         }

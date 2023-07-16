@@ -18,6 +18,7 @@
 		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
 		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
+		B867F9902A5B383C0025054C /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = B867F98F2A5B383C0025054C /* SimpleToast */; };
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
 		B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */; };
 		B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26129F4029B00F4EA09 /* MainRouter.swift */; };
@@ -105,6 +106,7 @@
 				B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */,
 				B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */,
 				B8F8E28529E4650F0021117A /* Factory in Frameworks */,
+				B867F9902A5B383C0025054C /* SimpleToast in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +349,7 @@
 				B8032BDE29E469E30033FC5B /* SOMDomainLayer */,
 				B82539DA29E4A7630071DF6F /* SOMDesignSystem */,
 				B82539DC29E5E0C80071DF6F /* SOMDataLayer */,
+				B867F98F2A5B383C0025054C /* SimpleToast */,
 			);
 			productName = SwiftOnMars;
 			productReference = B8F8E25629E462870021117A /* SwiftOnMars.app */;
@@ -422,6 +425,7 @@
 			mainGroup = B8F8E24D29E462870021117A;
 			packageReferences = (
 				B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */,
+				B867F98E2A5B383C0025054C /* XCRemoteSwiftPackageReference "SimpleToast" */,
 			);
 			productRefGroup = B8F8E25729E462870021117A /* Products */;
 			projectDirPath = "";
@@ -820,6 +824,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B867F98E2A5B383C0025054C /* XCRemoteSwiftPackageReference "SimpleToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukacs-m/SimpleToast";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 		B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -842,6 +854,11 @@
 		B82539DC29E5E0C80071DF6F /* SOMDataLayer */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SOMDataLayer;
+		};
+		B867F98F2A5B383C0025054C /* SimpleToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B867F98E2A5B383C0025054C /* XCRemoteSwiftPackageReference "SimpleToast" */;
+			productName = SimpleToast;
 		};
 		B8F8E28429E4650F0021117A /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
