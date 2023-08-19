@@ -17,13 +17,17 @@ final class MissionViewModel: ObservableObject, Sendable {
     @Published private(set) var photos = [Photo]()
     @Published private(set) var isLoadingPage = false
 
-    @Injected(\UseCasesContainer.getMarsPhotosBasedOnSol) private var getMarsPhotosBasedOnSol
-    @Injected(\UseCasesContainer.getMarsPhotosBasedOnDate) private var getMarsPhotosBasedOnDate
-    @Injected(\UseCasesContainer.getCurrentSearchParameters) private var getCurrentSearchParameters
-    @Injected(\UseCasesContainer.checkIfPhotoIsPersisted) private var checkIfPhotoIsPersisted
-    @Injected(\UseCasesContainer.getPersistedPhotos) private var getPersistedPhotos
-    @Injected(\UseCasesContainer.savePhoto) private var savePhoto
-    @Injected(\UseCasesContainer.removePersistedPhoto) private var removePersistedPhoto
+    private let getPhotosForSearchParams = resolve(\UseCasesContainer.getPhotosForSearchParams)
+    private let getCurrentSearchParameters = resolve(\UseCasesContainer.getCurrentSearchParameters)
+    private let checkIfPhotoIsPersisted = resolve(\UseCasesContainer.checkIfPhotoIsPersisted)
+    private let getPersistedPhotos = resolve(\UseCasesContainer.getPersistedPhotos)
+    private let savePhoto = resolve(\UseCasesContainer.savePhoto)
+    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
+
+    private var currentPage = 1
+    private var canLoadMorePages = true
+    private var searchParameters: SearchParameters!
+    private var cancellables = Set<AnyCancellable>()
 
     var currentRover: String {
         searchParameters.roverId.rawValue
@@ -40,11 +44,6 @@ final class MissionViewModel: ObservableObject, Sendable {
     var currentCamera: String? {
         searchParameters.camera
     }
-
-    private var currentPage = 1
-    private var canLoadMorePages = true
-    private var searchParameters: SearchParameters!
-    private var cancellables = Set<AnyCancellable>()
 
     init() {
         searchParameters = getCurrentSearchParameters().value
@@ -63,21 +62,22 @@ final class MissionViewModel: ObservableObject, Sendable {
             return
         }
 
-        isLoadingPage = true
         Task { [weak self] in
             guard let self else {
                 return
             }
-            do {
-                let newPhotos = self.searchParameters.searchBySol ?  try await self.getMarsPhotosBasedOnSol(for: self.searchParameters.roverId,
-                                                                                                            at: self.searchParameters.sol,
-                                                                                                            for: self.searchParameters.camera,
-                                                                                                            and: self.currentPage) :
-                try await self.getMarsPhotosBasedOnDate(for: self.searchParameters.roverId,
-                                                   at: self.searchParameters.earthDate?.toEarthDateDescription ?? Date().toEarthDateDescription,
-                                                   for: self.searchParameters.camera,
-                                                   and: self.currentPage)
+            self.isLoadingPage = true
+
+            defer {
                 self.isLoadingPage = false
+            }
+
+            do {
+                if Task.isCancelled {
+                    return
+                }
+                let newPhotos = try await self.getPhotosForSearchParams(for: self.searchParameters,
+                                                                        and: self.currentPage)
                 guard newPhotos.count != 0 else {
                     self.canLoadMorePages = false
                     return

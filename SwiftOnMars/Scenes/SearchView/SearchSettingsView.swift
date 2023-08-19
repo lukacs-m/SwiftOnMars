@@ -17,7 +17,6 @@ struct SearchSettingsView: View {
 
     var body: some View {
         ZStack(alignment: .bottomTrailing) {
-
             VStack(alignment: .leading, spacing: 20) {
                 if !viewModel.manifests.isEmpty {
                     mainForm

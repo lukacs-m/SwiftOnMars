@@ -12,13 +12,10 @@ import SwiftUI
 public struct DetailPhotoListCellView: View {
     private let photo: Photo
     private let animationNamespace: Namespace.ID
-//    private var isSource: Binding<Bool>
-//    @State private var test: Bool = true
 
-    public init(with photo: Photo, namespace: Namespace.ID, isSource: Bool) {
+    public init(with photo: Photo, namespace: Namespace.ID) {
         self.photo = photo
         self.animationNamespace = namespace
-//        self.test = isSource
     }
 
     public var body: some View {
@@ -27,25 +24,20 @@ public struct DetailPhotoListCellView: View {
                 .matchedGeometryEffect(id: "test\(photo.id)",  in: animationNamespace)
                 .scaledToFill()
                 .frame(width: 75, height: 75)
-//                .cornerRadius(10)
                 .mask(RoundedRectangle(cornerRadius: 10, style:.continuous)
                     .matchedGeometryEffect(id: "mask\(photo.id)", in: animationNamespace))
             Spacer()
 
             VStack(alignment: .leading) {
                 Text(verbatim: "Photo \(photo.id)")
-//                    .font(.system(size: 15))
                     .animatableSystemFont(size: 15)
                     .matchedGeometryEffect(id: "infostitle\(photo.id)", in: animationNamespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
-//                    .frame(minWidth: 250, maxWidth: .infinity, alignment: .leading)
-
                     .transition(.scale)
                 Text(photo.rover.name)
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 Text("\(photo.camera.name)")
-//                    .font(.caption)
                     .animatableSystemFont(size: 13)
                     .foregroundStyle(.secondary)
                     .matchedGeometryEffect(id: "camera\(photo.id)", in: animationNamespace)
@@ -59,7 +51,6 @@ public struct DetailPhotoListCellView: View {
 
             }
             .matchedGeometryEffect(id: "infos\(photo.id)",  in: animationNamespace)
-//            .frame(width: 100)
 
             Spacer()
             Image(imageName: photo.rover.name)
@@ -69,19 +60,12 @@ public struct DetailPhotoListCellView: View {
                 .frame(width: 50, height: 50)
                 .aspectRatio(contentMode: .fill)
         }
-//        .transition(.identity)
         .padding(10)
         .background {
             Asset.Colors.Backgrounds.lightestGray.color
                 .matchedGeometryEffect(id: "background\(photo.id)", in: animationNamespace)
 
         }
-//        .transition(.identity)
-
-//        .matchedGeometryEffect(id: "container\(photo.id)", in: animationNamespace)
-//        .matchedGeometryEffect(id: "container\(photo.id)", in: animationNamespace)
-//        .cornerRadius(10)
-
     }
 
     private var lazyImage: KFImage {
@@ -93,12 +77,11 @@ public struct DetailPhotoListCellView: View {
     }
 }
 
-
 struct FavoriteDetailView_Previews: PreviewProvider {
     @Namespace static var namespace
 
     static var previews: some View {
-        DetailPhotoListCellView(with: Photo.mocked, namespace: namespace, isSource: true)
+        DetailPhotoListCellView(with: Photo.mocked, namespace: namespace)
     }
 }
 

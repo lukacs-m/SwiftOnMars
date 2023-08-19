@@ -17,9 +17,9 @@ final class FavoriteViewModel: ObservableObject, Sendable {
     @Published private(set) var photos = [String: [Photo]]()
     @Published private(set) var currentFilter: PhotoFilterSelection = .defaultFilter
 
-    @Injected(\UseCasesContainer.filterPersistedPhotos) private var filterPersistedPhotos
-    @Injected(\UseCasesContainer.removePersistedPhoto) private var removePersistedPhoto
-    @Injected(\UseCasesContainer.persistAllPhotos) private var persistAllPhotos
+    private let filterPersistedPhotos = resolve(\UseCasesContainer.filterPersistedPhotos)
+    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
+    private let persistAllPhotos = resolve(\UseCasesContainer.persistAllPhotos)
 
     @Published private(set) var selectedPhoto: Photo?
 
@@ -29,24 +29,14 @@ final class FavoriteViewModel: ObservableObject, Sendable {
         setUp()
     }
 
-//    func remove(at offsets: IndexSet) {
-//        guard let index = offsets.first else {
-//            return
-//        }
-//        let photo = photos[index]
-//        Task { [weak self] in
-//            await self?.removePersistedPhoto(for: photo)
-//        }
-//    }
-
     func filter(by filterSelection: PhotoFilterSelection) {
         currentFilter = filterSelection
     }
 
     func persist() {
-        Task {
+        Task { [weak self] in
             do {
-                try await persistAllPhotos()
+                try await self?.persistAllPhotos()
             } catch {
                 print("Woot \(error.localizedDescription)")
             }

@@ -12,11 +12,9 @@ import Factory
 
 @MainActor
 final class MainTabViewModel: ObservableObject, Sendable {
-    @Injected(\UseCasesContainer.persistAllPhotos) private var persistAllPhotos
+    private let persistAllPhotos = resolve(\UseCasesContainer.persistAllPhotos)
 
-    init() {
-        setUp()
-    }
+    init() {}
 
     func persist() {
         Task {
@@ -24,8 +22,3 @@ final class MainTabViewModel: ObservableObject, Sendable {
         }
     }
 }
-
-private extension MainTabViewModel {
-    func setUp() {}
-}
-

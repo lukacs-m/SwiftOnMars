@@ -23,9 +23,9 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     @Published var selectedMissionManifestName: String?
     @Published var selectedCamera: String = SearchSettingsViewModel.allCameraKey
 
-    @Injected(\UseCasesContainer.getAllOrderedRoverManifests) private var getAllOrderedRoverManifests
-    @Injected(\UseCasesContainer.saveNewSearchParams) private var saveNewSearchParams
-    @Injected(\UseCasesContainer.getCurrentSearchParameters) private var getCurrentSearchParameters
+    private let getAllOrderedRoverManifests = resolve(\UseCasesContainer.getAllOrderedRoverManifests)
+    private let saveNewSearchParams = resolve(\UseCasesContainer.saveNewSearchParams)
+    private let getCurrentSearchParameters = resolve(\UseCasesContainer.getCurrentSearchParameters)
 
     private var task: Task<Void, Error>?
     private static let allCameraKey = "ALL"

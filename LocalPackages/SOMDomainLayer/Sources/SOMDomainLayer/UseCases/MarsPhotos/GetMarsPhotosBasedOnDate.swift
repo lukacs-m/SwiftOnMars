@@ -43,7 +43,6 @@ public final class GetMarsPhotosBasedOnDate: GetMarsPhotosBasedOnDateUseCase {
         self.repository = repository
     }
 
-    
     public func execute(for roverId: RoverIdentification,
                  at date: String,
                  for camera: String?,

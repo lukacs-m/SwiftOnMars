@@ -14,7 +14,7 @@ import SOMDesignSystem
 struct MainTabView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var viewModel = MainTabViewModel()
-    @Injected(\RouterContainer.tabViewRouter) private var tabRouter
+    private let tabRouter = resolve(\RouterContainer.tabViewRouter)
     @State private var selectedTabId = 0
 
     var body: some View {

@@ -23,7 +23,13 @@ extension UseCasesContainer {
     var getMarsPhotosBasedOnDate: Factory<any GetMarsPhotosBasedOnDateUseCase> {
         self { GetMarsPhotosBasedOnDate(repository: RepositoriesContainer.shared.marsMissionDataRepository()) }
     }
+
+    var getPhotosForSearchParams: Factory<any GetPhotosForSearchParamsUseCase> {
+        self { GetPhotosForSearchParams(marsPhotoSolUsecase: self.getMarsPhotosBasedOnSol(),
+                                        marsPhotoDateUsecase: self.getMarsPhotosBasedOnDate()) }
+    }
 }
+
 
 // MARK: - Rover Informations usecase
 

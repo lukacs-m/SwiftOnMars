@@ -30,7 +30,7 @@ public final class FilterPersistedPhotos: FilterPersistedPhotosUseCase {
         getPersistedPhotosUseCase().map { photos in
             switch filterSelection {
             case .defaultFilter:
-                return ["Most Recent":photos]
+                return ["Most Recent": photos]
             case .camera:
                 return Dictionary(grouping: photos, by: { $0.camera.name })//.sorted( by: { $0.0 < $1.0 })
 

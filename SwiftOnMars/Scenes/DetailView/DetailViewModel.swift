@@ -16,10 +16,10 @@ import Factory
 final class DetailViewModel: ObservableObject, Sendable {
     @Published private(set) var photo: Photo
 
-    @Injected(\UseCasesContainer.checkIfPhotoIsPersisted) private var checkIfPhotoIsPersisted
-    @Injected(\UseCasesContainer.getPersistedPhotos) private var getPersistedPhotos
-    @Injected(\UseCasesContainer.savePhoto) private var savePhoto
-    @Injected(\UseCasesContainer.removePersistedPhoto) private var removePersistedPhoto
+    private let checkIfPhotoIsPersisted = resolve(\UseCasesContainer.checkIfPhotoIsPersisted)
+    private let getPersistedPhotos = resolve(\UseCasesContainer.getPersistedPhotos)
+    private let savePhoto = resolve(\UseCasesContainer.savePhoto)
+    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
     private var cancellables = Set<AnyCancellable>()
 
     init(photo: Photo) {

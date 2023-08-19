@@ -34,7 +34,6 @@ public final class GetAllOrderedRovers: GetAllOrderedRoversUseCase {
         async let spiritInfos = getRoverInformations(for: .spirit)
         async let perseveranceInfos = getRoverInformations(for: .perseverance)
 
-
         return try await [curiosityInfos, opportunityInfos, spiritInfos, perseveranceInfos].sorted(using: KeyPathComparator(\.name))
     }
 }
