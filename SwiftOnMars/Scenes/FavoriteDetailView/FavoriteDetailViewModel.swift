@@ -1,5 +1,5 @@
 //
-//  
+//
 //  FavoriteDetailViewModel.swift
 //  SwiftOnMars
 //
@@ -14,8 +14,8 @@ import NasaModels
 final class FavoriteDetailViewModel: ObservableObject, Sendable {
     @Published private(set) var photo: Photo
 
-    var bool: Bool? = true
-    
+    var bool = true
+
     init(photo: Photo) {
         self.photo = photo
         setUp()
@@ -23,7 +23,5 @@ final class FavoriteDetailViewModel: ObservableObject, Sendable {
 }
 
 private extension FavoriteDetailViewModel {
-    func setUp() {
-
-    }
+    func setUp() {}
 }

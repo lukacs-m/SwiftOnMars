@@ -1,6 +1,6 @@
 //
 //  SearchSelection.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 29/04/2023.
 //

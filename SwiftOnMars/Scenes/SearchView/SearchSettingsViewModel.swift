@@ -1,5 +1,5 @@
 //
-//  
+//
 //  SearchSettingsViewModel.swift
 //  SwiftOnMars
 //
@@ -8,9 +8,9 @@
 //
 
 import Combine
+import Factory
 import Foundation
 import NasaModels
-import Factory
 
 @MainActor
 final class SearchSettingsViewModel: ObservableObject, Sendable {
@@ -32,19 +32,19 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     private var cancellables = Set<AnyCancellable>()
 
     var maxSol: Double {
-         guard let sol = selectedMissionManifest?.maxSol else {
-             return 0
-         }
+        guard let sol = selectedMissionManifest?.maxSol else {
+            return 0
+        }
         return sol.toDouble
-     }
+    }
 
-     var cameras: [String] {
-         guard var cameras = selectedMissionManifest?.photos.first(where: filterPhoto)?.cameras else {
-             return [Self.allCameraKey]
-         }
-         cameras.append(Self.allCameraKey)
-         return cameras.sorted()
-     }
+    var cameras: [String] {
+        guard var cameras = selectedMissionManifest?.photos.first(where: filterPhoto)?.cameras else {
+            return [Self.allCameraKey]
+        }
+        cameras.append(Self.allCameraKey)
+        return cameras.sorted()
+    }
 
     init() {
         selectedCamera = Self.allCameraKey
@@ -64,7 +64,7 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
         guard let selectedMissionManifest else {
             return false
         }
-       return selectedMissionManifest == manifest
+        return selectedMissionManifest == manifest
     }
 
     func isCameraSelected(with camera: String) -> Bool {
@@ -84,6 +84,7 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
 }
 
 // MARK: - Utils
+
 private extension SearchSettingsViewModel {
     func setUp() {
         task?.cancel()
@@ -125,8 +126,7 @@ private extension SearchSettingsViewModel {
                                 sol: sol.toInt,
                                 earthDate: date,
                                 searchBySol: searchBySol,
-                                camera: selectedCamera == Self.allCameraKey ? nil : selectedCamera
-        )
+                                camera: selectedCamera == Self.allCameraKey ? nil : selectedCamera)
     }
 
     func setCurrentSearchParams() {

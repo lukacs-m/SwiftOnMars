@@ -1,6 +1,6 @@
 //
 //  RoverManifest.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 29/04/2023.
 //
@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - RoverManifest
+
 public struct RoverManifest: Codable, Sendable {
     public let photoManifest: PhotoManifest
 
@@ -17,6 +18,7 @@ public struct RoverManifest: Codable, Sendable {
 }
 
 // MARK: - PhotoManifest
+
 public struct PhotoManifest: Codable, Sendable, Identifiable, Equatable, Hashable {
     public var id: String {
         name
@@ -41,11 +43,12 @@ public struct PhotoManifest: Codable, Sendable, Identifiable, Equatable, Hashabl
 }
 
 // MARK: - Photo
+
 public struct PhotoInformation: Codable, Sendable, Identifiable, Equatable, Hashable {
     public var id: Int {
         sol
     }
-    
+
     public let sol: Int
     public let earthDate: String
     public let totalPhotos: Int

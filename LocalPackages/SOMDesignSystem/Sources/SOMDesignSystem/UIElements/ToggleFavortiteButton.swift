@@ -1,6 +1,6 @@
 //
 //  ToggleFavortiteButton.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 26/05/2023.
 //

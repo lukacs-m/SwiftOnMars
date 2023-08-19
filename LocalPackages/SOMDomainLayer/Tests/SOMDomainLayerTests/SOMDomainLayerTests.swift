@@ -1,5 +1,5 @@
-import XCTest
 @testable import SOMDomainLayer
+import XCTest
 
 final class SOMDomainLayerTests: XCTestCase {
     func testExample() throws {

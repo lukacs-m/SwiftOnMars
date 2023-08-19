@@ -2,25 +2,27 @@
 // DO NOT EDIT
 // swiftlint:disable all
 
-import UIKit
-import Combine
-import NasaModels
-import DomainInterfaces
 @testable import SOMDomainLayer
+import Combine
+import DomainInterfaces
+import NasaModels
+import UIKit
 
 final class SearchServiceMock: SearchService {
     var currentSearchParameters: CurrentValueSubject<SearchParameters, Never> {
-        get { return underlyingCurrentSearchParameters }
+        get { underlyingCurrentSearchParameters }
         set(value) { underlyingCurrentSearchParameters = value }
     }
+
     var underlyingCurrentSearchParameters: CurrentValueSubject<SearchParameters, Never>!
 
-    //MARK: - setSearchParameters
+    // MARK: - setSearchParameters
 
     var setSearchParametersWithCallsCount = 0
     var setSearchParametersWithCalled: Bool {
-        return setSearchParametersWithCallsCount > 0
+        setSearchParametersWithCallsCount > 0
     }
+
     var setSearchParametersWithReceivedParams: SearchParameters?
     var setSearchParametersWithReceivedInvocations: [SearchParameters] = []
     var setSearchParametersWithClosure: ((SearchParameters) -> Void)?
@@ -31,5 +33,4 @@ final class SearchServiceMock: SearchService {
         setSearchParametersWithReceivedInvocations.append(params)
         setSearchParametersWithClosure?(params)
     }
-
 }

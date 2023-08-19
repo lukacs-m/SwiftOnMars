@@ -1,5 +1,5 @@
 //
-//  
+//
 //  MainTabViewModel.swift
 //  SwiftOnMars
 //
@@ -7,8 +7,8 @@
 //
 //
 
-import Foundation
 import Factory
+import Foundation
 
 @MainActor
 final class MainTabViewModel: ObservableObject, Sendable {

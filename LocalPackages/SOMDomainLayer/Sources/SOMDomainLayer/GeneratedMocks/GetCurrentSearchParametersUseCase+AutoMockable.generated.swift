@@ -2,39 +2,39 @@
 // DO NOT EDIT
 // swiftlint:disable all
 
-import UIKit
 import Combine
-import NasaModels
 import DomainInterfaces
+import NasaModels
+import UIKit
 
 public final class GetCurrentSearchParametersUseCaseMock: @unchecked Sendable, GetCurrentSearchParametersUseCase {
+    // MARK: - execute
 
-    //MARK: - execute
-
-   public var executeCallsCount = 0
-   public var executeCalled: Bool {
-        return executeCallsCount > 0
+    public var executeCallsCount = 0
+    public var executeCalled: Bool {
+        executeCallsCount > 0
     }
+
     public var executeReturnValue: SearchParameters!
     public var executeClosure: (() -> SearchParameters)?
 
-   public func execute() -> SearchParameters {
+    public func execute() -> SearchParameters {
         executeCallsCount += 1
-        return executeClosure.map({ $0() }) ?? executeReturnValue
+        return executeClosure.map { $0() } ?? executeReturnValue
     }
 
-    //MARK: - executePublisher
+    // MARK: - executePublisher
 
-   public var executePublisherCallsCount = 0
-   public var executePublisherCalled: Bool {
-        return executePublisherCallsCount > 0
+    public var executePublisherCallsCount = 0
+    public var executePublisherCalled: Bool {
+        executePublisherCallsCount > 0
     }
+
     public var executePublisherReturnValue: CurrentValueSubject<SearchParameters, Never>!
     public var executePublisherClosure: (() -> CurrentValueSubject<SearchParameters, Never>)?
 
-   public func executePublisher() -> CurrentValueSubject<SearchParameters, Never> {
+    public func executePublisher() -> CurrentValueSubject<SearchParameters, Never> {
         executePublisherCallsCount += 1
-        return executePublisherClosure.map({ $0() }) ?? executePublisherReturnValue
+        return executePublisherClosure.map { $0() } ?? executePublisherReturnValue
     }
-
 }

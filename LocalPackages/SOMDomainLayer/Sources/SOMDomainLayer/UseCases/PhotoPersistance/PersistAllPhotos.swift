@@ -1,7 +1,7 @@
 //
-//  
+//
 //  PersistAllPhotos.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 11/05/2023.
 //
@@ -9,9 +9,9 @@
 
 import DomainInterfaces
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol PersistAllPhotosUseCase: Sendable {
-   func execute() async throws
+    func execute() async throws
 }
 
 public extension PersistAllPhotosUseCase {

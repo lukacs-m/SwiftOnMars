@@ -1,5 +1,5 @@
 //
-//  
+//
 //  DetailViewModel.swift
 //  SwiftOnMars
 //
@@ -8,9 +8,9 @@
 //
 
 import Combine
+import Factory
 import Foundation
 import NasaModels
-import Factory
 
 @MainActor
 final class DetailViewModel: ObservableObject, Sendable {

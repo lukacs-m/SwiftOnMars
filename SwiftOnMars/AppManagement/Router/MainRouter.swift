@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import SwiftUI
 import NasaModels
+import SwiftUI
 
 public enum RouterDestination: Hashable {
     case photoDetail(photo: Photo)
@@ -17,12 +17,12 @@ public enum RouterDestination: Hashable {
 public enum SheetDestination: Identifiable {
     case searchSettings
 
-  public var id: String {
-    switch self {
-    case .searchSettings:
-        return "searchSettings"
+    public var id: String {
+        switch self {
+        case .searchSettings:
+            return "searchSettings"
+        }
     }
-  }
 }
 
 @MainActor

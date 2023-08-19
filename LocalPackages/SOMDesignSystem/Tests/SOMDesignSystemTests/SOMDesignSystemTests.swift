@@ -1,5 +1,5 @@
-import XCTest
 @testable import SOMDesignSystem
+import XCTest
 
 final class SOMDesignSystemTests: XCTestCase {
     func testExample() throws {

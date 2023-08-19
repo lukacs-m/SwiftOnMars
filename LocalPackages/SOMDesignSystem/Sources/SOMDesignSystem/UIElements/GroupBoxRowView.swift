@@ -1,6 +1,6 @@
 //
 //  GroupBoxRowView.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 26/05/2023.
 //
@@ -27,9 +27,9 @@ public struct GroupBoxRowView: View {
             HStack {
                 Text(name).foregroundColor(Color.gray)
                 Spacer()
-                if (content != nil) {
+                if content != nil {
                     Text(content!)
-                } else if let linkLabel, let linkDestination, let url = URL(string: "https://\(linkDestination)")  {
+                } else if let linkLabel, let linkDestination, let url = URL(string: "https://\(linkDestination)") {
                     Link(linkLabel, destination: url)
                     Image(systemName: "arrow.up.right.square").foregroundColor(.pink)
                 } else {

@@ -1,16 +1,16 @@
 //
-//  
+//
 //  SaveNewSearchParams.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 29/04/2023.
 //
 //
 
-import NasaModels
 import DomainInterfaces
+import NasaModels
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol SaveNewSearchParamsUseCase: Sendable {
     func execute(with params: SearchParameters)
 }

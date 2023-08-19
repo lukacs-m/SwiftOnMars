@@ -1,6 +1,6 @@
 //
 //  DetailPhotoListCellView.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 22/05/2023.
 //
@@ -15,16 +15,16 @@ public struct DetailPhotoListCellView: View {
 
     public init(with photo: Photo, namespace: Namespace.ID) {
         self.photo = photo
-        self.animationNamespace = namespace
+        animationNamespace = namespace
     }
 
     public var body: some View {
         HStack {
             lazyImage
-                .matchedGeometryEffect(id: "test\(photo.id)",  in: animationNamespace)
+                .matchedGeometryEffect(id: "test\(photo.id)", in: animationNamespace)
                 .scaledToFill()
                 .frame(width: 75, height: 75)
-                .mask(RoundedRectangle(cornerRadius: 10, style:.continuous)
+                .mask(RoundedRectangle(cornerRadius: 10, style: .continuous)
                     .matchedGeometryEffect(id: "mask\(photo.id)", in: animationNamespace))
             Spacer()
 
@@ -48,15 +48,14 @@ public struct DetailPhotoListCellView: View {
                     .foregroundStyle(.secondary)
                     .matchedGeometryEffect(id: "sol\(photo.id)", in: animationNamespace)
                     .frame(maxWidth: .infinity, alignment: .leading)
-
             }
-            .matchedGeometryEffect(id: "infos\(photo.id)",  in: animationNamespace)
+            .matchedGeometryEffect(id: "infos\(photo.id)", in: animationNamespace)
 
             Spacer()
             Image(imageName: photo.rover.name)
                 .resizable()
                 .cornerRadius(17.5)
-                .matchedGeometryEffect(id: "roverImage\(photo.id)",  in: animationNamespace)
+                .matchedGeometryEffect(id: "roverImage\(photo.id)", in: animationNamespace)
                 .frame(width: 50, height: 50)
                 .aspectRatio(contentMode: .fill)
         }
@@ -64,7 +63,6 @@ public struct DetailPhotoListCellView: View {
         .background {
             Asset.Colors.Backgrounds.lightestGray.color
                 .matchedGeometryEffect(id: "background\(photo.id)", in: animationNamespace)
-
         }
     }
 
@@ -102,7 +100,8 @@ public struct AnimatableSystemFontModifier: ViewModifier, Animatable {
 }
 
 public extension View {
-     func animatableSystemFont(size: Double, weight: Font.Weight = .regular, design: Font.Design = .default) -> some View {
-        self.modifier(AnimatableSystemFontModifier(size: size, weight: weight, design: design))
+    func animatableSystemFont(size: Double, weight: Font.Weight = .regular,
+                              design: Font.Design = .default) -> some View {
+        modifier(AnimatableSystemFontModifier(size: size, weight: weight, design: design))
     }
 }

@@ -1,5 +1,5 @@
 //
-//  
+//
 //  FavoriteView.swift
 //  SwiftOnMars
 //
@@ -7,10 +7,10 @@
 //
 //
 
-import NasaModels
-import SwiftUI
-import SOMDesignSystem
 import Factory
+import NasaModels
+import SOMDesignSystem
+import SwiftUI
 
 struct FavoriteView: View {
     @StateObject private var viewModel = FavoriteViewModel()
@@ -74,7 +74,7 @@ private extension FavoriteView {
                         } label: {
                             DetailPhotoListCellView(with: photo,
                                                     namespace: animationSpace)
-                            .cornerRadius(10)
+                                .cornerRadius(10)
                         }
                         .buttonStyle(.plain)
                         .listRowSeparator(.hidden)
@@ -93,7 +93,6 @@ private extension FavoriteView {
         toolbarMenu.opacity(viewModel.selectedPhoto != nil ? 0 : 1)
     }
 }
-
 
 private extension FavoriteView {
     var toolbarMenu: some View {

@@ -1,6 +1,6 @@
 //
 //  SOMPersistentDataService.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 12/04/2023.
 //
@@ -35,7 +35,6 @@ public actor SOMPersistentDataService<Value: Codable & Sendable & Identifiable>:
 
     public init(storageManager: SimpleSaving = SimplySaveClient()) {
         self.storageManager = storageManager
-
     }
 }
 

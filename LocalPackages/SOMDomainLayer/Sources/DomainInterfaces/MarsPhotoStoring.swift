@@ -1,15 +1,15 @@
 //
 //  MarsPhotoStoring.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 07/05/2023.
 //
 
 import Combine
-import NasaModels
 import Foundation
+import NasaModels
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol MarsPhotoStoring: Sendable {
     var getPersistedPhotos: CurrentValueSubject<[Photo], Never> { get }
 

@@ -1,9 +1,8 @@
-import XCTest
-import SimpleNetwork
 @testable import SOMDataLayer
+import SimpleNetwork
+import XCTest
 
 final class SOMDataLayerTests: XCTestCase {
-
     func testExample() async throws {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct
@@ -16,7 +15,6 @@ final class SOMDataLayerTests: XCTestCase {
         let photos2 = try await sut.getPhotosByDate(for: .curiosity, at: "2019-6-3", for: nil, and: 1)
         XCTAssertEqual(photos2.count, 25)
     }
-
 
     func testExample2() async throws {
         let sut = MarsMissionDataRepository()

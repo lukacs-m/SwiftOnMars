@@ -1,6 +1,6 @@
 //
 //  GroupBoxLabelView.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 26/05/2023.
 //
@@ -21,11 +21,10 @@ public struct GroupBoxLabelView: View {
             Text(labelText.uppercased())
                 .fontWeight(.bold)
             Spacer()
-            Image(imageName:labelImage)
+            Image(imageName: labelImage)
                 .resizable()
                 .frame(width: 25, height: 25)
                 .scaledToFit()
-
         }
     }
 }

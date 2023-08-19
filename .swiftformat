@@ -1,7 +1,6 @@
 # https://github.com/nicklockwood/SwiftFormat/blob/master/Rules.md
 
---exclude SwiftOnMarsTests/**
---exclude Package.swift
+--exclude Package.swift,
 
 # format options
 
@@ -13,13 +12,12 @@
 --closingparen same-line
 --commas inline
 --comments indent
---decimalgrouping 3,5
+--decimalgrouping 3,4
 --exponentcase lowercase
 --exponentgrouping disabled
---fractiongrouping disabled
+# --fractiongrouping disabled
 --ifdef no-indent
 --importgrouping testable-top
---operatorfunc no-space
 --nospaceoperators ..<, ...
 --selfrequired validate
 --stripunusedargs closure-only
@@ -31,28 +29,12 @@
 --maxwidth 130
 --wrapcollections before-first
 --ranges no-space
-#--trimwhitespace nonblank-lines
-#--xcodeindentation enabled
-# --funcattributes preserve
-# --typeattributes prev-line
-# --varattributes same-line
-# --self init-only
-
 
 # rules
 
---disable 		    \
-andOperator,                 \
-wrapMultilineStatementBraces,\
+--disable wrapMultilineStatementBraces
 
 
---enable isEmpty, 	\
-anyObjectProtocol,	\
-redundantInit,               \
-redundantNilInit,            \
-semicolons,              	\
-spaceAroundBraces,           \
-spaceAroundComments,         \
-spaceAroundOperators,        \
-spaceInsideBraces,           \
-spaceInsideComments,         \
+--enable isEmpty,\
+blankLineAfterImports,\
+sortedSwitchCases,\

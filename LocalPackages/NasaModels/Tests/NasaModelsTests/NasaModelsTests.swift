@@ -1,5 +1,5 @@
-import XCTest
 @testable import NasaModels
+import XCTest
 
 final class NasaModelsTests: XCTestCase {
     func testExample() throws {

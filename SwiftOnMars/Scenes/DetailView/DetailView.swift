@@ -1,5 +1,5 @@
 //
-//  
+//
 //  DetailView.swift
 //  SwiftOnMars
 //
@@ -7,11 +7,11 @@
 //
 //
 
-import SwiftUI
-import NasaModels
-import SOMDesignSystem
 import Factory
+import NasaModels
 import SimpleToast
+import SOMDesignSystem
+import SwiftUI
 
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
@@ -19,7 +19,7 @@ struct DetailView: View {
     @InjectedObject(\RouterContainer.mainRouter) private var router
 
     var body: some View {
-        VStack() {
+        VStack {
             topImageView
             informationScrollview
             Spacer()
@@ -28,9 +28,13 @@ struct DetailView: View {
         .navigationTitle("Photo " + String(viewModel.photo.id))
         .navigationBarTitleDisplayMode(.inline)
         .onChange(of: viewModel.photoIsPersisted) { value in
-            let title = value ? "The photo was added to your favorites" : "The photo was just removed from your favorites"
+            let title = value ? "The photo was added to your favorites" :
+                "The photo was just removed from your favorites"
             let type: ToastType = value ? .complete(.green) : .error(.orange)
-            toastToDisplay = SimpleToast(displayMode: .bottom(.pop), type: type, title: title, style: ToastStyle(backgroundColor: .gray))
+            toastToDisplay = SimpleToast(displayMode: .bottom(.pop),
+                                         type: type,
+                                         title: title,
+                                         style: ToastStyle(backgroundColor: .gray))
         }
         .toast(toast: $toastToDisplay)
     }
@@ -39,7 +43,7 @@ struct DetailView: View {
 private extension DetailView {
     var topImageView: some View {
         ZStack(alignment: .bottom) {
-            LazyImage(url:viewModel.photo.imageUrl, scaleMode: .fill)
+            LazyImage(url: viewModel.photo.imageUrl, scaleMode: .fill)
                 .frame(width: UIScreen.main.bounds.width)
                 .clipped()
 
@@ -48,7 +52,6 @@ private extension DetailView {
                     Spacer()
                     ToggleFavortiteButton(with: .favDefault(isPersisted: viewModel.photoIsPersisted),
                                           action: viewModel.togglePhotoPersistantState)
-
                 }
                 Spacer()
             }
@@ -80,9 +83,7 @@ private extension DetailView {
 
 private extension DetailView {
     var cameraInfoBox: some View {
-        GroupBox(
-            label: GroupBoxLabelView(labelText: "Camera", labelImage: "info.circle")
-        ){
+        GroupBox(label: GroupBoxLabelView(labelText: "Camera", labelImage: "info.circle")) {
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.camera.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.camera.name)
             GroupBoxRowView(name: "Description", content: viewModel.photo.camera.fullName)
@@ -92,10 +93,8 @@ private extension DetailView {
 
 private extension DetailView {
     var roverInfoBox: some View {
-        GroupBox(
-            label: GroupBoxLabelView(labelText: "Rover",
-                                     labelImage: viewModel.photo.rover.name)
-        ){
+        GroupBox(label: GroupBoxLabelView(labelText: "Rover",
+                                          labelImage: viewModel.photo.rover.name)) {
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.rover.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.rover.name)
             GroupBoxRowView(name: "Landing date", content: viewModel.photo.rover.landingDate)

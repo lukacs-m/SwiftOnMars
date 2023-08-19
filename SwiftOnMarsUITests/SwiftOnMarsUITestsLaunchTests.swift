@@ -8,7 +8,6 @@
 import XCTest
 
 final class SwiftOnMarsUITestsLaunchTests: XCTestCase {
-
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
     }

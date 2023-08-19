@@ -1,5 +1,5 @@
 //
-//  
+//
 //  MainTabViewView.swift
 //  SwiftOnMars
 //
@@ -8,8 +8,8 @@
 //
 
 import Factory
-import SwiftUI
 import SOMDesignSystem
+import SwiftUI
 
 struct MainTabView: View {
     @Environment(\.scenePhase) private var scenePhase
@@ -34,16 +34,15 @@ struct MainTabViewView_Previews: PreviewProvider {
     }
 }
 
-
-private  extension MainTabView {
+private extension MainTabView {
     var tabView: some View {
         TabView(selection: $selectedTabId) {
-                createTabItem(for: .missions)
-                createTabItem(for: .favorites)
+            createTabItem(for: .missions)
+            createTabItem(for: .favorites)
         }
         .onAppear {
-                let appearance = UITabBarAppearance()
-                UITabBar.appearance().scrollEdgeAppearance = appearance
+            let appearance = UITabBarAppearance()
+            UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         .tint(Asset.Colors.Main.primaryDarkest.color)
     }
@@ -52,11 +51,11 @@ private  extension MainTabView {
 private extension MainTabView {
     @ViewBuilder
     func createTabItem(for destination: MainTabDestination) -> some View {
-            tabRouter.navigate(to: destination)
-        .tabItem {
-            Label(destination.name, systemImage: destination.icon)
-        }
-        .tag(destination.id)
-        .accessibilityLabel(destination.name)
+        tabRouter.navigate(to: destination)
+            .tabItem {
+                Label(destination.name, systemImage: destination.icon)
+            }
+            .tag(destination.id)
+            .accessibilityLabel(destination.name)
     }
 }

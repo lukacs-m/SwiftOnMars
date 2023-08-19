@@ -30,7 +30,6 @@ extension UseCasesContainer {
     }
 }
 
-
 // MARK: - Rover Informations usecase
 
 extension UseCasesContainer {

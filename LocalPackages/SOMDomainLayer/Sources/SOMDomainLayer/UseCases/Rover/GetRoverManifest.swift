@@ -1,6 +1,6 @@
 //
 //  GetRoverManifest.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 29/04/2023.
 //
@@ -8,7 +8,7 @@
 import DomainInterfaces
 import NasaModels
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol GetRoverManifestUseCase: Sendable {
     func execute(for roverId: RoverIdentification) async throws -> RoverManifest
 }

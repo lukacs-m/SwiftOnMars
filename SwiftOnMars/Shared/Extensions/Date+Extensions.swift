@@ -11,6 +11,6 @@ extension Date {
     var toEarthDateDescription: String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-dd"
-        return  dateFormatter.string(from: self)
+        return dateFormatter.string(from: self)
     }
 }

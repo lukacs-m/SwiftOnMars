@@ -1,5 +1,5 @@
 //
-//  
+//
 //  MissionView.swift
 //  SwiftOnMars
 //
@@ -7,10 +7,10 @@
 //
 //
 
-import SwiftUI
 import Factory
 import NasaModels
 import SOMDesignSystem
+import SwiftUI
 
 struct MissionView: View {
     @StateObject private var viewModel = MissionViewModel()
@@ -45,7 +45,8 @@ private extension MissionView {
             ForEach(viewModel.photos) { photo in
                 PhotoListCellView(with: photo,
                                   and: .init(iconName: "heart.circle",
-                                             color: viewModel.isPersisted(for: photo) ? Asset.Colors.SecondaryColors.secondary.color : .black)) {
+                                             color: viewModel.isPersisted(for: photo) ? Asset.Colors
+                                                 .SecondaryColors.secondary.color : .black)) {
                     router.navigate(to: .photoDetail(photo: photo))
                 } buttonTwoAction: {
                     viewModel.togglePersistantState(for: photo)
@@ -75,7 +76,6 @@ private extension MissionView {
     }
 }
 
-
 private extension MissionView {
     @ViewBuilder
     var searchInfosView: some View {
@@ -89,10 +89,11 @@ private extension MissionView {
                     Divider()
                         .overlay(Color.white)
                         .frame(width: 100)
-                    
+
                     sectionBuilder(title: "Rover:", text: viewModel.currentRover)
                     sectionBuilder(title: viewModel.isSolSearch ? "Sol:" : "Date:", text: viewModel.searchInfos)
-                    sectionBuilder(title: "Camera:", text: "\(viewModel.currentCamera != nil ? viewModel.currentCamera ?? "": "all")")
+                    sectionBuilder(title: "Camera:",
+                                   text: "\(viewModel.currentCamera != nil ? viewModel.currentCamera ?? "" : "all")")
                 }
             } else {
                 Image(systemName: "info.circle")

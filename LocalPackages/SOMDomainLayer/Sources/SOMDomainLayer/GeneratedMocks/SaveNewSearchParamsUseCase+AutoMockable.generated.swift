@@ -2,28 +2,27 @@
 // DO NOT EDIT
 // swiftlint:disable all
 
-import UIKit
 import Combine
-import NasaModels
 import DomainInterfaces
+import NasaModels
+import UIKit
 
 public final class SaveNewSearchParamsUseCaseMock: @unchecked Sendable, SaveNewSearchParamsUseCase {
+    // MARK: - execute
 
-    //MARK: - execute
-
-   public var executeWithCallsCount = 0
-   public var executeWithCalled: Bool {
-        return executeWithCallsCount > 0
+    public var executeWithCallsCount = 0
+    public var executeWithCalled: Bool {
+        executeWithCallsCount > 0
     }
+
     public var executeWithReceivedParams: SearchParameters?
     public var executeWithReceivedInvocations: [SearchParameters] = []
     public var executeWithClosure: ((SearchParameters) -> Void)?
 
-   public func execute(with params: SearchParameters) {
+    public func execute(with params: SearchParameters) {
         executeWithCallsCount += 1
         executeWithReceivedParams = params
         executeWithReceivedInvocations.append(params)
         executeWithClosure?(params)
     }
-
 }

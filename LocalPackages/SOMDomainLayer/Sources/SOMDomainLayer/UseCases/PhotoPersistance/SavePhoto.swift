@@ -1,7 +1,7 @@
 //
-//  
+//
 //  SavePhoto.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 07/05/2023.
 //
@@ -10,7 +10,7 @@
 import DomainInterfaces
 import NasaModels
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol SavePhotoUseCase: Sendable {
     func execute(with photo: Photo) async
 }
@@ -27,7 +27,7 @@ public final class SavePhoto: SavePhotoUseCase {
     public init(persistanceStorage: any MarsPhotoStoring) {
         self.persistanceStorage = persistanceStorage
     }
-    
+
     public func execute(with photo: Photo) async {
         await persistanceStorage.save(photo)
     }

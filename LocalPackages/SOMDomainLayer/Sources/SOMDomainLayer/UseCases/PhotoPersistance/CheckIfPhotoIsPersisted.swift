@@ -1,17 +1,17 @@
 //
-//  
+//
 //  CheckIfPhotoIsPersisted.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 07/05/2023.
 //
 
 import Combine
 import DomainInterfaces
-import NasaModels
 import Foundation
+import NasaModels
 
-//sourcery: AutoMockable
+// sourcery: AutoMockable
 public protocol CheckIfPhotoIsPersistedUseCase: Sendable {
     func execute(for photo: Photo) -> Bool
 }
@@ -40,7 +40,7 @@ public final class CheckIfPhotoIsPersisted: CheckIfPhotoIsPersistedUseCase, @unc
         cancellable?.cancel()
         cancellable = nil
     }
-    
+
     public func execute(for photo: Photo) -> Bool {
         persistedPhotos.contains { $0.id == photo.id }
     }

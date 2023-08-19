@@ -1,6 +1,6 @@
 //
 //  DelayAppearanceModifier.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 22/05/2023.
 //
@@ -16,7 +16,7 @@ public struct DelayAppearanceModifier: ViewModifier {
         render(content)
             .onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                    self.shouldDisplay = true
+                    shouldDisplay = true
                 }
             }
     }

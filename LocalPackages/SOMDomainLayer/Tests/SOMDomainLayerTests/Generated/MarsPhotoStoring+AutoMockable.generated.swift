@@ -2,25 +2,27 @@
 // DO NOT EDIT
 // swiftlint:disable all
 
-import UIKit
-import Combine
-import NasaModels
-import DomainInterfaces
 @testable import SOMDomainLayer
+import Combine
+import DomainInterfaces
+import NasaModels
+import UIKit
 
 final class MarsPhotoStoringMock: MarsPhotoStoring {
     var getPersistedPhotos: CurrentValueSubject<[Photo], Never> {
-        get { return underlyingGetPersistedPhotos }
+        get { underlyingGetPersistedPhotos }
         set(value) { underlyingGetPersistedPhotos = value }
     }
+
     var underlyingGetPersistedPhotos: CurrentValueSubject<[Photo], Never>!
 
-    //MARK: - save
+    // MARK: - save
 
     var saveCallsCount = 0
     var saveCalled: Bool {
-        return saveCallsCount > 0
+        saveCallsCount > 0
     }
+
     var saveReceivedPhoto: Photo?
     var saveReceivedInvocations: [Photo] = []
     var saveClosure: ((Photo) -> Void)?
@@ -32,12 +34,13 @@ final class MarsPhotoStoringMock: MarsPhotoStoring {
         saveClosure?(photo)
     }
 
-    //MARK: - remove
+    // MARK: - remove
 
     var removeCallsCount = 0
     var removeCalled: Bool {
-        return removeCallsCount > 0
+        removeCallsCount > 0
     }
+
     var removeReceivedPhoto: Photo?
     var removeReceivedInvocations: [Photo] = []
     var removeClosure: ((Photo) -> Void)?
@@ -49,13 +52,14 @@ final class MarsPhotoStoringMock: MarsPhotoStoring {
         removeClosure?(photo)
     }
 
-    //MARK: - persist
+    // MARK: - persist
 
     var persistThrowableError: Error?
     var persistCallsCount = 0
     var persistCalled: Bool {
-        return persistCallsCount > 0
+        persistCallsCount > 0
     }
+
     var persistClosure: (() throws -> Void)?
 
     func persist() throws {
@@ -66,13 +70,14 @@ final class MarsPhotoStoringMock: MarsPhotoStoring {
         try persistClosure?()
     }
 
-    //MARK: - clear
+    // MARK: - clear
 
     var clearThrowableError: Error?
     var clearCallsCount = 0
     var clearCalled: Bool {
-        return clearCallsCount > 0
+        clearCallsCount > 0
     }
+
     var clearClosure: (() throws -> Void)?
 
     func clear() throws {
@@ -82,5 +87,4 @@ final class MarsPhotoStoringMock: MarsPhotoStoring {
         clearCallsCount += 1
         try clearClosure?()
     }
-
 }

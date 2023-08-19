@@ -1,5 +1,5 @@
 //
-//  
+//
 //  FavoriteViewModel.swift
 //  SwiftOnMars
 //
@@ -7,9 +7,9 @@
 //
 //
 
-import Foundation
-import Factory
 import Combine
+import Factory
+import Foundation
 import NasaModels
 
 @MainActor
@@ -52,7 +52,7 @@ private extension FavoriteViewModel {
     func setUp() {
         $currentFilter
             .flatMap { [weak self] fitler in
-                return self?.filterPersistedPhotos(for: fitler) ?? Just([:]).eraseToAnyPublisher()
+                self?.filterPersistedPhotos(for: fitler) ?? Just([:]).eraseToAnyPublisher()
             }
             .receive(on: DispatchQueue.main)
             .sink { [weak self] photos in

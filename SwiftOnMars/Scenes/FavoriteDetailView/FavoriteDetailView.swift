@@ -1,5 +1,5 @@
 //
-//  
+//
 //  FavoriteDetailView.swift
 //  SwiftOnMars
 //
@@ -7,9 +7,9 @@
 //
 //
 
-import SwiftUI
 import NasaModels
 import SOMDesignSystem
+import SwiftUI
 
 struct FavoriteDetailView: View {
     @StateObject var viewModel: FavoriteDetailViewModel
@@ -29,20 +29,20 @@ struct FavoriteDetailView: View {
                         .foregroundColor(Asset.Colors.Backgrounds.darkGray.color)
                         .frame(width: 45, height: 3)
                     Spacer()
-
                 }
                 .opacity(showInfos ? 1 : 0)
                 .padding(.bottom)
                 LazyImage(url: viewModel.photo.imageUrl, scaleMode: .fit)
                     .matchedGeometryEffect(id: "test\(viewModel.photo.id)", in: animationNamespace)
                     .frame(maxWidth: .infinity)
-                    .mask(RoundedRectangle(cornerRadius: 0, style:.continuous)     .matchedGeometryEffect(id: "mask\(viewModel.photo.id)", in: animationNamespace))
+                    .mask(RoundedRectangle(cornerRadius: 0, style: .continuous)
+                        .matchedGeometryEffect(id: "mask\(viewModel.photo.id)",
+                                               in: animationNamespace))
 
-                VStack() {
-
+                VStack {
                     VStack(alignment: .leading, spacing: 8) {
                         Text(verbatim: "Photo \(viewModel.photo.id)")
-                            .animatableSystemFont(size: 22 , weight: .bold)
+                            .animatableSystemFont(size: 22, weight: .bold)
                             .minimumScaleFactor(0.2)
                             .matchedGeometryEffect(id: "infostitle\(viewModel.photo.id)", in: animationNamespace)
 
@@ -53,18 +53,16 @@ struct FavoriteDetailView: View {
                             .matchedGeometryEffect(id: "camera\(viewModel.photo.id)", in: animationNamespace)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }
-                    .matchedGeometryEffect(id: "infos\(viewModel.photo.id)",  in: animationNamespace)
+                    .matchedGeometryEffect(id: "infos\(viewModel.photo.id)", in: animationNamespace)
                     .padding(10)
 
                     HStack {
                         Image(imageName: viewModel.photo.rover.name)
                             .resizable()
                             .cornerRadius(5)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 5)
-                                    .stroke(.black, lineWidth: 2)
-                            )
-                            .matchedGeometryEffect(id: "roverImage\(viewModel.photo.id)",  in: animationNamespace)
+                            .overlay(RoundedRectangle(cornerRadius: 5)
+                                .stroke(.black, lineWidth: 2))
+                            .matchedGeometryEffect(id: "roverImage\(viewModel.photo.id)", in: animationNamespace)
                             .frame(width: 150, height: 150)
                             .aspectRatio(contentMode: .fit)
                         //
@@ -94,29 +92,26 @@ struct FavoriteDetailView: View {
         .offset(offset)
         .offset(y: offset.height * -0.7)
         .scaleEffect(scale)
-        .gesture(
-            DragGesture()
-                .onChanged { gesture in
-                    offset = gesture.translation
-                }
-                .onEnded { value in
-                    if value.translation.height > 200 {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-                            showInfos = false
-                        }
+        .gesture(DragGesture()
+            .onChanged { gesture in
+                offset = gesture.translation
+            }
+            .onEnded { value in
+                if value.translation.height > 200 {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                        showInfos = false
+                    }
 
-                        withAnimation(.easeIn(duration: 0.3)) {
-                            offset = .zero
-                            dismiss = true
-                        }
+                    withAnimation(.easeIn(duration: 0.3)) {
+                        offset = .zero
+                        dismiss = true
                     }
-                    else {
-                        withAnimation(.easeInOut(duration: 0.25)) {
-                            offset = .zero
-                        }
+                } else {
+                    withAnimation(.easeInOut(duration: 0.25)) {
+                        offset = .zero
                     }
                 }
-        )
+            })
         .onAppear {
             DispatchQueue.main.asyncAfter(deadline: .now() + animationDuration - 0.3) {
                 withAnimation {
@@ -141,13 +136,18 @@ struct FavoriteDetailView_Previews: PreviewProvider {
         @State var isShoving = false
 
         FavoriteDetailView(viewModel: FavoriteDetailViewModel(photo: Photo.mocked),
-                           animationNamespace: namespace, animationDuration: 4,
+                           animationNamespace: namespace,
+                           animationDuration: 4,
                            dismiss: $isShoving)
     }
 }
 
 struct VisualEffectView: UIViewRepresentable {
     var effect: UIVisualEffect?
+
     func makeUIView(context: UIViewRepresentableContext<Self>) -> UIVisualEffectView { UIVisualEffectView() }
-    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) { uiView.effect = effect }
+
+    func updateUIView(_ uiView: UIVisualEffectView, context: UIViewRepresentableContext<Self>) {
+        uiView.effect = effect
+    }
 }

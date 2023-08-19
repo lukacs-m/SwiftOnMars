@@ -2,28 +2,27 @@
 // DO NOT EDIT
 // swiftlint:disable all
 
-import UIKit
 import Combine
-import NasaModels
 import DomainInterfaces
+import NasaModels
+import UIKit
 
 public final class SavePhotoUseCaseMock: @unchecked Sendable, SavePhotoUseCase {
+    // MARK: - execute
 
-    //MARK: - execute
-
-   public var executeWithCallsCount = 0
-   public var executeWithCalled: Bool {
-        return executeWithCallsCount > 0
+    public var executeWithCallsCount = 0
+    public var executeWithCalled: Bool {
+        executeWithCallsCount > 0
     }
+
     public var executeWithReceivedPhoto: Photo?
     public var executeWithReceivedInvocations: [Photo] = []
     public var executeWithClosure: ((Photo) -> Void)?
 
-   public func execute(with photo: Photo) {
+    public func execute(with photo: Photo) {
         executeWithCallsCount += 1
         executeWithReceivedPhoto = photo
         executeWithReceivedInvocations.append(photo)
         executeWithClosure?(photo)
     }
-
 }

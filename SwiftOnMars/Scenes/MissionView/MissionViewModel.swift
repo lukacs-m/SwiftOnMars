@@ -1,5 +1,5 @@
 //
-//  
+//
 //  MissionViewModel.swift
 //  SwiftOnMars
 //
@@ -8,9 +8,9 @@
 //
 
 import Combine
+import Factory
 import Foundation
 import NasaModels
-import Factory
 
 @MainActor
 final class MissionViewModel: ObservableObject, Sendable {
@@ -34,7 +34,8 @@ final class MissionViewModel: ObservableObject, Sendable {
     }
 
     var searchInfos: String {
-        searchParameters.searchBySol ? "\(searchParameters.sol)" : searchParameters.earthDate?.toEarthDateDescription ?? ""
+        searchParameters.searchBySol ? "\(searchParameters.sol)" : searchParameters.earthDate?
+            .toEarthDateDescription ?? ""
     }
 
     var isSolSearch: Bool {
@@ -78,7 +79,7 @@ final class MissionViewModel: ObservableObject, Sendable {
                 }
                 let newPhotos = try await self.getPhotosForSearchParams(for: self.searchParameters,
                                                                         and: self.currentPage)
-                guard newPhotos.count != 0 else {
+                guard !newPhotos.isEmpty else {
                     self.canLoadMorePages = false
                     return
                 }

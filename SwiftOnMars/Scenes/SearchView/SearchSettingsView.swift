@@ -1,5 +1,5 @@
 //
-//  
+//
 //  SearchSettingsView.swift
 //  SwiftOnMars
 //
@@ -7,9 +7,9 @@
 //
 //
 
+import NasaModels
 import SOMDesignSystem
 import SwiftUI
-import NasaModels
 
 struct SearchSettingsView: View {
     @StateObject private var viewModel = SearchSettingsViewModel()
@@ -21,7 +21,7 @@ struct SearchSettingsView: View {
                 if !viewModel.manifests.isEmpty {
                     mainForm
                 } else {
-                    HStack{
+                    HStack {
                         Spacer()
                     }
                 }
@@ -59,7 +59,6 @@ private extension SearchSettingsView {
 
                 cameraSelectionView
             }
-
         }
         .scrollContentBackground(.hidden)
         .animation(.default, value: viewModel.searchBySol)
@@ -80,7 +79,8 @@ private extension SearchSettingsView {
 private extension SearchSettingsView {
     var toggleSearchAction: some View {
         Section(header: Text("Search by").fontWeight(.bold)) {
-            Toggle("**\(viewModel.searchBySol ? "Mars exploration days" : "Earth date")**", isOn: $viewModel.searchBySol)
+            Toggle("**\(viewModel.searchBySol ? "Mars exploration days" : "Earth date")**",
+                   isOn: $viewModel.searchBySol)
                 .padding(.trailing)
                 .toggleStyle(SwitchToggleStyle(tint: Asset.Colors.SecondaryColors.primaryAlt.color))
         }
@@ -90,7 +90,6 @@ private extension SearchSettingsView {
 private extension SearchSettingsView {
     var roverSelectionView: some View {
         Section(header: Text("Rover selection:").fontWeight(.bold)) {
-
             Picker(selection: $viewModel.selectedMissionManifest, label: EmptyView()) {
                 ForEach(viewModel.manifests, id: \.self) { missionManifest in
                     HStack {
@@ -112,11 +111,9 @@ private extension SearchSettingsView {
     var missionSelectionDayView: some View {
         Section(header: Text("Day since landing:").fontWeight(.bold)) {
             VStack {
-                Slider(
-                    value: $viewModel.sol,
-                    in: 0...viewModel.maxSol,
-                    step: 1
-                ) {
+                Slider(value: $viewModel.sol,
+                       in: 0...viewModel.maxSol,
+                       step: 1) {
                     Text("Sol")
                 } minimumValueLabel: {
                     Text("0")
@@ -138,11 +135,9 @@ private extension SearchSettingsView {
 private extension SearchSettingsView {
     var earthDatePickerView: some View {
         Section(header: Text("Earth Date:").fontWeight(.bold)) {
-            DatePicker(
-                "Selected Date",
-                selection: $viewModel.date,
-                displayedComponents: [.date]
-            )
+            DatePicker("Selected Date",
+                       selection: $viewModel.date,
+                       displayedComponents: [.date])
         }
     }
 }
@@ -150,7 +145,7 @@ private extension SearchSettingsView {
 private extension SearchSettingsView {
     var cameraSelectionView: some View {
         Section(header: Text("Accessible Cameras:").fontWeight(.bold)) {
-            Picker(selection:$viewModel.selectedCamera, label: Text("Selected camera:")) {
+            Picker(selection: $viewModel.selectedCamera, label: Text("Selected camera:")) {
                 ForEach(viewModel.cameras, id: \.self) { camera in
                     Text(camera)
                 }
@@ -166,9 +161,9 @@ private extension SearchSettingsView {
             viewModel.saveParamsAndSearch()
             dismiss()
         } label: {
-                Image(systemName: "magnifyingglass")
-                    .resizable()
-                    .frame(width: 25, height: 25)
+            Image(systemName: "magnifyingglass")
+                .resizable()
+                .frame(width: 25, height: 25)
         }
         .buttonStyle(.actionButtonStyle)
         .padding([.trailing, .bottom])

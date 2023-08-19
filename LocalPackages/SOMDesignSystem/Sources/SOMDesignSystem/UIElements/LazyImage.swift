@@ -1,15 +1,14 @@
 //
 //  LazyImage.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 26/05/2023.
 //
 
-import SwiftUI
 import Kingfisher
+import SwiftUI
 
 public struct LazyImage: View {
-
     public let url: URL?
     public var shouldResize = false
     public var scaleMode: SwiftUI.ContentMode = .fit
@@ -36,9 +35,9 @@ public struct LazyImage: View {
             .backgroundDecode(true)
             .memoryCacheExpiration(cacheLifeTimeDuration)
             .diskCacheExpiration(cacheLifeTimeDuration)
-            .onSuccess({ _ in
+            .onSuccess { _ in
                 scale = scaleMode
-            })
+            }
     }
 
     public var body: some View {
@@ -47,20 +46,20 @@ public struct LazyImage: View {
                 GeometryReader { reader in
                     switch scale {
                     case .fill: lazyImage.setProcessor(DownsamplingImageProcessor(size: reader.size))
-                            .scaledToFill().frame(maxWidth: .infinity, alignment: .center)
+                        .scaledToFill().frame(maxWidth: .infinity, alignment: .center)
 
                     case .fit: lazyImage.setProcessor(DownsamplingImageProcessor(size: reader.size))
-                            .scaledToFit().frame(maxWidth: .infinity, alignment: .center)
+                        .scaledToFit().frame(maxWidth: .infinity, alignment: .center)
                     }
                 }
             } else {
                 switch scale {
                 case .fill:
                     lazyImage
-                    .scaledToFill()
+                        .scaledToFill()
                 case .fit:
                     lazyImage
-                       .scaledToFit()
+                        .scaledToFit()
                 }
             }
         }

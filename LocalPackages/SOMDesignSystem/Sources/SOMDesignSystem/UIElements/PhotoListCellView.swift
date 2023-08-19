@@ -1,13 +1,13 @@
 //
 //  PhotoListCellView.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 10/05/2023.
 //
 
+import Kingfisher
 import NasaModels
 import SwiftUI
-import Kingfisher
 
 public struct IconConfig {
     let iconName: String
@@ -67,5 +67,3 @@ public struct PhotoListCellView: View {
         }
     }
 }
-
-
