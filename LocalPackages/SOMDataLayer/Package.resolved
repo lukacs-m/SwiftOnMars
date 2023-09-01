@@ -1,0 +1,23 @@
+{
+  "pins" : [
+    {
+      "identity" : "safecache",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SafeCache",
+      "state" : {
+        "revision" : "53b314a255ea2b94667f96afa2db60461ecc3eb8",
+        "version" : "0.1.2"
+      }
+    },
+    {
+      "identity" : "simplenetwork",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SimpleNetwork",
+      "state" : {
+        "revision" : "8654f970fec43cd44b20b3fdea6fa62fef06f76e",
+        "version" : "0.1.1"
+      }
+    }
+  ],
+  "version" : 2
+}
