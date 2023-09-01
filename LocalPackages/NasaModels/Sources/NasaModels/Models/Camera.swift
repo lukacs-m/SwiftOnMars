@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 10/04/2023.
 //
@@ -8,6 +8,7 @@
 import Foundation
 
 // MARK: - Camera
+
 public struct Camera: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let id: Int
     public let name: String
@@ -21,18 +22,24 @@ public struct Camera: Codable, Identifiable, Equatable, Hashable, Sendable {
     }
 }
 
+// MARK: - Light Camera
 
-// MARK: - Camera
 public struct LightCamera: Codable, Identifiable, Equatable, Hashable, Sendable {
     public var id: String {
         name
     }
-    
+
     public let name: String
     public let fullName: String
 
     enum CodingKeys: String, CodingKey {
         case name
         case fullName = "full_name"
+    }
+}
+
+extension Camera: Mockable {
+    public static var mocked: Camera {
+        Camera(id: 1, name: "test Camera", roverID: 13, fullName: "NAVCAM")
     }
 }

@@ -1,0 +1,6 @@
+sources:
+  - ./
+templates:
+  - ../../tools/Templates/AutoMockable.stencil
+output:
+ ../../Tests/SOMDomainLayerTests/Generated

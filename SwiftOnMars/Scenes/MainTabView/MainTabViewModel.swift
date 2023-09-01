@@ -1,5 +1,5 @@
 //
-//  
+//
 //  MainTabViewModel.swift
 //  SwiftOnMars
 //
@@ -7,16 +7,18 @@
 //
 //
 
+import Factory
 import Foundation
 
 @MainActor
 final class MainTabViewModel: ObservableObject, Sendable {
-        
-    init() {
-        setUp()
-    }
-}
+    private let persistAllPhotos = resolve(\UseCasesContainer.persistAllPhotos)
 
-private extension MainTabViewModel {
-    func setUp() {}
+    init() {}
+
+    func persist() {
+        Task {
+            try? await persistAllPhotos()
+        }
+    }
 }

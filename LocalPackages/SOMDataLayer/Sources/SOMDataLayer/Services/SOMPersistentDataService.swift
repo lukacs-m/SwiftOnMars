@@ -1,23 +1,25 @@
 //
 //  SOMPersistentDataService.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 12/04/2023.
 //
 
 import Foundation
+import SimplySave
 
-public protocol NasaMissionPersitentDataServicing<Value>: Actor {
-    associatedtype Value: Codable & Identifiable
+public protocol NasaMissionPersitentDataServicing<Value>: Actor, Sendable {
+    associatedtype Value: Codable & Identifiable & Sendable
 
     func add(with newElement: Value)
     func remove(with element: Value)
     func getCurrentContent() -> [Value]
-    func load(from fileNamed: String) throws
-    func save(with fileName: String) throws
+    func load() async throws -> [Value]
+    func persistData() async throws
+    func clear() async throws
 }
 
-public enum PersistenceError: Swift.Error {
+public enum PersistenceError: Error {
     case fileAlreadyExist
     case invalidDirectory
     case writtingFailed
@@ -25,12 +27,14 @@ public enum PersistenceError: Swift.Error {
     case readingDataFailed
 }
 
-public actor SOMPersistentDataService<Value: Codable & Identifiable>: NasaMissionPersitentDataServicing {
+public actor SOMPersistentDataService<Value: Codable & Sendable & Identifiable>: NasaMissionPersitentDataServicing {
     private var currentData = [Value]()
-    private let fileManager: FileManager
+    private let storageManager: SimpleSaving
+    private let containerName = "missions.json"
+    private var hasNewChanges = false
 
-    init(fileManager: FileManager = .default) {
-        self.fileManager = fileManager
+    public init(storageManager: SimpleSaving = SimplySaveClient()) {
+        self.storageManager = storageManager
     }
 }
 
@@ -40,54 +44,36 @@ public extension SOMPersistentDataService {
     }
 
     func add(with newElement: Value) {
+        hasNewChanges = true
         currentData.append(newElement)
     }
 
     func remove(with element: Value) {
-        currentData.removeAll { $0.id ==  element.id }
+        hasNewChanges = true
+        currentData.removeAll { $0.id == element.id }
     }
 
-    func save(with fileName: String) throws {
-        guard let url = makeURL(forFileNamed: fileName) else {
-            throw PersistenceError.invalidDirectory
+    func persistData() async throws {
+        guard hasNewChanges else {
+            return
         }
-
-        if fileManager.fileExists(atPath: url.absoluteString) {
-            throw PersistenceError.fileAlreadyExist
-        }
-
-        do {
-            let data = try JSONEncoder().encode(currentData)
-            try data.write(to: url)
-        } catch {
-            debugPrint(error)
-            throw PersistenceError.writtingFailed
-        }
+        try await clear()
+        try await storageManager.save(currentData, as: containerName, in: .documents)
+        hasNewChanges = false
     }
 
-    func load(from fileNamed: String) throws {
-           guard let url = makeURL(forFileNamed: fileNamed) else {
-               throw PersistenceError.invalidDirectory
-           }
-           guard fileManager.fileExists(atPath: url.absoluteString) else {
-               throw PersistenceError.fileDoesNotExist
-           }
-           do {
-               let data = try Data(contentsOf: url)
-               let entries = try JSONDecoder().decode([Value].self, from: data)
-               currentData.append(contentsOf: entries)
-           } catch {
-               debugPrint(error)
-               throw PersistenceError.readingDataFailed
-           }
-       }
-}
+    func load() async throws -> [Value] {
+        let values: [Value] = try await storageManager.fetch(from: containerName, in: .documents)
 
-private extension SOMPersistentDataService {
-    func makeURL(forFileNamed fileName: String) -> URL? {
-        guard let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            return nil
+        currentData.append(contentsOf: values)
+        return currentData
+    }
+
+    func clear() async throws {
+        let exists = await storageManager.exists(containerName, in: .documents)
+        guard exists else {
+            return
         }
-        return url.appendingPathComponent(fileName)
+        try await storageManager.remove(containerName, from: .documents)
     }
 }

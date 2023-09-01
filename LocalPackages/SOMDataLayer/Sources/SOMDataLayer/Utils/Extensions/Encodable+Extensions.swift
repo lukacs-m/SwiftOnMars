@@ -1,6 +1,6 @@
 //
 //  Encodable+Extensions.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 11/04/2023.
 //
@@ -12,7 +12,8 @@ extension Encodable {
     var convertToDictionary: [String: Any]? {
         let encoder = JSONEncoder()
         guard let data = try? encoder.encode(self),
-              let dict = try? JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any] else {
+              let dict = try? JSONSerialization
+              .jsonObject(with: data, options: .fragmentsAllowed) as? [String: Any] else {
             return nil
         }
 

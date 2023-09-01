@@ -1,0 +1,28 @@
+input_dir: Sources/SOMDesignSystem/Resources
+output_dir: Sources/SOMDesignSystem/Generated
+
+## Strings
+#strings:
+#  inputs:
+#    - Languages/fr.lproj
+#  outputs:
+#    - templateName: structured-swift5
+#      params:
+#        publicAccess: true
+#        enumName: Strings
+#      output: Strings+Generated.swift
+
+
+xcassets:
+  inputs:
+    - Assets.xcassets
+    - Colors.xcassets
+  outputs:
+    templatePath: ./assets_swift5_swiftui.stencil
+    params:
+#        colorTypeName: "SecuredColors"
+#        imageTypeName: "SecuredIcons"
+        publicAccess: true
+        forceProvidesNamespaces: true
+        forceFileNameEnum: true
+    output: XCAssets+Generated.swift
