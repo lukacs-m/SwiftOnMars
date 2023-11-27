@@ -15,7 +15,7 @@ let package = Package(name: "SOMDesignSystem",
                       ],
                       dependencies: [
                           .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.0.0"),
-                          .package(name: "NasaModels", path: "../NasaModels"),
+                          .package(name: "NasaModels", path: "../NasaModels")
 //                          .package(url: "https://github.com/SwiftGen/SwiftGenPlugin", from: "6.6.0")
                       ],
                       targets: [

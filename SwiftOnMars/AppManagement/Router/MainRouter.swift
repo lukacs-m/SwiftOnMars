@@ -20,7 +20,7 @@ public enum SheetDestination: Identifiable {
     public var id: String {
         switch self {
         case .searchSettings:
-            return "searchSettings"
+            "searchSettings"
         }
     }
 }

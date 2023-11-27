@@ -96,8 +96,8 @@ private extension SearchSettingsViewModel {
                 if Task.isCancelled {
                     return
                 }
-                self.manifests = try await self.getAllOrderedRoverManifests().map(\.photoManifest)
-                self.setCurrentSearchParams()
+                manifests = try await getAllOrderedRoverManifests().map(\.photoManifest)
+                setCurrentSearchParams()
             } catch {
                 print(error)
             }

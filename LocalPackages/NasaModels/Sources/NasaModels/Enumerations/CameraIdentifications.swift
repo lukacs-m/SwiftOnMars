@@ -21,9 +21,9 @@ public enum CameraIdentifications: String, Codable, CaseIterable, Sendable {
     public static func accesibleCameras(for rover: RoverIdentification) -> [CameraIdentifications] {
         switch rover {
         case .curiosity, .perseverance:
-            return [.fhaz, .rhaz, .mast, .chemcam, .mahli, .mardi, .navcam]
+            [.fhaz, .rhaz, .mast, .chemcam, .mahli, .mardi, .navcam]
         case .opportunity, .spirit:
-            return [.fhaz, .rhaz, .navcam, .pancam, .minites]
+            [.fhaz, .rhaz, .navcam, .pancam, .minites]
         }
     }
 }

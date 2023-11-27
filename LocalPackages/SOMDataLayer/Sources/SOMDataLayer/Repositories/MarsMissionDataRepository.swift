@@ -100,8 +100,8 @@ extension MarsMissionDataRepository: MarsPhotoStoring {
             guard let self else {
                 return
             }
-            let currentPhotos = await self.persistantStorage.getCurrentContent()
-            self.getPersistedPhotos.send(currentPhotos)
+            let currentPhotos = await persistantStorage.getCurrentContent()
+            getPersistedPhotos.send(currentPhotos)
         }
     }
 }
