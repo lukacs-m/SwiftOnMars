@@ -1,5 +1,5 @@
 //
-//  Routers+DependenciesInjections.swift
+//  Routers+DependencyInjection.swift
 //  SwiftOnMars
 //
 //  Created by Martin Lukacs on 22/04/2023.

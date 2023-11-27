@@ -29,11 +29,11 @@ public enum PersistenceError: Error {
 
 public actor SOMPersistentDataService<Value: Codable & Sendable & Identifiable>: NasaMissionPersitentDataServicing {
     private var currentData = [Value]()
-    private let storageManager: SimpleSaving
+    private let storageManager: any SimpleSaving
     private let containerName = "missions.json"
     private var hasNewChanges = false
 
-    public init(storageManager: SimpleSaving = SimplySaveClient()) {
+    public init(storageManager: any SimpleSaving = SimplySaveClient()) {
         self.storageManager = storageManager
     }
 }

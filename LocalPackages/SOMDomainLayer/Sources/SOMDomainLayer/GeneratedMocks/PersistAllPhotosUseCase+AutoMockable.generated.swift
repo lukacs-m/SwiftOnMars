@@ -10,7 +10,7 @@ import UIKit
 public final class PersistAllPhotosUseCaseMock: @unchecked Sendable, PersistAllPhotosUseCase {
     // MARK: - execute
 
-    var executeThrowableError: Error?
+    var executeThrowableError: (any Error)?
     public var executeCallsCount = 0
     public var executeCalled: Bool {
         executeCallsCount > 0

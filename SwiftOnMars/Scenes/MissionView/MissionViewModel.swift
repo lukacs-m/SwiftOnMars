@@ -101,7 +101,7 @@ final class MissionViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            self.isPersisted(for: photo) ? await self.removePersistedPhoto(for: photo) : await self.savePhoto(with: photo)
+            isPersisted(for: photo) ? await removePersistedPhoto(for: photo) : await savePhoto(with: photo)
         }
     }
 }

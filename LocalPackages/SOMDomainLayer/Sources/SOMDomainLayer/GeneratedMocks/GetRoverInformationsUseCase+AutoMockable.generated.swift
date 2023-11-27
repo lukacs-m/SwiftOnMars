@@ -10,7 +10,7 @@ import UIKit
 public final class GetRoverInformationsUseCaseMock: @unchecked Sendable, GetRoverInformationsUseCase {
     // MARK: - execute
 
-    var executeForThrowableError: Error?
+    var executeForThrowableError: (any Error)?
     public var executeForCallsCount = 0
     public var executeForCalled: Bool {
         executeForCallsCount > 0

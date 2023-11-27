@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MarsMissionDataRepository.swift
 //
 //
 //  Created by Martin Lukacs on 10/04/2023.
@@ -13,7 +13,7 @@ import SimpleNetwork
 @preconcurrency import Combine
 
 public actor MarsMissionDataRepository: MarsMissionInformationsServicing {
-    private let networkClient: SimpleClient
+    private let networkClient: any SimpleClient
     private let persistantStorage: any NasaMissionPersitentDataServicing<Photo>
     private let photoCache: any SafePersistantCaching<Int, Photos>
     private let roverCache: any SafePersistantCaching<String, Rover>
@@ -21,7 +21,7 @@ public actor MarsMissionDataRepository: MarsMissionInformationsServicing {
 
     public let getPersistedPhotos: CurrentValueSubject<[Photo], Never> = .init([])
 
-    public init(networkClient: SimpleClient = SimpleNetworkClient(),
+    public init(networkClient: any SimpleClient = SimpleNetworkClient(),
                 persistantStorage: any NasaMissionPersitentDataServicing<Photo> = SOMPersistentDataService(),
                 photoCache: any SafePersistantCaching<Int, Photos> = SafeCache<Int, Photos>(),
                 roverCache: any SafePersistantCaching<String, Rover> = SafeCache<String, Rover>(),

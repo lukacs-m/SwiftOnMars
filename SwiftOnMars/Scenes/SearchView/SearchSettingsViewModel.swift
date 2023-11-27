@@ -27,7 +27,7 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     private let saveNewSearchParams = resolve(\UseCasesContainer.saveNewSearchParams)
     private let getCurrentSearchParameters = resolve(\UseCasesContainer.getCurrentSearchParameters)
 
-    private var task: Task<Void, Error>?
+    private var task: Task<Void, any Error>?
     private static let allCameraKey = "ALL"
     private var cancellables = Set<AnyCancellable>()
 

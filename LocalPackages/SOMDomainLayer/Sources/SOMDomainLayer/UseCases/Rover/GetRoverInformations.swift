@@ -22,9 +22,9 @@ public extension GetRoverInformationsUseCase {
 }
 
 public final class GetRoverInformations: GetRoverInformationsUseCase {
-    private let repository: MarsMissionInformationsServicing
+    private let repository: any MarsMissionInformationsServicing
 
-    public init(repository: MarsMissionInformationsServicing) {
+    public init(repository: any MarsMissionInformationsServicing) {
         self.repository = repository
     }
 

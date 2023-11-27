@@ -1,6 +1,6 @@
 //
 //
-//  MainTabViewView.swift
+//  MainTabView.swift
 //  SwiftOnMars
 //
 //  Created by Martin Lukacs on 12/04/2023.

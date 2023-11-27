@@ -1,6 +1,6 @@
 //
 //  Rover.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 10/04/2023.
 //
@@ -8,11 +8,13 @@
 import Foundation
 
 // MARK: - RoverInfos
+
 public struct RoverInfos: Codable, Sendable {
     public let rover: Rover
 }
 
 // MARK: - Rover
+
 public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let id: Int
     public let name: String
@@ -37,15 +39,15 @@ public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
 }
 
 extension Rover: Mockable {
-   static public var mocked: Rover {
+    public static var mocked: Rover {
         Rover(id: 5,
               name: "Curiosity",
               landingDate: "2004-01-25",
               launchDate: "2003-07-07",
               status: "complete",
-              maxSol: 3838,
+              maxSol: 3_838,
               maxDate: "2023-05-24",
-              totalPhotos: 651737,
+              totalPhotos: 651_737,
               cameras: nil)
     }
 }

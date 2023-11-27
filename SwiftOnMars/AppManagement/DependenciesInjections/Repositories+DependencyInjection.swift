@@ -17,11 +17,11 @@ final class RepositoriesContainer: SharedContainer {
 }
 
 extension RepositoriesContainer {
-    var marsMissionDataRepository: Factory<MarsMissionContentServicing> {
+    var marsMissionDataRepository: Factory<any MarsMissionContentServicing> {
         self { MarsMissionDataRepository() }
     }
 
-    var searchRepository: Factory<SearchService> {
+    var searchRepository: Factory<any SearchService> {
         self { SearchRepository() }
     }
 }

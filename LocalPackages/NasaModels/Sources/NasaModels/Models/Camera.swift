@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Camera.swift
 //
 //
 //  Created by Martin Lukacs on 10/04/2023.
