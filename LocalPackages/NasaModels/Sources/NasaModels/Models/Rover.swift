@@ -45,7 +45,7 @@ extension Rover: Mockable {
               landingDate: "2004-01-25",
               launchDate: "2003-07-07",
               status: "complete",
-              maxSol: 3_838,
+              maxSol: 3838,
               maxDate: "2023-05-24",
               totalPhotos: 651_737,
               cameras: nil)

@@ -19,8 +19,8 @@ struct MainTabView: View {
 
     var body: some View {
         tabView
-            .onChange(of: scenePhase) { newPhase in
-                guard newPhase == .background else {
+            .onChange(of: scenePhase) {
+                guard scenePhase == .background else {
                     return
                 }
                 viewModel.persist()

@@ -8,7 +8,7 @@
 import SwiftUI
 
 public extension View {
-    @ViewBuilder
+    @MainActor @ViewBuilder
     func navigationStackEmbeded(with path: Binding<NavigationPath>) -> some View {
         NavigationStack(path: path) {
             self

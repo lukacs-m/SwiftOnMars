@@ -47,7 +47,7 @@ public struct Photo: Codable, Identifiable, Equatable, Hashable, Sendable {
 extension Photo: Mockable {
     public static var mocked: Photo {
         Photo(id: 10,
-              sol: 1_200,
+              sol: 1200,
               camera: Camera.mocked,
               imgSrc: "https://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00000/opgs/edr/fcam/FRA_397502305EDR_D0010000AUT_04096M_.JPG",
               earthDate: "2004-02-03",

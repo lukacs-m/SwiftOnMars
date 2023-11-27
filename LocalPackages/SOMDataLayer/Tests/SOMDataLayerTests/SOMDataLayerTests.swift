@@ -9,7 +9,7 @@ final class SOMDataLayerTests: XCTestCase {
         // results.
 //        XCTAssertEqual(SOMDataLayer().text, "Hello, World!")
         let sut = MarsMissionDataRepository()
-        let photos = try await sut.getPhotosByMartinSol(for: .curiosity, on: 1_000, for: nil, and: 1)
+        let photos = try await sut.getPhotosByMartinSol(for: .curiosity, on: 1000, for: nil, and: 1)
         XCTAssertEqual(photos.count, 25)
 
         let photos2 = try await sut.getPhotosByDate(for: .curiosity, at: "2019-6-3", for: nil, and: 1)

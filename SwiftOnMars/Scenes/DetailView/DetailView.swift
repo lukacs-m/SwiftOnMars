@@ -27,10 +27,10 @@ struct DetailView: View {
         .ignoresSafeArea(edges: [.horizontal])
         .navigationTitle("Photo " + String(viewModel.photo.id))
         .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: viewModel.photoIsPersisted) { value in
-            let title = value ? "The photo was added to your favorites" :
+        .onChange(of: viewModel.photoIsPersisted) {
+            let title = viewModel.photoIsPersisted ? "The photo was added to your favorites" :
                 "The photo was just removed from your favorites"
-            let type: ToastType = value ? .complete(.green) : .error(.orange)
+            let type: ToastType = viewModel.photoIsPersisted ? .complete(.green) : .error(.orange)
             toastToDisplay = SimpleToast(displayMode: .bottom(.pop),
                                          type: type,
                                          title: title,
