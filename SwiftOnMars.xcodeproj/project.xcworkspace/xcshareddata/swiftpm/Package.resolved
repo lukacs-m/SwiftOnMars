@@ -100,6 +100,15 @@
       }
     },
     {
+      "identity" : "simplypersist",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SimplyPersist",
+      "state" : {
+        "branch" : "main",
+        "revision" : "386cc428c8b0896dd752696a08b7456ca34e0d14"
+      }
+    },
+    {
       "identity" : "simplysave",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/lukacs-m/SimplySave",

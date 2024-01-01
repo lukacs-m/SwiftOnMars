@@ -26,6 +26,19 @@ public struct Rover: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let totalPhotos: Int?
     public let cameras: [LightCamera]?
 
+    public init(id: Int, name: String, landingDate: String, launchDate: String, status: String, maxSol: Int?, maxDate: String?,
+                totalPhotos: Int?, cameras: [LightCamera]?) {
+        self.id = id
+        self.name = name
+        self.landingDate = landingDate
+        self.launchDate = launchDate
+        self.status = status
+        self.maxSol = maxSol
+        self.maxDate = maxDate
+        self.totalPhotos = totalPhotos
+        self.cameras = cameras
+    }
+
     enum CodingKeys: String, CodingKey {
         case id, name
         case landingDate = "landing_date"

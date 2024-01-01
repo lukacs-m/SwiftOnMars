@@ -1,4 +1,4 @@
-// swift-tools-version: 5.8
+// swift-tools-version: 5.9
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -15,7 +15,7 @@ let swiftSettings: [SwiftSetting] = [
 
 let package = Package(name: "SOMDataLayer",
                       platforms: [
-                          .iOS(.v16)
+                          .iOS(.v17)
                       ],
                       products: [
                           // Products define the executables and libraries a package produces, and make them
@@ -29,6 +29,7 @@ let package = Package(name: "SOMDataLayer",
                                    .upToNextMajor(from: "0.2.0")),
                           .package(url: "https://github.com/lukacs-m/SafeCache", .upToNextMajor(from: "0.1.0")),
                           .package(url: "https://github.com/lukacs-m/SimplySave", .upToNextMajor(from: "0.1.0")),
+                          .package(url: "https://github.com/lukacs-m/SimplyPersist", branch: "main"),
                           .package(name: "SOMDomainLayer", path: "../SOMDomainLayer"),
                           .package(name: "NasaModels", path: "../NasaModels")
                       ],
@@ -43,7 +44,8 @@ let package = Package(name: "SOMDataLayer",
                                       .product(name: "DomainInterfaces", package: "SOMDomainLayer"),
                                       .product(name: "SimpleNetwork", package: "SimpleNetwork"),
                                       .product(name: "SafeCache", package: "SafeCache"),
-                                      .product(name: "SimplySave", package: "SimplySave")
+                                      .product(name: "SimplySave", package: "SimplySave"),
+                                      .product(name: "SimplyPersist", package: "SimplyPersist")
                                   ],
                                   swiftSettings: swiftSettings),
                           .testTarget(name: "SOMDataLayerTests",

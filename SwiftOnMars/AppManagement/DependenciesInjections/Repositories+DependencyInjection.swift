@@ -8,6 +8,7 @@
 import DomainInterfaces
 import Factory
 import SOMDataLayer
+import SwiftData
 
 typealias MarsMissionContentServicing = MarsMissionInformationsServicing & MarsPhotoStoring
 
@@ -18,7 +19,7 @@ final class RepositoriesContainer: SharedContainer {
 
 extension RepositoriesContainer {
     var marsMissionDataRepository: Factory<any MarsMissionContentServicing> {
-        self { MarsMissionDataRepository() }
+        self { MarsMissionDataRepository(persistantStorage: ServicesContainer.shared.persistenceService()) }
     }
 
     var searchRepository: Factory<any SearchService> {

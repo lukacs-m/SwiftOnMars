@@ -30,6 +30,8 @@ final class MainPathRouter: ObservableObject {
     @Published public var path = NavigationPath()
     @Published public var presentedSheet: SheetDestination?
 
+    init() {}
+
     func navigate(to: RouterDestination) {
         path.append(to)
     }

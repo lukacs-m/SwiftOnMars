@@ -15,16 +15,11 @@ struct MainTabView: View {
     @Environment(\.scenePhase) private var scenePhase
     @StateObject private var viewModel = MainTabViewModel()
     private let tabRouter = resolve(\RouterContainer.tabViewRouter)
-    @State private var selectedTabId = 0
+
+    @State private var selectedTab = MainTabDestination.missions
 
     var body: some View {
         tabView
-            .onChange(of: scenePhase) {
-                guard scenePhase == .background else {
-                    return
-                }
-                viewModel.persist()
-            }
     }
 }
 
@@ -36,7 +31,7 @@ struct MainTabViewView_Previews: PreviewProvider {
 
 private extension MainTabView {
     var tabView: some View {
-        TabView(selection: $selectedTabId) {
+        TabView(selection: tabSelection) {
             createTabItem(for: .missions)
             createTabItem(for: .favorites)
         }
@@ -55,7 +50,23 @@ private extension MainTabView {
             .tabItem {
                 Label(destination.name, systemImage: destination.icon)
             }
-            .tag(destination.id)
+            .tag(destination)
             .accessibilityLabel(destination.name)
+    }
+}
+
+extension MainTabView {
+    var tabSelection: Binding<MainTabDestination> {
+        Binding {
+            selectedTab
+        }
+
+        set: { tappedTab in
+            if tappedTab == selectedTab {
+                // User tapped on the currently active tab icon => Pop to root/Scroll to top
+                viewModel.reset(router: selectedTab)
+            }
+            selectedTab = tappedTab
+        }
     }
 }

@@ -20,7 +20,11 @@ extension RouterContainer {
         self { TabViewRouter() }
     }
 
-    var mainRouter: Factory<MainPathRouter> {
+    var favoriteRouter: Factory<MainPathRouter> {
+        self { MainPathRouter() }
+    }
+
+    var missionwRouter: Factory<MainPathRouter> {
         self { MainPathRouter() }
     }
 }
@@ -28,5 +32,20 @@ extension RouterContainer {
 extension RouterContainer: AutoRegistering {
     nonisolated func autoRegister() {
         manager.defaultScope = .singleton
+    }
+}
+
+protocol RoutingController {
+    func reset(router: MainTabDestination) async
+}
+
+extension RouterContainer: RoutingController {
+    func reset(router: MainTabDestination) {
+        switch router {
+        case .favorites:
+            favoriteRouter().popToRoot()
+        case .missions:
+            missionwRouter().popToRoot()
+        }
     }
 }

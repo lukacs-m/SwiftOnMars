@@ -18,13 +18,10 @@ struct FavoriteView: View {
     @State private var isShowingDetailedScreen = false
     @State private var dismissInfos = false
 
-    @InjectedObject(\RouterContainer.mainRouter) private var router
+    @InjectedObject(\RouterContainer.favoriteRouter) private var router
 
     var body: some View {
         photoListView
-            .onDisappear {
-                viewModel.persist()
-            }
             .navigationTitle(Text("Mars Souvenirs"))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
@@ -69,9 +66,7 @@ private extension FavoriteView {
             ForEach(viewModel.photos.keys.sorted(by: <), id: \.self) { key in
                 Section(header: Text(key).bold().padding(.bottom, 10)) {
                     ForEach(viewModel.photos[key] ?? []) { photo in
-                        Button {
-                            router.navigate(to: .photoDetail(photo: photo))
-                        } label: {
+                        NavigationLink(value: RouterDestination.photoDetail(photo: photo)) {
                             DetailPhotoListCellView(with: photo,
                                                     namespace: animationSpace)
                                 .cornerRadius(10)

@@ -10,7 +10,7 @@ import SwiftUI
 
 // MARK: - TabView Destinations
 
-enum MainTabDestination {
+enum MainTabDestination: Hashable, Equatable {
     case missions
     case favorites
 

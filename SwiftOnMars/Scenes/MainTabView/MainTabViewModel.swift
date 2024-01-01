@@ -12,13 +12,15 @@ import Foundation
 
 @MainActor
 final class MainTabViewModel: ObservableObject, Sendable {
-    private let persistAllPhotos = resolve(\UseCasesContainer.persistAllPhotos)
+    private let routerController: any RoutingController
 
-    init() {}
+    init(routerController: any RoutingController = RouterContainer.shared) {
+        self.routerController = routerController
+    }
 
-    func persist() {
-        Task {
-            try? await persistAllPhotos()
+    func reset(router: MainTabDestination) {
+        Task { [weak self] in
+            await self?.routerController.reset(router: router)
         }
     }
 }

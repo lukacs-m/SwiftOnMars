@@ -16,7 +16,6 @@ import SwiftUI
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
     @State private var toastToDisplay: SimpleToast?
-    @InjectedObject(\RouterContainer.mainRouter) private var router
 
     var body: some View {
         VStack {
@@ -83,7 +82,7 @@ private extension DetailView {
 
 private extension DetailView {
     var cameraInfoBox: some View {
-        GroupBox(label: GroupBoxLabelView(labelText: "Camera", labelImage: "info.circle")) {
+        GroupBox(label: GroupBoxLabelView(labelText: "Camera", labelImage: nil)) {
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.camera.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.camera.name)
             GroupBoxRowView(name: "Description", content: viewModel.photo.camera.fullName)

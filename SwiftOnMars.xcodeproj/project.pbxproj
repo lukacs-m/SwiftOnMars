@@ -19,6 +19,7 @@
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
 		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
 		B867F9902A5B383C0025054C /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = B867F98F2A5B383C0025054C /* SimpleToast */; };
+		B86E1D742B41B29E000A7DCE /* Services+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */; };
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
 		B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */; };
 		B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26129F4029B00F4EA09 /* MainRouter.swift */; };
@@ -72,6 +73,7 @@
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services+DependencyInjection.swift"; sourceTree = "<group>"; };
 		B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
 		B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependencyInjection.swift"; sourceTree = "<group>"; };
 		B8B9D26129F4029B00F4EA09 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */,
 				B8B9D26329F4086500F4EA09 /* Repositories+DependencyInjection.swift */,
 				B8B9D26529F408AB00F4EA09 /* UseCases+DependencyInjection.swift */,
+				B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */,
 			);
 			path = DependenciesInjections;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
 				B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */,
 				B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */,
+				B86E1D742B41B29E000A7DCE /* Services+DependencyInjection.swift in Sources */,
 				B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */,
 				B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */,
 				B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */,
