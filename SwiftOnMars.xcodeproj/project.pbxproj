@@ -19,6 +19,7 @@
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
 		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
 		B867F9902A5B383C0025054C /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = B867F98F2A5B383C0025054C /* SimpleToast */; };
+		B86E1D742B41B29E000A7DCE /* Services+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */; };
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
 		B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */; };
 		B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26129F4029B00F4EA09 /* MainRouter.swift */; };
@@ -72,6 +73,7 @@
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
+		B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Services+DependencyInjection.swift"; sourceTree = "<group>"; };
 		B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewRouter.swift; sourceTree = "<group>"; };
 		B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Routers+DependencyInjection.swift"; sourceTree = "<group>"; };
 		B8B9D26129F4029B00F4EA09 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */,
 				B8B9D26329F4086500F4EA09 /* Repositories+DependencyInjection.swift */,
 				B8B9D26529F408AB00F4EA09 /* UseCases+DependencyInjection.swift */,
+				B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */,
 			);
 			path = DependenciesInjections;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
 				B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */,
 				B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */,
+				B86E1D742B41B29E000A7DCE /* Services+DependencyInjection.swift in Sources */,
 				B8B9D26B29F40E5900F4EA09 /* MissionViewModel.swift in Sources */,
 				B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */,
 				B8C7040629FFFEB300F779F4 /* Double+Extensions.swift in Sources */,
@@ -575,6 +579,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -621,13 +626,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -635,6 +641,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -675,12 +682,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -689,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -701,7 +710,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -721,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -733,7 +743,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +768,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -778,7 +788,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMarsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -797,6 +807,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -815,6 +826,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 92833SP6PV;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mlukacs.SwiftOnMarsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -879,8 +891,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
-				branch = develop;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

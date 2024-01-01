@@ -36,12 +36,12 @@ extension MarsMissionEndpoint: Endpoint {
     var path: String {
         switch self {
         case let .rover(id):
-            return "rovers/\(id)"
+            "rovers/\(id)"
         case let .manifest(id):
-            return "manifests/\(id)"
+            "manifests/\(id)"
         case let .photoFromDate(params),
              let .photoWithSol(params):
-            return "rovers/\(params.roverId)/photos"
+            "rovers/\(params.roverId)/photos"
         }
     }
 

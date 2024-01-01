@@ -16,7 +16,6 @@ import SwiftUI
 struct DetailView: View {
     @StateObject var viewModel: DetailViewModel
     @State private var toastToDisplay: SimpleToast?
-    @InjectedObject(\RouterContainer.mainRouter) private var router
 
     var body: some View {
         VStack {
@@ -27,10 +26,10 @@ struct DetailView: View {
         .ignoresSafeArea(edges: [.horizontal])
         .navigationTitle("Photo " + String(viewModel.photo.id))
         .navigationBarTitleDisplayMode(.inline)
-        .onChange(of: viewModel.photoIsPersisted) { value in
-            let title = value ? "The photo was added to your favorites" :
+        .onChange(of: viewModel.photoIsPersisted) {
+            let title = viewModel.photoIsPersisted ? "The photo was added to your favorites" :
                 "The photo was just removed from your favorites"
-            let type: ToastType = value ? .complete(.green) : .error(.orange)
+            let type: ToastType = viewModel.photoIsPersisted ? .complete(.green) : .error(.orange)
             toastToDisplay = SimpleToast(displayMode: .bottom(.pop),
                                          type: type,
                                          title: title,
@@ -83,7 +82,7 @@ private extension DetailView {
 
 private extension DetailView {
     var cameraInfoBox: some View {
-        GroupBox(label: GroupBoxLabelView(labelText: "Camera", labelImage: "info.circle")) {
+        GroupBox(label: GroupBoxLabelView(labelText: "Camera", labelImage: nil)) {
             GroupBoxRowView(name: "Id", content: "\(viewModel.photo.camera.id)")
             GroupBoxRowView(name: "Name", content: viewModel.photo.camera.name)
             GroupBoxRowView(name: "Description", content: viewModel.photo.camera.fullName)

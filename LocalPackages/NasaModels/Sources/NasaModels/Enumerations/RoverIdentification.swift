@@ -16,15 +16,15 @@ public enum RoverIdentification: String, Sendable, Codable {
     public static func value(for nameDescription: String) -> RoverIdentification {
         switch nameDescription {
         case curiosity.rawValue:
-            return .curiosity
+            .curiosity
         case perseverance.rawValue:
-            return .perseverance
+            .perseverance
         case opportunity.rawValue:
-            return .opportunity
+            .opportunity
         case spirit.rawValue:
-            return .spirit
+            .spirit
         default:
-            return .curiosity
+            .curiosity
         }
     }
 }

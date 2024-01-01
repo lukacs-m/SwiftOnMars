@@ -17,7 +17,7 @@ public struct PhotoDisplayView: View {
         public var size: CGSize {
             switch self {
             case .cell:
-                return .init(width: 300, height: 300)
+                .init(width: 300, height: 300)
             }
         }
     }

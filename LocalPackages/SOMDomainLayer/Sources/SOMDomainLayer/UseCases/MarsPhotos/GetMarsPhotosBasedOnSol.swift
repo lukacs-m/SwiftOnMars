@@ -37,9 +37,9 @@ public extension GetMarsPhotosBasedOnSolUseCase {
 }
 
 public final class GetMarsPhotosBasedOnSol: GetMarsPhotosBasedOnSolUseCase {
-    private let repository: MarsMissionInformationsServicing
+    private let repository: any MarsMissionInformationsServicing
 
-    public init(repository: MarsMissionInformationsServicing) {
+    public init(repository: any MarsMissionInformationsServicing) {
         self.repository = repository
     }
 

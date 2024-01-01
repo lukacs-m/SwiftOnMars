@@ -5,17 +5,17 @@
 # format options
 
 --symlinks ignore
---swiftversion 5.7
+--swiftversion 5.9
 
 # format options
 
 --closingparen same-line
 --commas inline
 --comments indent
---decimalgrouping 3,4
+#--decimalgrouping 3,4
 --exponentcase lowercase
 --exponentgrouping disabled
-# --fractiongrouping disabled
+--fractiongrouping disabled
 --ifdef no-indent
 --importgrouping testable-top
 --nospaceoperators ..<, ...
@@ -37,4 +37,5 @@
 
 --enable isEmpty,\
 blankLineAfterImports,\
-sortedSwitchCases,\
+sortSwitchCases,\
+

@@ -15,6 +15,5 @@ public protocol MarsPhotoStoring: Sendable {
 
     func save(_ photo: Photo) async
     func remove(_ photo: Photo) async
-    func persist() async throws
     func clear() async throws
 }

@@ -20,9 +20,9 @@ public extension GetRoverManifestUseCase {
 }
 
 public final class GetRoverManifest: GetRoverManifestUseCase {
-    private let repository: MarsMissionInformationsServicing
+    private let repository: any MarsMissionInformationsServicing
 
-    public init(repository: MarsMissionInformationsServicing) {
+    public init(repository: any MarsMissionInformationsServicing) {
         self.repository = repository
     }
 

@@ -67,7 +67,7 @@ final class MissionViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            self.isLoadingPage = true
+            isLoadingPage = true
 
             defer {
                 self.isLoadingPage = false
@@ -77,15 +77,15 @@ final class MissionViewModel: ObservableObject, Sendable {
                 if Task.isCancelled {
                     return
                 }
-                let newPhotos = try await self.getPhotosForSearchParams(for: self.searchParameters,
-                                                                        and: self.currentPage)
+                let newPhotos = try await getPhotosForSearchParams(for: searchParameters,
+                                                                   and: currentPage)
                 guard !newPhotos.isEmpty else {
-                    self.canLoadMorePages = false
+                    canLoadMorePages = false
                     return
                 }
 
-                self.photos.append(contentsOf: newPhotos)
-                self.currentPage += 1
+                photos.append(contentsOf: newPhotos)
+                currentPage += 1
             } catch {
                 print(error.localizedDescription)
             }
@@ -101,7 +101,7 @@ final class MissionViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            self.isPersisted(for: photo) ? await self.removePersistedPhoto(for: photo) : await self.savePhoto(with: photo)
+            isPersisted(for: photo) ? await removePersistedPhoto(for: photo) : await savePhoto(with: photo)
         }
     }
 }

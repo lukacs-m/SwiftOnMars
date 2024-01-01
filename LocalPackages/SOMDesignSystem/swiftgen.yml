@@ -12,7 +12,6 @@ output_dir: Sources/SOMDesignSystem/Generated
 #        enumName: Strings
 #      output: Strings+Generated.swift
 
-
 xcassets:
   inputs:
     - Assets.xcassets

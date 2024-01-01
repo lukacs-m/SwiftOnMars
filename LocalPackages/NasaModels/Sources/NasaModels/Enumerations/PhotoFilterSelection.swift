@@ -16,13 +16,13 @@ public enum PhotoFilterSelection: CaseIterable, Sendable, Equatable, Hashable {
     public var title: String {
         switch self {
         case .defaultFilter:
-            return "Default"
+            "Default"
         case .camera:
-            return "Camera"
+            "Camera"
         case .rover:
-            return "Rover"
+            "Rover"
         case .sol:
-            return "Sol"
+            "Sol"
         }
     }
 }

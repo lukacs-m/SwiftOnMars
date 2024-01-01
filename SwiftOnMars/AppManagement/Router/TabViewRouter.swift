@@ -10,34 +10,34 @@ import SwiftUI
 
 // MARK: - TabView Destinations
 
-enum MainTabDestination {
+enum MainTabDestination: Hashable, Equatable {
     case missions
     case favorites
 
     var name: LocalizedStringKey {
         switch self {
         case .missions:
-            return "Missions"
+            "Missions"
         case .favorites:
-            return "Favorites"
+            "Favorites"
         }
     }
 
     var id: Int {
         switch self {
         case .missions:
-            return 0
+            0
         case .favorites:
-            return 1
+            1
         }
     }
 
     var icon: String {
         switch self {
         case .missions:
-            return "moon.haze.circle"
+            "moon.haze.circle"
         case .favorites:
-            return "heart.circle"
+            "heart.circle"
         }
     }
 }

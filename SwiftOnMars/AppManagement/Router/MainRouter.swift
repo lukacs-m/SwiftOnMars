@@ -20,7 +20,7 @@ public enum SheetDestination: Identifiable {
     public var id: String {
         switch self {
         case .searchSettings:
-            return "searchSettings"
+            "searchSettings"
         }
     }
 }
@@ -29,6 +29,8 @@ public enum SheetDestination: Identifiable {
 final class MainPathRouter: ObservableObject {
     @Published public var path = NavigationPath()
     @Published public var presentedSheet: SheetDestination?
+
+    init() {}
 
     func navigate(to: RouterDestination) {
         path.append(to)
