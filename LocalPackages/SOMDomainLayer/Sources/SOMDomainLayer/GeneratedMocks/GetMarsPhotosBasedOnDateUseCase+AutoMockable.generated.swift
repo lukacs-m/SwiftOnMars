@@ -10,7 +10,7 @@ import UIKit
 public final class GetMarsPhotosBasedOnDateUseCaseMock: @unchecked Sendable, GetMarsPhotosBasedOnDateUseCase {
     // MARK: - execute
 
-    var executeForAtForAndThrowableError: Error?
+    var executeForAtForAndThrowableError: (any Error)?
     public var executeForAtForAndCallsCount = 0
     public var executeForAtForAndCalled: Bool {
         executeForAtForAndCallsCount > 0

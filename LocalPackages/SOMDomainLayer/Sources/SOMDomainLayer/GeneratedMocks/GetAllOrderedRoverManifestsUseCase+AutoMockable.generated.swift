@@ -11,7 +11,7 @@ public final class GetAllOrderedRoverManifestsUseCaseMock: @unchecked Sendable,
     GetAllOrderedRoverManifestsUseCase {
     // MARK: - execute
 
-    var executeThrowableError: Error?
+    var executeThrowableError: (any Error)?
     public var executeCallsCount = 0
     public var executeCalled: Bool {
         executeCallsCount > 0

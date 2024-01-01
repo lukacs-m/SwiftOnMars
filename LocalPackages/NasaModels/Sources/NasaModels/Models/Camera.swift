@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  Camera.swift
 //
 //
 //  Created by Martin Lukacs on 10/04/2023.
@@ -14,6 +14,13 @@ public struct Camera: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let name: String
     public let roverID: Int
     public let fullName: String
+
+    public init(id: Int, name: String, roverID: Int, fullName: String) {
+        self.id = id
+        self.name = name
+        self.roverID = roverID
+        self.fullName = fullName
+    }
 
     enum CodingKeys: String, CodingKey {
         case id, name
@@ -31,6 +38,11 @@ public struct LightCamera: Codable, Identifiable, Equatable, Hashable, Sendable 
 
     public let name: String
     public let fullName: String
+
+    public init(name: String, fullName: String) {
+        self.name = name
+        self.fullName = fullName
+    }
 
     enum CodingKeys: String, CodingKey {
         case name

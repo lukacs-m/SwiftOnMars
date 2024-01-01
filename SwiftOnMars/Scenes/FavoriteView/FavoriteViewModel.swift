@@ -19,7 +19,6 @@ final class FavoriteViewModel: ObservableObject, Sendable {
 
     private let filterPersistedPhotos = resolve(\UseCasesContainer.filterPersistedPhotos)
     private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
-    private let persistAllPhotos = resolve(\UseCasesContainer.persistAllPhotos)
 
     @Published private(set) var selectedPhoto: Photo?
 
@@ -31,16 +30,6 @@ final class FavoriteViewModel: ObservableObject, Sendable {
 
     func filter(by filterSelection: PhotoFilterSelection) {
         currentFilter = filterSelection
-    }
-
-    func persist() {
-        Task { [weak self] in
-            do {
-                try await self?.persistAllPhotos()
-            } catch {
-                print("Woot \(error.localizedDescription)")
-            }
-        }
     }
 
     func toggleSelection(for photo: Photo? = nil) {

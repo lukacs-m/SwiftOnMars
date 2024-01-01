@@ -36,7 +36,7 @@ final class DetailViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            self.photoIsPersisted ? await self.removePersistedPhoto(for: photo) : await self.savePhoto(with: photo)
+            photoIsPersisted ? await removePersistedPhoto(for: photo) : await savePhoto(with: photo)
         }
     }
 }

@@ -9,9 +9,9 @@ import SwiftUI
 
 public struct GroupBoxLabelView: View {
     let labelText: String
-    let labelImage: String
+    let labelImage: String?
 
-    public init(labelText: String, labelImage: String) {
+    public init(labelText: String, labelImage: String?) {
         self.labelText = labelText
         self.labelImage = labelImage
     }
@@ -21,10 +21,12 @@ public struct GroupBoxLabelView: View {
             Text(labelText.uppercased())
                 .fontWeight(.bold)
             Spacer()
-            Image(imageName: labelImage)
-                .resizable()
-                .frame(width: 25, height: 25)
-                .scaledToFit()
+            if let labelImage {
+                Image(imageName: labelImage)
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    .scaledToFit()
+            }
         }
     }
 }

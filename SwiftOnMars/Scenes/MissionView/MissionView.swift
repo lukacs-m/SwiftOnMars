@@ -14,7 +14,7 @@ import SwiftUI
 
 struct MissionView: View {
     @StateObject private var viewModel = MissionViewModel()
-    @InjectedObject(\RouterContainer.mainRouter) private var router
+    @InjectedObject(\RouterContainer.missionwRouter) private var router
     @State private var shouldExpendSearchInfos = false
     @State var initHasRun = false
 

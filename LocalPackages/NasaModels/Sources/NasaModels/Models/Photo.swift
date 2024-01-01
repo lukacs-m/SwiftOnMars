@@ -1,6 +1,6 @@
 //
 //  Photo.swift
-//  
+//
 //
 //  Created by Martin Lukacs on 10/04/2023.
 //
@@ -8,11 +8,13 @@
 import Foundation
 
 // MARK: - Photos
+
 public struct Photos: Codable, Sendable {
     public let photos: [Photo]
 }
 
 // MARK: - Photo
+
 public struct Photo: Codable, Identifiable, Equatable, Hashable, Sendable {
     public let id, sol: Int
     public let camera: Camera
@@ -43,7 +45,7 @@ public struct Photo: Codable, Identifiable, Equatable, Hashable, Sendable {
 }
 
 extension Photo: Mockable {
-   static public var mocked: Photo {
+    public static var mocked: Photo {
         Photo(id: 10,
               sol: 1200,
               camera: Camera.mocked,
@@ -52,4 +54,3 @@ extension Photo: Mockable {
               rover: Rover.mocked)
     }
 }
-

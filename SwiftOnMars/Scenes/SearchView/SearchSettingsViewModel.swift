@@ -27,7 +27,7 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     private let saveNewSearchParams = resolve(\UseCasesContainer.saveNewSearchParams)
     private let getCurrentSearchParameters = resolve(\UseCasesContainer.getCurrentSearchParameters)
 
-    private var task: Task<Void, Error>?
+    private var task: Task<Void, any Error>?
     private static let allCameraKey = "ALL"
     private var cancellables = Set<AnyCancellable>()
 
@@ -96,8 +96,8 @@ private extension SearchSettingsViewModel {
                 if Task.isCancelled {
                     return
                 }
-                self.manifests = try await self.getAllOrderedRoverManifests().map(\.photoManifest)
-                self.setCurrentSearchParams()
+                manifests = try await getAllOrderedRoverManifests().map(\.photoManifest)
+                setCurrentSearchParams()
             } catch {
                 print(error)
             }
