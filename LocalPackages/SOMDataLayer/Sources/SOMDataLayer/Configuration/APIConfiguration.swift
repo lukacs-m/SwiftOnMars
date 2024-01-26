@@ -8,6 +8,6 @@
 import Foundation
 
 public enum APIConfiguration {
-    static let apiKey = "hauCFuire0xmOm1JVntGzUITXVWTLVK9mIztmIaF" // "YOUR_API_KEY_HERE"
+    static let apiKey = "" // "YOUR_API_KEY_HERE"
     public static let baseUrl = "https://api.nasa.gov/mars-photos/api/v1/"
 }

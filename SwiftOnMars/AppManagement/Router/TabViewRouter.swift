@@ -23,15 +23,6 @@ enum MainTabDestination: Hashable, Equatable {
         }
     }
 
-    var id: Int {
-        switch self {
-        case .missions:
-            0
-        case .favorites:
-            1
-        }
-    }
-
     var icon: String {
         switch self {
         case .missions:

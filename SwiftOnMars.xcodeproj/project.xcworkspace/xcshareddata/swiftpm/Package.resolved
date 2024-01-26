@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/onevcat/Kingfisher.git",
       "state" : {
-        "revision" : "277f1ab2c6664b19b4a412e32b094b201e2d5757",
-        "version" : "7.10.0"
+        "revision" : "3ec0ab0bca4feb56e8b33e289c9496e89059dd08",
+        "version" : "7.10.2"
       }
     },
     {
@@ -79,6 +79,15 @@
       "state" : {
         "revision" : "e1577acf2b6e90086d01a6d5e2b8efdaae033568",
         "version" : "2.3.0"
+      }
+    },
+    {
+      "identity" : "simplehaptic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lukacs-m/SimpleHaptic",
+      "state" : {
+        "branch" : "main",
+        "revision" : "30ee2aee8ae454d72ed6985a0ff7dd5b79a7c04c"
       }
     },
     {

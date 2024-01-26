@@ -12,7 +12,6 @@ import SOMDesignSystem
 import SwiftUI
 
 struct MainTabView: View {
-    @Environment(\.scenePhase) private var scenePhase
     @StateObject private var viewModel = MainTabViewModel()
     private let tabRouter = resolve(\RouterContainer.tabViewRouter)
 
@@ -20,12 +19,6 @@ struct MainTabView: View {
 
     var body: some View {
         tabView
-    }
-}
-
-struct MainTabViewView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
     }
 }
 
@@ -68,5 +61,12 @@ extension MainTabView {
             }
             selectedTab = tappedTab
         }
+    }
+}
+
+// periphery:ignore
+struct MainTabViewView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainTabView()
     }
 }

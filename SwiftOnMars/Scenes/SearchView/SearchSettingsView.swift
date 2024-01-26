@@ -170,6 +170,7 @@ private extension SearchSettingsView {
     }
 }
 
+// periphery:ignore
 struct SearchSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SearchSettingsView()

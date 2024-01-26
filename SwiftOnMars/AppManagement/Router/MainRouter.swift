@@ -40,6 +40,7 @@ final class MainPathRouter: ObservableObject {
         path.removeLast(path.count)
     }
 
+    // periphery:ignore
     func back(to numberOfScreen: Int = 1) {
         path.removeLast(numberOfScreen)
     }

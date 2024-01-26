@@ -20,7 +20,6 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
     @Published var sol = 0.0
     @Published var isEditing = false
     @Published var selectedMissionManifest: PhotoManifest?
-    @Published var selectedMissionManifestName: String?
     @Published var selectedCamera: String = SearchSettingsViewModel.allCameraKey
 
     private let getAllOrderedRoverManifests = resolve(\UseCasesContainer.getAllOrderedRoverManifests)
@@ -53,26 +52,6 @@ final class SearchSettingsViewModel: ObservableObject, Sendable {
 
     deinit {
         task?.cancel()
-    }
-
-    func selectMissionManifest(from manifest: PhotoManifest) {
-        resetSearchParams()
-        selectedMissionManifest = manifest
-    }
-
-    func isMissionSelected(from manifest: PhotoManifest) -> Bool {
-        guard let selectedMissionManifest else {
-            return false
-        }
-        return selectedMissionManifest == manifest
-    }
-
-    func isCameraSelected(with camera: String) -> Bool {
-        selectedCamera == camera
-    }
-
-    func selectCamera(with camera: String) {
-        selectedCamera = camera
     }
 
     func saveParamsAndSearch() {

@@ -18,8 +18,7 @@ final class DetailViewModel: ObservableObject, Sendable {
 
     private let checkIfPhotoIsPersisted = resolve(\UseCasesContainer.checkIfPhotoIsPersisted)
     private let getPersistedPhotos = resolve(\UseCasesContainer.getPersistedPhotos)
-    private let savePhoto = resolve(\UseCasesContainer.savePhoto)
-    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
+    private let togglePersistedPhotoState = resolve(\UseCasesContainer.togglePersistedPhotoState)
     private var cancellables = Set<AnyCancellable>()
 
     init(photo: Photo) {
@@ -36,7 +35,7 @@ final class DetailViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            photoIsPersisted ? await removePersistedPhoto(for: photo) : await savePhoto(with: photo)
+            await togglePersistedPhotoState(for: photo)
         }
     }
 }

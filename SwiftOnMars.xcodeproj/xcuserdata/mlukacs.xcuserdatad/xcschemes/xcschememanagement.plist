@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>SOMDataLayer.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>SOMDomainLayer.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
 		<key>Spectre (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -141,6 +151,24 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>12</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>B8F8E25529E462870021117A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8F8E26529E462880021117A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B8F8E26F29E462880021117A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

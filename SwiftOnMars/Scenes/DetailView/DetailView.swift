@@ -9,6 +9,7 @@
 
 import Factory
 import NasaModels
+import SimpleHaptic
 import SimpleToast
 import SOMDesignSystem
 import SwiftUI
@@ -33,7 +34,7 @@ struct DetailView: View {
             toastToDisplay = SimpleToast(displayMode: .bottom(.pop),
                                          type: type,
                                          title: title,
-                                         style: ToastStyle(backgroundColor: .gray))
+                                         style: ToastStyle(backgroundColor: .gray.opacity(0.3)))
         }
         .toast(toast: $toastToDisplay)
     }
@@ -51,6 +52,7 @@ private extension DetailView {
                     Spacer()
                     ToggleFavortiteButton(with: .favDefault(isPersisted: viewModel.photoIsPersisted),
                                           action: viewModel.togglePhotoPersistantState)
+                        .hapticFeedback(.impact(.soft))
                 }
                 Spacer()
             }
@@ -103,6 +105,7 @@ private extension DetailView {
     }
 }
 
+// periphery:ignore
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(viewModel: DetailViewModel(photo: Photo.mocked))

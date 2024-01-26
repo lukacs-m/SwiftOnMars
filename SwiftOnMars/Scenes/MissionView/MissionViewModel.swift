@@ -21,8 +21,7 @@ final class MissionViewModel: ObservableObject, Sendable {
     private let getCurrentSearchParameters = resolve(\UseCasesContainer.getCurrentSearchParameters)
     private let checkIfPhotoIsPersisted = resolve(\UseCasesContainer.checkIfPhotoIsPersisted)
     private let getPersistedPhotos = resolve(\UseCasesContainer.getPersistedPhotos)
-    private let savePhoto = resolve(\UseCasesContainer.savePhoto)
-    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
+    private let togglePersistedPhotoState = resolve(\UseCasesContainer.togglePersistedPhotoState)
 
     private var currentPage = 1
     private var canLoadMorePages = true
@@ -101,7 +100,7 @@ final class MissionViewModel: ObservableObject, Sendable {
             guard let self else {
                 return
             }
-            isPersisted(for: photo) ? await removePersistedPhoto(for: photo) : await savePhoto(with: photo)
+            await togglePersistedPhotoState(for: photo)
         }
     }
 }

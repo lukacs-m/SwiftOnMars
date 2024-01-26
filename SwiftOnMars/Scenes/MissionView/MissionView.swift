@@ -125,6 +125,7 @@ private extension MissionView {
     }
 }
 
+// periphery:ignore
 struct MissionView_Previews: PreviewProvider {
     static var previews: some View {
         MissionView()

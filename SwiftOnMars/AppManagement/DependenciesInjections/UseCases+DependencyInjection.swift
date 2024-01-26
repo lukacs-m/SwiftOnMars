@@ -33,14 +33,6 @@ extension UseCasesContainer {
 // MARK: - Rover Informations usecase
 
 extension UseCasesContainer {
-    var getRoverInformations: Factory<any GetRoverInformationsUseCase> {
-        self { GetRoverInformations(repository: RepositoriesContainer.shared.marsMissionDataRepository()) }
-    }
-
-    var getAllOrderedRovers: Factory<any GetAllOrderedRoversUseCase> {
-        self { GetAllOrderedRovers(getRoverInformations: self.getRoverInformations()) }
-    }
-
     var getRoverManifest: Factory<any GetRoverManifestUseCase> {
         self { GetRoverManifest(repository: RepositoriesContainer.shared.marsMissionDataRepository()) }
     }
@@ -69,12 +61,9 @@ extension UseCasesContainer {
         self { GetPersistedPhotos(persistanceStorage: RepositoriesContainer.shared.marsMissionDataRepository()) }
     }
 
-    var savePhoto: Factory<any SavePhotoUseCase> {
-        self { SavePhoto(persistanceStorage: RepositoriesContainer.shared.marsMissionDataRepository()) }
-    }
-
-    var removePersistedPhoto: Factory<any RemovePersistedPhotoUseCase> {
-        self { RemovePersistedPhoto(persistanceStorage: RepositoriesContainer.shared.marsMissionDataRepository()) }
+    var togglePersistedPhotoState: Factory<any TogglePersistedPhotoStateUseCase> {
+        self { TogglePersistedPhotoState(persistanceStorage: RepositoriesContainer.shared.marsMissionDataRepository(),
+                                         isPhotoPersisted: self.checkIfPhotoIsPersisted()) }
     }
 
     var checkIfPhotoIsPersisted: Factory<any CheckIfPhotoIsPersistedUseCase> {

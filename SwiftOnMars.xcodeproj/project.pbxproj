@@ -11,15 +11,13 @@
 		B80912242A091BAC006ADE9F /* RouterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80912232A091BAC006ADE9F /* RouterExtensions.swift */; };
 		B80ED7E82A1FC6740027709D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7E62A1FC6740027709D /* DetailView.swift */; };
 		B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7E72A1FC6740027709D /* DetailViewModel.swift */; };
-		B80ED7ED2A22428B0027709D /* FavoriteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7EB2A22428B0027709D /* FavoriteDetailView.swift */; };
-		B80ED7EE2A22428B0027709D /* FavoriteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7EC2A22428B0027709D /* FavoriteDetailViewModel.swift */; };
-		B80ED7F02A2517420027709D /* AnimatedTransitionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80ED7EF2A2517420027709D /* AnimatedTransitionRouter.swift */; };
 		B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DA29E4A7630071DF6F /* SOMDesignSystem */; };
 		B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */ = {isa = PBXBuildFile; productRef = B82539DC29E5E0C80071DF6F /* SOMDataLayer */; };
 		B82539E229E731B80071DF6F /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E029E731B80071DF6F /* MainTabView.swift */; };
 		B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82539E129E731B80071DF6F /* MainTabViewModel.swift */; };
 		B867F9902A5B383C0025054C /* SimpleToast in Frameworks */ = {isa = PBXBuildFile; productRef = B867F98F2A5B383C0025054C /* SimpleToast */; };
 		B86E1D742B41B29E000A7DCE /* Services+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86E1D732B41B29E000A7DCE /* Services+DependencyInjection.swift */; };
+		B86E1D772B5DCA79000A7DCE /* SimpleHaptic in Frameworks */ = {isa = PBXBuildFile; productRef = B86E1D762B5DCA79000A7DCE /* SimpleHaptic */; };
 		B8A15DA529F3DE7000D81420 /* TabViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */; };
 		B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A15DA729F3E05C00D81420 /* Routers+DependencyInjection.swift */; };
 		B8B9D26229F4029B00F4EA09 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B9D26129F4029B00F4EA09 /* MainRouter.swift */; };
@@ -67,9 +65,6 @@
 		B80912232A091BAC006ADE9F /* RouterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterExtensions.swift; sourceTree = "<group>"; };
 		B80ED7E62A1FC6740027709D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		B80ED7E72A1FC6740027709D /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
-		B80ED7EB2A22428B0027709D /* FavoriteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailView.swift; sourceTree = "<group>"; };
-		B80ED7EC2A22428B0027709D /* FavoriteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteDetailViewModel.swift; sourceTree = "<group>"; };
-		B80ED7EF2A2517420027709D /* AnimatedTransitionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedTransitionRouter.swift; sourceTree = "<group>"; };
 		B82539DE29E7226E0071DF6F /* NasaModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = NasaModels; path = LocalPackages/NasaModels; sourceTree = "<group>"; };
 		B82539E029E731B80071DF6F /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		B82539E129E731B80071DF6F /* MainTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewModel.swift; sourceTree = "<group>"; };
@@ -105,6 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8032BDF29E469E30033FC5B /* SOMDomainLayer in Frameworks */,
+				B86E1D772B5DCA79000A7DCE /* SimpleHaptic in Frameworks */,
 				B82539DB29E4A7630071DF6F /* SOMDesignSystem in Frameworks */,
 				B82539DD29E5E0C80071DF6F /* SOMDataLayer in Frameworks */,
 				B8F8E28529E4650F0021117A /* Factory in Frameworks */,
@@ -145,15 +141,6 @@
 			path = DetailView;
 			sourceTree = "<group>";
 		};
-		B80ED7EA2A2242410027709D /* FavoriteDetailView */ = {
-			isa = PBXGroup;
-			children = (
-				B80ED7EB2A22428B0027709D /* FavoriteDetailView.swift */,
-				B80ED7EC2A22428B0027709D /* FavoriteDetailViewModel.swift */,
-			);
-			path = FavoriteDetailView;
-			sourceTree = "<group>";
-		};
 		B82539DF29E730EA0071DF6F /* MainTabView */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,7 +156,6 @@
 				B8A15DA429F3DE7000D81420 /* TabViewRouter.swift */,
 				B8B9D26129F4029B00F4EA09 /* MainRouter.swift */,
 				B80912232A091BAC006ADE9F /* RouterExtensions.swift */,
-				B80ED7EF2A2517420027709D /* AnimatedTransitionRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -312,7 +298,6 @@
 		B8F8E28929E4652C0021117A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B80ED7EA2A2242410027709D /* FavoriteDetailView */,
 				B80ED7E52A1FC6610027709D /* DetailView */,
 				B8CA8E362A0BA5A50093A42E /* FavoriteView */,
 				B8B9D26C29F5BB3200F4EA09 /* SearchView */,
@@ -355,6 +340,7 @@
 				B82539DA29E4A7630071DF6F /* SOMDesignSystem */,
 				B82539DC29E5E0C80071DF6F /* SOMDataLayer */,
 				B867F98F2A5B383C0025054C /* SimpleToast */,
+				B86E1D762B5DCA79000A7DCE /* SimpleHaptic */,
 			);
 			productName = SwiftOnMars;
 			productReference = B8F8E25629E462870021117A /* SwiftOnMars.app */;
@@ -431,6 +417,7 @@
 			packageReferences = (
 				B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */,
 				B867F98E2A5B383C0025054C /* XCRemoteSwiftPackageReference "SimpleToast" */,
+				B86E1D752B5DCA79000A7DCE /* XCRemoteSwiftPackageReference "SimpleHaptic" */,
 			);
 			productRefGroup = B8F8E25729E462870021117A /* Products */;
 			projectDirPath = "";
@@ -515,9 +502,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B80ED7F02A2517420027709D /* AnimatedTransitionRouter.swift in Sources */,
 				B8CA8E3C2A0BA5DD0093A42E /* FavoriteViewModel.swift in Sources */,
-				B80ED7ED2A22428B0027709D /* FavoriteDetailView.swift in Sources */,
 				B82539E329E731B80071DF6F /* MainTabViewModel.swift in Sources */,
 				B8CA8E3B2A0BA5DD0093A42E /* FavoriteView.swift in Sources */,
 				B80ED7E92A1FC6740027709D /* DetailViewModel.swift in Sources */,
@@ -532,7 +517,6 @@
 				B8F8E25A29E462870021117A /* SwiftOnMarsApp.swift in Sources */,
 				B8A15DA829F3E05C00D81420 /* Routers+DependencyInjection.swift in Sources */,
 				B8C7040829FFFEC800F779F4 /* Int+Extensions.swift in Sources */,
-				B80ED7EE2A22428B0027709D /* FavoriteDetailViewModel.swift in Sources */,
 				B8B9D26A29F40E5900F4EA09 /* MissionView.swift in Sources */,
 				B8B9D26429F4086500F4EA09 /* Repositories+DependencyInjection.swift in Sources */,
 				B8B9D26629F408AB00F4EA09 /* UseCases+DependencyInjection.swift in Sources */,
@@ -887,6 +871,14 @@
 				minimumVersion = 0.1.0;
 			};
 		};
+		B86E1D752B5DCA79000A7DCE /* XCRemoteSwiftPackageReference "SimpleHaptic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lukacs-m/SimpleHaptic";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		B8F8E28329E4650F0021117A /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
@@ -914,6 +906,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B867F98E2A5B383C0025054C /* XCRemoteSwiftPackageReference "SimpleToast" */;
 			productName = SimpleToast;
+		};
+		B86E1D762B5DCA79000A7DCE /* SimpleHaptic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B86E1D752B5DCA79000A7DCE /* XCRemoteSwiftPackageReference "SimpleHaptic" */;
+			productName = SimpleHaptic;
 		};
 		B8F8E28429E4650F0021117A /* Factory */ = {
 			isa = XCSwiftPackageProductDependency;
