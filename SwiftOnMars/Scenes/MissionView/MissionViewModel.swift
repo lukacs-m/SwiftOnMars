@@ -69,7 +69,7 @@ final class MissionViewModel: ObservableObject, Sendable {
             isLoadingPage = true
 
             defer {
-                self.isLoadingPage = false
+                isLoadingPage = false
             }
 
             do {

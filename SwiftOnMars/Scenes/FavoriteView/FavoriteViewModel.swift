@@ -18,7 +18,6 @@ final class FavoriteViewModel: ObservableObject, Sendable {
     @Published private(set) var currentFilter: PhotoFilterSelection = .defaultFilter
 
     private let filterPersistedPhotos = resolve(\UseCasesContainer.filterPersistedPhotos)
-    private let removePersistedPhoto = resolve(\UseCasesContainer.removePersistedPhoto)
 
     @Published private(set) var selectedPhoto: Photo?
 
